@@ -1,62 +1,62 @@
-2025-08-29 17:23:14,255 - INFO - Attribution Engine initialized with 30 days lookback
-2025-08-29 17:23:14,256 - INFO - Starting complete attribution analysis...
-2025-08-29 17:23:14,256 - INFO - Connected to PostgreSQL database successfully
-2025-08-29 17:23:14,256 - INFO - Using date range: 2025-07-01 to 2025-07-05
-2025-08-29 17:23:14,256 - INFO - Loading Shopify orders data from PostgreSQL...
-2025-08-29 17:23:15,262 - INFO - Loaded 184 orders from PostgreSQL
-2025-08-29 17:23:15,263 - INFO - Orders date range (IST): 2025-07-01 00:59:44+0530 to 2025-07-05 23:45:59+0530
-2025-08-29 17:23:15,263 - INFO - Sample order columns: ['order_id', 'order_name', 'created_at', 'processed_at', 'updated_at', 'closed_at', 'cancelled_at', 'total_price_amount', 'total_price_currency', 'total_shipping_amount', 'total_shipping_currency', 'display_fulfillment_status', 'ship_city', 'ship_province', 'ship_country', 'customer_referrer_url', 'customer_utm_source', 'customer_utm_medium', 'customer_utm_campaign', 'customer_utm_content', 'customer_utm_term', 'created_at_ist', 'processed_at_ist', 'updated_at_ist', 'closed_at_ist', 'cancelled_at_ist', 'customer_journey', 'custom_attributes', 'item_id', 'product_title', 'quantity', 'original_unit_price_amount', 'original_unit_price_currency', 'discounted_unit_price_amount', 'discounted_unit_price_currency', 'variant_id', 'sku', 'variant_title', 'unit_cost_amount', 'unit_cost_currency', 'product_id', 'variant_product_title', 'vendor', 'selling_price']
-2025-08-29 17:23:15,263 - INFO - Loading ad insights data from PostgreSQL...
-2025-08-29 17:23:15,606 - INFO - Loaded 3510 ad records from PostgreSQL
-2025-08-29 17:23:15,607 - INFO - Ads date range: 2025-07-01 to 2025-07-05
-2025-08-29 17:23:15,607 - INFO - Sample ads columns: ['campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name', 'date_start', 'date_stop', 'hourly_window', 'impressions', 'clicks', 'spend', 'cpm', 'cpc', 'ctr', 'action_onsite_web_purchase', 'value_onsite_web_purchase', 'action_onsite_web_add_to_cart', 'action_onsite_web_initiate_checkout', 'action_onsite_web_view_content', 'action_link_click']
-2025-08-29 17:23:15,608 - INFO - Data loaded successfully: 184 orders and 3510 ad records
-2025-08-29 17:23:15,608 - INFO - Starting attribution processing...
-2025-08-29 17:23:15,608 - INFO - Rolling up hourly ad data to daily level...
-2025-08-29 17:23:15,613 - INFO - Rolled up to 251 daily ad records
-2025-08-29 17:23:15,613 - INFO - Available ad data: 251 records
-2025-08-29 17:23:15,613 - INFO - Ad ID range: 120220003148360783 to 120227110121050783
-2025-08-29 17:23:15,614 - INFO - Campaign ID range: 120218303994450783 to 120227107650920783
-2025-08-29 17:23:15,614 - INFO - Adset ID range: 120219313253170783 to 120227110121030783
-2025-08-29 17:23:15,615 - INFO - Sample ad names: ['TH-036-PAWTR-ET139-SP368', 'TH-012-SNUGBOO_NT101_NT203 – Copy', 'TH-012-SNUGBOO_Static', 'TH-068-WILD_Static', 'TH-036FMB-ET101-SI210-ET137-ET139 – Copy']
-2025-08-29 17:23:15,615 - INFO - Sample campaign names: ['TH - Remarketing - Video - India - IG & FB - Sales - 29/03/2025', 'R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025', 'R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025', 'R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025', 'TH - E2 RPP - Video - India - IG & FB - Sales - 04/05/2025']
-2025-08-29 17:23:15,615 - INFO - Processing 164 unique orders with line items...
-2025-08-29 17:23:15,616 - INFO - Processing order gid://shopify/Order/6336349339737: 1 line items, customer_journey type=<class 'dict'>, custom_attributes type=<class 'list'>
-2025-08-29 17:23:15,616 - INFO - Order gid://shopify/Order/6336349339737 attribution: {'source': 'ig', 'medium': '120221341262910783', 'campaign': '120221343090860783', 'content': '120221343090860783', 'term': '120221341262900783', 'attribution_id': '120221343090860783', 'attribution_type': 'content'}
-2025-08-29 17:23:15,618 - INFO - Order gid://shopify/Order/6336349339737 campaign match: TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025 - TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2
-2025-08-29 17:23:15,618 - INFO - Processing order gid://shopify/Order/6336356057177: 1 line items, customer_journey type=<class 'dict'>, custom_attributes type=<class 'list'>
-2025-08-29 17:23:15,618 - INFO - Order gid://shopify/Order/6336356057177 attribution: {'source': 'ig', 'medium': '120226643827580783', 'campaign': '120226643827570783', 'content': '120226643827550783', 'term': '120226643827570783', 'attribution_id': '120226643827550783', 'attribution_type': 'content'}
-2025-08-29 17:23:15,619 - INFO - Order gid://shopify/Order/6336356057177 campaign match: TH-063-SILBOO - TH-063-SILBOO
-2025-08-29 17:23:15,619 - INFO - Processing order gid://shopify/Order/6336447873113: 1 line items, customer_journey type=<class 'dict'>, custom_attributes type=<class 'list'>
-2025-08-29 17:23:15,619 - INFO - Order gid://shopify/Order/6336447873113 attribution: {'source': 'facebook', 'medium': 'paid', 'campaign': '120219910470100783', 'content': 'Facebook_UA', 'term': '120219910470110783', 'attribution_id': 'Facebook_UA', 'attribution_type': 'content'}
-2025-08-29 17:23:15,620 - INFO - Order gid://shopify/Order/6336447873113 campaign match: Unknown Campaign - Facebook - Unknown Ad - Facebook
-2025-08-29 17:23:15,620 - INFO - Order gid://shopify/Order/6337000931417 attribution: {'source': 'ig', 'medium': '120226390275250783', 'campaign': '120226390275230783', 'content': '120226390275200783', 'term': '120226390275230783', 'attribution_id': '120226390275200783', 'attribution_type': 'content'}
-2025-08-29 17:23:15,621 - INFO - Order gid://shopify/Order/6337000931417 campaign match: TH-053-JACKET - TH-053-JACKET_ET156_IM259
-2025-08-29 17:23:15,621 - INFO - Order gid://shopify/Order/6337018429529 attribution: {'source': 'ig', 'medium': '120218303994450783', 'campaign': '120219313253170783', 'content': '120220327473500783', 'term': '120219313253170783', 'attribution_id': '120220327473500783', 'attribution_type': 'content'}
-2025-08-29 17:23:15,622 - INFO - Order gid://shopify/Order/6337018429529 campaign match: TH - Remarketing - Video - India - IG & FB - Sales - 29/03/2025 - TH-036-PAWTR-ET139-SP368
-2025-08-29 17:23:15,694 - INFO - Processed 100/164 orders...
-2025-08-29 17:23:15,745 - INFO - Completed attribution processing for 164 orders
-2025-08-29 17:23:15,747 - INFO - Attribution matching summary: 139/164 orders matched to campaigns (84.8%)
-2025-08-29 17:23:15,754 - INFO - Generating summary report...
-2025-08-29 17:23:15,755 - INFO - Rolling up hourly ad data to daily level...
-2025-08-29 17:23:15,758 - INFO - Rolled up to 251 daily ad records
-2025-08-29 17:23:15,759 - INFO - Before aggregation - daily_ads shape: (251, 19)
-2025-08-29 17:23:15,759 - INFO - Before aggregation - campaign_performance shape: (50, 8)
-2025-08-29 17:23:15,760 - INFO - After aggregation - daily_ads_aggregated shape: (71, 6)
-2025-08-29 17:23:15,763 - INFO - After join - campaign_performance shape: (50, 11)
-2025-08-29 17:23:15,765 - INFO - Summary: 164 orders, 84.8% attribution rate
-2025-08-29 17:23:15,873 - INFO - Saved raw attribution data to sheet 'Raw_Attribution_Data'
-2025-08-29 17:23:15,874 - INFO - Saved channel breakdown to sheet 'Channel_Breakdown'
-2025-08-29 17:23:15,875 - INFO - Saved attribution source breakdown to sheet 'Attribution_Source_Breakdown'
-2025-08-29 17:23:15,883 - INFO - Saved campaign performance (with ad-level details) to sheet 'Campaign_Performance'
-2025-08-29 17:23:15,890 - INFO - Saved campaign summary to sheet 'Campaign_Summary'
-2025-08-29 17:23:15,898 - INFO - Saved ad-level performance to sheet 'Ad_Level_Performance'
-2025-08-29 17:23:15,908 - INFO - Saved SKU performance to sheet 'SKU_Performance'
-2025-08-29 17:23:15,909 - INFO - Saved summary statistics to sheet 'Summary_Statistics'
-2025-08-29 17:23:15,930 - INFO - Saved attributed orders only to sheet 'Attributed_Orders_Only'
-2025-08-29 17:23:15,936 - INFO - Saved unattributed orders to sheet 'Unattributed_Orders'
-2025-08-29 17:23:15,936 - INFO - Creating investigation data with raw JSON samples...
-2025-08-29 17:23:15,946 - INFO - Saved raw data investigation to sheet 'Raw_Data_Investigation'
-2025-08-29 17:23:16,044 - INFO - Saved all results to Excel file: attribution_analysis_20250829_172315.xlsx
-2025-08-29 17:23:16,048 - INFO - Also saved detailed results to CSV: attribution_analysis_20250829_172315.csv
-2025-08-29 17:23:16,048 - INFO - Attribution analysis completed successfully!
+2025-08-29 17:55:18,632 - INFO - Attribution Engine initialized with 30 days lookback
+2025-08-29 17:55:18,632 - INFO - Starting complete attribution analysis...
+2025-08-29 17:55:18,633 - INFO - Connected to PostgreSQL database successfully
+2025-08-29 17:55:18,633 - INFO - Using date range: 2025-07-01 to 2025-07-05
+2025-08-29 17:55:18,633 - INFO - Loading Shopify orders data from PostgreSQL...
+2025-08-29 17:55:19,739 - INFO - Loaded 184 orders from PostgreSQL
+2025-08-29 17:55:19,740 - INFO - Orders date range (IST): 2025-07-01 00:59:44+0530 to 2025-07-05 23:45:59+0530
+2025-08-29 17:55:19,740 - INFO - Sample order columns: ['order_id', 'order_name', 'created_at', 'processed_at', 'updated_at', 'closed_at', 'cancelled_at', 'total_price_amount', 'total_price_currency', 'total_shipping_amount', 'total_shipping_currency', 'display_fulfillment_status', 'ship_city', 'ship_province', 'ship_country', 'customer_referrer_url', 'customer_utm_source', 'customer_utm_medium', 'customer_utm_campaign', 'customer_utm_content', 'customer_utm_term', 'created_at_ist', 'processed_at_ist', 'updated_at_ist', 'closed_at_ist', 'cancelled_at_ist', 'customer_journey', 'custom_attributes', 'item_id', 'product_title', 'quantity', 'original_unit_price_amount', 'original_unit_price_currency', 'discounted_unit_price_amount', 'discounted_unit_price_currency', 'variant_id', 'sku', 'variant_title', 'unit_cost_amount', 'unit_cost_currency', 'product_id', 'variant_product_title', 'vendor', 'selling_price']
+2025-08-29 17:55:19,740 - INFO - Loading ad insights data from PostgreSQL...
+2025-08-29 17:55:20,105 - INFO - Loaded 3510 ad records from PostgreSQL
+2025-08-29 17:55:20,105 - INFO - Ads date range: 2025-07-01 to 2025-07-05
+2025-08-29 17:55:20,105 - INFO - Sample ads columns: ['campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name', 'date_start', 'date_stop', 'hourly_window', 'impressions', 'clicks', 'spend', 'cpm', 'cpc', 'ctr', 'action_onsite_web_purchase', 'value_onsite_web_purchase', 'action_onsite_web_add_to_cart', 'action_onsite_web_initiate_checkout', 'action_onsite_web_view_content', 'action_link_click']
+2025-08-29 17:55:20,107 - INFO - Data loaded successfully: 184 orders and 3510 ad records
+2025-08-29 17:55:20,107 - INFO - Starting attribution processing...
+2025-08-29 17:55:20,107 - INFO - Rolling up hourly ad data to daily level...
+2025-08-29 17:55:20,114 - INFO - Rolled up to 251 daily ad records
+2025-08-29 17:55:20,114 - INFO - Available ad data: 251 records
+2025-08-29 17:55:20,114 - INFO - Ad ID range: 120220003148360783 to 120227110121050783
+2025-08-29 17:55:20,114 - INFO - Campaign ID range: 120218303994450783 to 120227107650920783
+2025-08-29 17:55:20,114 - INFO - Adset ID range: 120219313253170783 to 120227110121030783
+2025-08-29 17:55:20,114 - INFO - Sample ad names: ['TH-036-PAWTR-ET139-SP368', 'TH-012-SNUGBOO_NT101_NT203 – Copy', 'TH-012-SNUGBOO_Static', 'TH-068-WILD_Static', 'TH-036FMB-ET101-SI210-ET137-ET139 – Copy']
+2025-08-29 17:55:20,114 - INFO - Sample campaign names: ['TH - Remarketing - Video - India - IG & FB - Sales - 29/03/2025', 'R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025', 'R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025', 'R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025', 'TH - E2 RPP - Video - India - IG & FB - Sales - 04/05/2025']
+2025-08-29 17:55:20,115 - INFO - Processing 164 unique orders with line items...
+2025-08-29 17:55:20,116 - INFO - Processing order gid://shopify/Order/6336349339737: 1 line items, customer_journey type=<class 'dict'>, custom_attributes type=<class 'list'>
+2025-08-29 17:55:20,116 - INFO - Order gid://shopify/Order/6336349339737 attribution: {'source': 'ig', 'medium': '120221341262910783', 'campaign': '120221343090860783', 'content': '120221343090860783', 'term': '120221341262900783', 'attribution_id': '120221343090860783', 'attribution_type': 'content'}
+2025-08-29 17:55:20,117 - INFO - Order gid://shopify/Order/6336349339737 campaign match: TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025 - TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2
+2025-08-29 17:55:20,118 - INFO - Processing order gid://shopify/Order/6336356057177: 1 line items, customer_journey type=<class 'dict'>, custom_attributes type=<class 'list'>
+2025-08-29 17:55:20,118 - INFO - Order gid://shopify/Order/6336356057177 attribution: {'source': 'ig', 'medium': '120226643827580783', 'campaign': '120226643827570783', 'content': '120226643827550783', 'term': '120226643827570783', 'attribution_id': '120226643827550783', 'attribution_type': 'content'}
+2025-08-29 17:55:20,118 - INFO - Order gid://shopify/Order/6336356057177 campaign match: TH-063-SILBOO - TH-063-SILBOO
+2025-08-29 17:55:20,119 - INFO - Processing order gid://shopify/Order/6336447873113: 1 line items, customer_journey type=<class 'dict'>, custom_attributes type=<class 'list'>
+2025-08-29 17:55:20,119 - INFO - Order gid://shopify/Order/6336447873113 attribution: {'source': 'facebook', 'medium': 'paid', 'campaign': '120219910470100783', 'content': 'Facebook_UA', 'term': '120219910470110783', 'attribution_id': 'Facebook_UA', 'attribution_type': 'content'}
+2025-08-29 17:55:20,119 - INFO - Order gid://shopify/Order/6336447873113 campaign match: Unknown Campaign - Facebook - Unknown Ad - Facebook
+2025-08-29 17:55:20,119 - INFO - Order gid://shopify/Order/6337000931417 attribution: {'source': 'ig', 'medium': '120226390275250783', 'campaign': '120226390275230783', 'content': '120226390275200783', 'term': '120226390275230783', 'attribution_id': '120226390275200783', 'attribution_type': 'content'}
+2025-08-29 17:55:20,120 - INFO - Order gid://shopify/Order/6337000931417 campaign match: TH-053-JACKET - TH-053-JACKET_ET156_IM259
+2025-08-29 17:55:20,120 - INFO - Order gid://shopify/Order/6337018429529 attribution: {'source': 'ig', 'medium': '120218303994450783', 'campaign': '120219313253170783', 'content': '120220327473500783', 'term': '120219313253170783', 'attribution_id': '120220327473500783', 'attribution_type': 'content'}
+2025-08-29 17:55:20,121 - INFO - Order gid://shopify/Order/6337018429529 campaign match: TH - Remarketing - Video - India - IG & FB - Sales - 29/03/2025 - TH-036-PAWTR-ET139-SP368
+2025-08-29 17:55:20,195 - INFO - Processed 100/164 orders...
+2025-08-29 17:55:20,245 - INFO - Completed attribution processing for 164 orders
+2025-08-29 17:55:20,247 - INFO - Attribution matching summary: 139/164 orders matched to campaigns (84.8%)
+2025-08-29 17:55:20,253 - INFO - Generating summary report...
+2025-08-29 17:55:20,255 - INFO - Rolling up hourly ad data to daily level...
+2025-08-29 17:55:20,258 - INFO - Rolled up to 251 daily ad records
+2025-08-29 17:55:20,259 - INFO - Before aggregation - daily_ads shape: (251, 19)
+2025-08-29 17:55:20,259 - INFO - Before aggregation - campaign_performance shape: (50, 7)
+2025-08-29 17:55:20,260 - INFO - After aggregation - daily_ads_aggregated shape: (71, 6)
+2025-08-29 17:55:20,262 - INFO - After join - campaign_performance shape: (50, 10)
+2025-08-29 17:55:20,263 - INFO - Summary: 164 orders, 84.8% attribution rate
+2025-08-29 17:55:20,369 - INFO - Saved raw attribution data to sheet 'Raw_Attribution_Data'
+2025-08-29 17:55:20,369 - INFO - Saved channel breakdown to sheet 'Channel_Breakdown'
+2025-08-29 17:55:20,370 - INFO - Saved attribution source breakdown to sheet 'Attribution_Source_Breakdown'
+2025-08-29 17:55:20,376 - INFO - Saved campaign performance (with ad-level details) to sheet 'Campaign_Performance'
+2025-08-29 17:55:20,381 - INFO - Saved campaign summary to sheet 'Campaign_Summary'
+2025-08-29 17:55:20,388 - INFO - Saved ad-level performance to sheet 'Ad_Level_Performance'
+2025-08-29 17:55:20,434 - INFO - Saved SKU performance to sheet 'SKU_Performance'
+2025-08-29 17:55:20,435 - INFO - Saved summary statistics to sheet 'Summary_Statistics'
+2025-08-29 17:55:20,454 - INFO - Saved attributed orders only to sheet 'Attributed_Orders_Only'
+2025-08-29 17:55:20,460 - INFO - Saved unattributed orders to sheet 'Unattributed_Orders'
+2025-08-29 17:55:20,460 - INFO - Creating investigation data with raw JSON samples...
+2025-08-29 17:55:20,469 - INFO - Saved raw data investigation to sheet 'Raw_Data_Investigation'
+2025-08-29 17:55:20,556 - INFO - Saved all results to Excel file: attribution_analysis_20250829_175520.xlsx
+2025-08-29 17:55:20,560 - INFO - Also saved detailed results to CSV: attribution_analysis_20250829_175520.csv
+2025-08-29 17:55:20,560 - INFO - Attribution analysis completed successfully!

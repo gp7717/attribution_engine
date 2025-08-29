@@ -521,7 +521,7 @@ class AttributionEngine:
                 }
             else:
                 logging.debug(f"No matches found for attribution_id: {attribution_id}")
-                return None
+            return None
         
         # Take the first match (most recent or highest spend)
         match = matches[0]
@@ -623,8 +623,8 @@ class AttributionEngine:
                         str(custom_attributes).strip() != '[]' and
                         str(custom_attributes).strip() != 'None'):
                         attribution_data = self.parse_custom_attributes(custom_attributes)
-                        if attribution_data:
-                            attribution_source = 'custom_attributes'
+                    if attribution_data:
+                        attribution_source = 'custom_attributes'
                 
                 # 3. Try direct UTM columns as fallback
                 if attribution_data is None:
@@ -653,7 +653,6 @@ class AttributionEngine:
                 
                 # Calculate order-level financial metrics and collect SKU information
                 total_cogs = 0
-                total_net_profit = 0
                 line_items_info = []
                 skus_in_order = []
                 sku_quantities = {}
@@ -665,11 +664,9 @@ class AttributionEngine:
                     line_item_cogs = quantity * unit_cost
                     total_cogs += line_item_cogs
                     
-                    # Calculate net profit for this line item
+                    # Calculate revenue for this line item
                     unit_price = line_item.get('discounted_unit_price_amount', 0) or line_item.get('original_unit_price_amount', 0) or 0
                     line_item_revenue = quantity * unit_price
-                    line_item_profit = line_item_revenue - line_item_cogs
-                    total_net_profit += line_item_profit
                     
                     # Collect SKU information
                     sku = line_item.get('sku')
@@ -685,8 +682,7 @@ class AttributionEngine:
                         'unit_price': unit_price,
                         'unit_cost': unit_cost,
                         'line_item_revenue': line_item_revenue,
-                        'line_item_cogs': line_item_cogs,
-                        'line_item_profit': line_item_profit
+                        'line_item_cogs': line_item_cogs
                     })
                 
                 # Create result record with order-level data and financial metrics
@@ -703,8 +699,6 @@ class AttributionEngine:
                     
                     # Financial Metrics
                     'total_cogs': total_cogs,
-                    'total_net_profit': total_net_profit,
-                    'profit_margin': (total_net_profit / order_value * 100) if order_value > 0 else 0,
                     'line_items_count': len(order_group),
                     
                     # SKU Information
@@ -763,12 +757,12 @@ class AttributionEngine:
             # Create empty DataFrame with expected columns
             results_df = pd.DataFrame(columns=[
                 'order_id', 'order_name', 'order_date', 'order_value', 'order_currency',
-                'ship_city', 'ship_province', 'ship_country', 'total_cogs', 'total_net_profit',
-                'profit_margin', 'line_items_count', 'skus', 'unique_skus_count', 'total_sku_quantity',
-                'channel', 'attribution_source', 'attribution_id', 'attribution_type', 'utm_source', 
-                'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'campaign_id', 'campaign_name', 
-                'adset_id', 'adset_name', 'ad_id', 'ad_name', 'has_customer_journey', 'has_custom_attributes',
-                'is_attributed', 'is_paid_channel'
+                'ship_city', 'ship_province', 'ship_country', 'total_cogs', 'line_items_count', 
+                'skus', 'unique_skus_count', 'total_sku_quantity', 'channel', 'attribution_source', 
+                'attribution_id', 'attribution_type', 'utm_source', 'utm_medium', 'utm_campaign', 
+                'utm_content', 'utm_term', 'campaign_id', 'campaign_name', 'adset_id', 'adset_name', 
+                'ad_id', 'ad_name', 'has_customer_journey', 'has_custom_attributes', 'is_attributed', 
+                'is_paid_channel'
             ])
         else:
             # Create DataFrame and add summary statistics
@@ -918,12 +912,11 @@ class AttributionEngine:
             # Get daily ads data for performance metrics
             daily_ads = self.rollup_ads_to_daily()
             
-            # Group by campaign level for total sales and profit summary
+            # Group by campaign level for total sales summary
             campaign_performance = attributed_df.groupby(['campaign_name', 'adset_name', 'ad_name', 'channel']).agg({
                 'order_id': 'count',
                 'order_value': 'sum',
-                'total_cogs': 'sum',
-                'total_net_profit': 'sum'
+                'total_cogs': 'sum'
             }).rename(columns={'order_id': 'orders', 'order_value': 'total_sales'})
             
                         # Join with ads data to get ad performance metrics (impressions, clicks, spend only)
@@ -983,18 +976,12 @@ class AttributionEngine:
             # Use Shopify data for sales metrics, Facebook data only for ad performance
             campaign_performance['roas'] = np.where(campaign_performance['ad_spend'] > 0, 
                                                    (campaign_performance['shopify_revenue'] / campaign_performance['ad_spend']), 0)
-            campaign_performance['profit_roas'] = np.where(campaign_performance['ad_spend'] > 0, 
-                                                          (campaign_performance['total_net_profit'] / campaign_performance['ad_spend']), 0)
             campaign_performance['ctr'] = np.where(campaign_performance['ad_impressions'] > 0, 
                                                   (campaign_performance['ad_clicks'] / campaign_performance['ad_impressions'] * 100), 0)
             campaign_performance['conversion_rate'] = np.where(campaign_performance['ad_clicks'] > 0, 
                                                               (campaign_performance['shopify_purchases'] / campaign_performance['ad_clicks'] * 100), 0)
             campaign_performance['avg_order_value'] = np.where(campaign_performance['shopify_purchases'] > 0, 
                                                               (campaign_performance['shopify_revenue'] / campaign_performance['shopify_purchases']), 0)
-            campaign_performance['avg_order_profit'] = np.where(campaign_performance['shopify_purchases'] > 0, 
-                                                               (campaign_performance['total_net_profit'] / campaign_performance['shopify_purchases']), 0)
-            campaign_performance['profit_margin'] = np.where(campaign_performance['shopify_revenue'] > 0, 
-                                                            (campaign_performance['total_net_profit'] / campaign_performance['shopify_revenue'] * 100), 0)
             
             # Sort by total sales descending
             campaign_performance = campaign_performance.sort_values('total_sales', ascending=False)
@@ -1052,7 +1039,6 @@ class AttributionEngine:
                         'orders': 'sum',
                         'total_sales': 'sum',
                         'total_cogs': 'sum',
-                        'total_net_profit': 'sum',
                         'ad_spend': 'sum',
                         'ad_impressions': 'sum',
                         'ad_clicks': 'sum',
@@ -1061,18 +1047,12 @@ class AttributionEngine:
                     }).reset_index()
                     campaign_summary['roas'] = np.where(campaign_summary['ad_spend'] > 0, 
                                                    (campaign_summary['shopify_revenue'] / campaign_summary['ad_spend']), 0)
-                    campaign_summary['profit_roas'] = np.where(campaign_summary['ad_spend'] > 0, 
-                                                          (campaign_summary['total_net_profit'] / campaign_summary['ad_spend']), 0)
                     campaign_summary['ctr'] = np.where(campaign_summary['ad_impressions'] > 0, 
                                                   (campaign_summary['ad_clicks'] / campaign_summary['ad_impressions'] * 100), 0)
                     campaign_summary['conversion_rate'] = np.where(campaign_summary['ad_clicks'] > 0, 
                                                               (campaign_summary['shopify_purchases'] / campaign_summary['ad_clicks'] * 100), 0)
                     campaign_summary['avg_order_value'] = np.where(campaign_summary['shopify_purchases'] > 0, 
                                                               (campaign_summary['shopify_revenue'] / campaign_summary['shopify_purchases']), 0)
-                    campaign_summary['avg_order_profit'] = np.where(campaign_summary['shopify_purchases'] > 0, 
-                                                               (campaign_summary['total_net_profit'] / campaign_summary['shopify_purchases']), 0)
-                    campaign_summary['profit_margin'] = np.where(campaign_summary['shopify_revenue'] > 0, 
-                                                            (campaign_summary['total_net_profit'] / campaign_summary['shopify_revenue'] * 100), 0)
                     campaign_summary = campaign_summary.sort_values('total_sales', ascending=False)
                     campaign_summary.to_excel(writer, sheet_name='Campaign_Summary', index=False)
                     logging.info(f"Saved campaign summary to sheet 'Campaign_Summary'")
@@ -1082,7 +1062,6 @@ class AttributionEngine:
                         'orders': 'sum',
                         'total_sales': 'sum',
                         'total_cogs': 'sum',
-                        'total_net_profit': 'sum',
                         'ad_spend': 'first',
                         'ad_impressions': 'first',
                         'ad_clicks': 'first',
@@ -1091,18 +1070,12 @@ class AttributionEngine:
                     }).reset_index()
                     ad_performance['roas'] = np.where(ad_performance['ad_spend'] > 0, 
                                                      (ad_performance['shopify_revenue'] / ad_performance['ad_spend']), 0)
-                    ad_performance['profit_roas'] = np.where(ad_performance['ad_spend'] > 0, 
-                                                            (ad_performance['total_net_profit'] / ad_performance['ad_spend']), 0)
                     ad_performance['ctr'] = np.where(ad_performance['ad_impressions'] > 0, 
                                                     (ad_performance['ad_clicks'] / ad_performance['ad_impressions'] * 100), 0)
                     ad_performance['conversion_rate'] = np.where(ad_performance['ad_clicks'] > 0, 
                                                                 (ad_performance['shopify_purchases'] / ad_performance['ad_clicks'] * 100), 0)
                     ad_performance['avg_order_value'] = np.where(ad_performance['shopify_purchases'] > 0, 
                                                                 (ad_performance['shopify_revenue'] / ad_performance['shopify_purchases']), 0)
-                    ad_performance['avg_order_profit'] = np.where(ad_performance['shopify_purchases'] > 0, 
-                                                                 (ad_performance['total_net_profit'] / ad_performance['shopify_purchases']), 0)
-                    ad_performance['profit_margin'] = np.where(ad_performance['shopify_revenue'] > 0, 
-                                                              (ad_performance['total_net_profit'] / ad_performance['shopify_revenue'] * 100), 0)
                     ad_performance = ad_performance.sort_values('total_sales', ascending=False)
                     ad_performance.to_excel(writer, sheet_name='Ad_Level_Performance', index=False)
                     logging.info(f"Saved ad-level performance to sheet 'Ad_Level_Performance'")
@@ -1113,15 +1086,34 @@ class AttributionEngine:
                         sku_data = []
                         for _, row in results_df.iterrows():
                             if row['skus'] and row['is_attributed']:
+                                # Get the line items data for this order to calculate proper SKU values
+                                order_line_items = self.orders_df[self.orders_df['order_id'] == row['order_id']]
+                                
+                                # Create a mapping of SKU to its actual revenue and COGS
+                                sku_revenue_map = {}
+                                sku_cogs_map = {}
+                                
+                                for _, line_item in order_line_items.iterrows():
+                                    sku = line_item.get('sku')
+                                    if sku:
+                                        quantity = line_item.get('quantity', 0) or 0
+                                        unit_price = line_item.get('discounted_unit_price_amount', 0) or line_item.get('original_unit_price_amount', 0) or 0
+                                        unit_cost = line_item.get('unit_cost_amount', 0) or 0
+                                        
+                                        sku_revenue = quantity * unit_price
+                                        sku_cogs = quantity * unit_cost
+                                        
+                                        sku_revenue_map[sku] = sku_revenue_map.get(sku, 0) + sku_revenue
+                                        sku_cogs_map[sku] = sku_cogs_map.get(sku, 0) + sku_cogs
+                                
+                                # Now add each SKU with its actual revenue and COGS
                                 sku_list = [sku.strip() for sku in row['skus'].split(',')]
                                 for sku in sku_list:
                                     sku_data.append({
                                         'sku': sku,
                                         'order_id': row['order_id'],
-                                        'order_value': row['order_value'],
-                                        'total_cogs': row['total_cogs'],
-                                        'total_net_profit': row['total_net_profit'],
-                                        'profit_margin': row['profit_margin'],
+                                        'sku_revenue': sku_revenue_map.get(sku, 0),  # Actual SKU revenue
+                                        'sku_cogs': sku_cogs_map.get(sku, 0),        # Actual SKU COGS
                                         'channel': row['channel'],
                                         'campaign_name': row['campaign_name'],
                                         'adset_name': row['adset_name'],
@@ -1133,14 +1125,11 @@ class AttributionEngine:
                             sku_df = pd.DataFrame(sku_data)
                             sku_performance = sku_df.groupby(['sku', 'channel', 'campaign_name']).agg({
                                 'order_id': 'count',
-                                'order_value': 'sum',
-                                'total_cogs': 'sum',
-                                'total_net_profit': 'sum'
+                                'sku_revenue': 'sum',  # Sum actual SKU revenue
+                                'sku_cogs': 'sum'      # Sum actual SKU COGS
                             }).reset_index()
                             sku_performance = sku_performance.rename(columns={'order_id': 'orders'})
-                            sku_performance['profit_margin'] = np.where(sku_performance['order_value'] > 0, 
-                                                                      (sku_performance['total_net_profit'] / sku_performance['order_value'] * 100), 0)
-                            sku_performance = sku_performance.sort_values('order_value', ascending=False)
+                            sku_performance = sku_performance.sort_values('sku_revenue', ascending=False)
                             sku_performance.to_excel(writer, sheet_name='SKU_Performance', index=False)
                             logging.info(f"Saved SKU performance to sheet 'SKU_Performance'")
                         else:
@@ -1152,8 +1141,6 @@ class AttributionEngine:
                 
                 # Sheet 5: Summary Statistics
                 total_cogs = results_df['total_cogs'].sum() if not results_df.empty else 0
-                total_net_profit = results_df['total_net_profit'].sum() if not results_df.empty else 0
-                overall_profit_margin = (total_net_profit / summary['total_revenue'] * 100) if summary['total_revenue'] > 0 else 0
                 
                 # Calculate SKU statistics
                 total_sku_quantity = results_df['total_sku_quantity'].sum() if not results_df.empty else 0
@@ -1167,22 +1154,20 @@ class AttributionEngine:
                 
                 summary_stats = {
                     'Metric': [
-                        'Total Orders', 'Total Revenue', 'Total COGS', 'Total Net Profit', 
-                        'Overall Profit Margin (%)', 'Total SKU Quantity', 'Total Unique SKUs',
-                        'Attributed Orders', 'Attribution Rate (%)'
+                        'Total Orders', 'Total Revenue', 'Total COGS', 'Total SKU Quantity', 
+                        'Total Unique SKUs', 'Attributed Orders', 'Attribution Rate (%)'
                     ],
-                    'Value': [
-                        summary['total_orders'],
-                        summary['total_revenue'],
+            'Value': [
+                summary['total_orders'],
+                
+                summary['total_revenue'],
                         total_cogs,
-                        total_net_profit,
-                        overall_profit_margin,
                         total_sku_quantity,
                         total_unique_skus,
-                        summary['attributed_orders'],
-                        summary['attribution_rate']
-                    ]
-                }
+                summary['attributed_orders'],
+                summary['attribution_rate']
+            ]
+        }
                 pd.DataFrame(summary_stats).to_excel(writer, sheet_name='Summary_Statistics', index=False)
                 logging.info(f"Saved summary statistics to sheet 'Summary_Statistics'")
                 
