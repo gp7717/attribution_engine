@@ -1000,9 +1000,1019 @@ class AttributionEngine:
         
         return summary
     
+    def create_hierarchical_sku_performance(self, ad_sku_performance: pd.DataFrame, ad_performance: pd.DataFrame) -> pd.DataFrame:
+        """
+        Create hierarchical SKU performance data in the format: Campaign > Adset > Ad > SKU
+        with Total rows for aggregation.
+        
+        Args:
+            ad_sku_performance: DataFrame with ad-SKU performance data
+            ad_performance: DataFrame with ad performance data
+            
+        Returns:
+            DataFrame in hierarchical format with Total rows
+        """
+        logging.info("Creating hierarchical SKU performance data...")
+        
+        if ad_sku_performance.empty:
+            return pd.DataFrame()
+        
+        try:
+            # Ensure we have the required columns
+            required_cols = ['campaign_name', 'adset_name', 'ad_name', 'sku', 'sku_revenue', 'sku_cogs', 'orders']
+            missing_cols = [col for col in required_cols if col not in ad_sku_performance.columns]
+            if missing_cols:
+                logging.warning(f"Missing columns in ad_sku_performance: {missing_cols}")
+                return pd.DataFrame()
+            
+            # Create a simplified hierarchical structure
+            hierarchical_data = []
+            
+            # Sort by campaign, adset, ad, then by SKU revenue
+            ad_sku_sorted = ad_sku_performance.sort_values([
+                'campaign_name', 'adset_name', 'ad_name', 'sku_revenue'
+            ], ascending=[True, True, True, False])
+            
+            current_campaign = None
+            current_adset = None
+            current_ad = None
+            
+            # Track totals for each level
+            campaign_totals = {}
+            adset_totals = {}
+            ad_totals = {}
+            
+            for _, row in ad_sku_sorted.iterrows():
+                campaign_name = str(row['campaign_name']) if pd.notna(row['campaign_name']) else 'Unknown'
+                adset_name = str(row['adset_name']) if pd.notna(row['adset_name']) else 'Unknown'
+                ad_name = str(row['ad_name']) if pd.notna(row['ad_name']) else 'Unknown'
+                sku = str(row['sku']) if pd.notna(row['sku']) else 'Unknown'
+                
+                # Initialize totals
+                if campaign_name not in campaign_totals:
+                    campaign_totals[campaign_name] = {'total_sales': 0, 'total_cogs': 0, 'ad_spent': 0, 'orders': 0}
+                if (campaign_name, adset_name) not in adset_totals:
+                    adset_totals[(campaign_name, adset_name)] = {'total_sales': 0, 'total_cogs': 0, 'ad_spent': 0, 'orders': 0}
+                if (campaign_name, adset_name, ad_name) not in ad_totals:
+                    ad_totals[(campaign_name, adset_name, ad_name)] = {'total_sales': 0, 'total_cogs': 0, 'ad_spent': 0, 'orders': 0}
+                
+                # Add blank row when campaign changes
+                if current_campaign is not None and current_campaign != campaign_name:
+                    hierarchical_data.append(self.create_blank_row())
+                
+                # Add blank row when adset changes
+                if (current_campaign == campaign_name and 
+                    current_adset is not None and current_adset != adset_name):
+                    hierarchical_data.append(self.create_blank_row())
+                
+                # Add blank row when ad changes
+                if (current_campaign == campaign_name and 
+                    current_adset == adset_name and 
+                    current_ad is not None and current_ad != ad_name):
+                    hierarchical_data.append(self.create_blank_row())
+                
+                # Get ad performance data for this ad
+                ad_perf = ad_performance[
+                    (ad_performance['campaign_name'] == campaign_name) &
+                    (ad_performance['adset_name'] == adset_name) &
+                    (ad_performance['ad_name'] == ad_name)
+                ]
+                
+                ad_spend = ad_perf['ad_spend'].iloc[0] if not ad_perf.empty else 0
+                ad_clicks = ad_perf['ad_clicks'].iloc[0] if not ad_perf.empty else 0
+                ad_ctr = ad_perf['ctr'].iloc[0] if not ad_perf.empty else 0
+                
+                # Add SKU row
+                sku_row = {
+                    'sku': sku,
+                    'campaign_name': campaign_name if current_campaign != campaign_name else '',
+                    'adset_name': adset_name if (current_campaign != campaign_name or current_adset != adset_name) else '',
+                    'ad_name': ad_name if (current_campaign != campaign_name or current_adset != adset_name or current_ad != ad_name) else '',
+                    'ctr': round(float(ad_ctr), 2) if ad_ctr else 0,
+                    'purchase_roas': round(float(row.get('sku_roas', 0)), 2) if pd.notna(row.get('sku_roas')) else 0,
+                    'Clicks': int(ad_clicks) if ad_clicks else 0,
+                    'Add to Cart': 0,  # Placeholder - would need to be calculated from order data
+                    'Conversion Rate (%)': round((float(row['orders']) / max(float(ad_clicks), 1)) * 100, 2) if ad_clicks else 0,
+                    'total_sales': int(float(row['sku_revenue'])) if pd.notna(row['sku_revenue']) else 0,
+                    'total_cogs': int(float(row['sku_cogs'])) if pd.notna(row['sku_cogs']) else 0,
+                    'ad_spent': '',  # Empty for individual SKU rows
+                    'net_profit': '',  # Empty for individual SKU rows
+                    'orders': int(float(row['orders'])) if pd.notna(row['orders']) else 0
+                }
+                hierarchical_data.append(sku_row)
+                
+                # Update totals
+                sku_revenue = float(row['sku_revenue']) if pd.notna(row['sku_revenue']) else 0
+                sku_cogs = float(row['sku_cogs']) if pd.notna(row['sku_cogs']) else 0
+                orders = int(float(row['orders'])) if pd.notna(row['orders']) else 0
+                
+                ad_totals[(campaign_name, adset_name, ad_name)]['total_sales'] += sku_revenue
+                ad_totals[(campaign_name, adset_name, ad_name)]['total_cogs'] += sku_cogs
+                ad_totals[(campaign_name, adset_name, ad_name)]['ad_spent'] = ad_spend
+                ad_totals[(campaign_name, adset_name, ad_name)]['orders'] += orders
+                
+                adset_totals[(campaign_name, adset_name)]['total_sales'] += sku_revenue
+                adset_totals[(campaign_name, adset_name)]['total_cogs'] += sku_cogs
+                adset_totals[(campaign_name, adset_name)]['ad_spent'] += ad_spend
+                adset_totals[(campaign_name, adset_name)]['orders'] += orders
+                
+                campaign_totals[campaign_name]['total_sales'] += sku_revenue
+                campaign_totals[campaign_name]['total_cogs'] += sku_cogs
+                campaign_totals[campaign_name]['ad_spent'] += ad_spend
+                campaign_totals[campaign_name]['orders'] += orders
+                
+                current_campaign = campaign_name
+                current_adset = adset_name
+                current_ad = ad_name
+            
+            # Create final hierarchical structure with totals in proper positions
+            final_hierarchical_data = []
+            current_campaign = None
+            current_adset = None
+            current_ad = None
+            
+            for _, row in ad_sku_sorted.iterrows():
+                campaign_name = str(row['campaign_name']) if pd.notna(row['campaign_name']) else 'Unknown'
+                adset_name = str(row['adset_name']) if pd.notna(row['adset_name']) else 'Unknown'
+                ad_name = str(row['ad_name']) if pd.notna(row['ad_name']) else 'Unknown'
+                sku = str(row['sku']) if pd.notna(row['sku']) else 'Unknown'
+                
+                # Add blank row when campaign changes
+                if current_campaign is not None and current_campaign != campaign_name:
+                    final_hierarchical_data.append(self.create_blank_row())
+                
+                # Add blank row when adset changes
+                if (current_campaign == campaign_name and 
+                    current_adset is not None and current_adset != adset_name):
+                    final_hierarchical_data.append(self.create_blank_row())
+                
+                # Add blank row when ad changes
+                if (current_campaign == campaign_name and 
+                    current_adset == adset_name and 
+                    current_ad is not None and current_ad != ad_name):
+                    final_hierarchical_data.append(self.create_blank_row())
+                
+                # Get ad performance data for this ad
+                ad_perf = ad_performance[
+                    (ad_performance['campaign_name'] == campaign_name) &
+                    (ad_performance['adset_name'] == adset_name) &
+                    (ad_performance['ad_name'] == ad_name)
+                ]
+                
+                ad_spend = ad_perf['ad_spend'].iloc[0] if not ad_perf.empty else 0
+                ad_clicks = ad_perf['ad_clicks'].iloc[0] if not ad_perf.empty else 0
+                ad_ctr = ad_perf['ctr'].iloc[0] if not ad_perf.empty else 0
+                
+                # Add SKU row
+                sku_row = {
+                    'sku': sku,
+                    'campaign_name': campaign_name if current_campaign != campaign_name else '',
+                    'adset_name': adset_name if (current_campaign != campaign_name or current_adset != adset_name) else '',
+                    'ad_name': ad_name if (current_campaign != campaign_name or current_adset != adset_name or current_ad != ad_name) else '',
+                    'ctr': round(float(ad_ctr), 2) if ad_ctr else 0,
+                    'purchase_roas': round(float(row.get('sku_roas', 0)), 2) if pd.notna(row.get('sku_roas')) else 0,
+                    'Clicks': int(ad_clicks) if ad_clicks else 0,
+                    'Add to Cart': 0,  # Placeholder - would need to be calculated from order data
+                    'Conversion Rate (%)': round((float(row['orders']) / max(float(ad_clicks), 1)) * 100, 2) if ad_clicks else 0,
+                    'total_sales': int(float(row['sku_revenue'])) if pd.notna(row['sku_revenue']) else 0,
+                    'total_cogs': int(float(row['sku_cogs'])) if pd.notna(row['sku_cogs']) else 0,
+                    'ad_spent': '',  # Empty for individual SKU rows
+                    'net_profit': '',  # Empty for individual SKU rows
+                    'orders': int(float(row['orders'])) if pd.notna(row['orders']) else 0
+                }
+                final_hierarchical_data.append(sku_row)
+                
+                # Check if this is the last SKU for this ad, adset, or campaign
+                # Get next row to check if we need to add totals
+                current_idx = ad_sku_sorted.index.get_loc(row.name)
+                next_idx = current_idx + 1
+                
+                # Check if we need to add ad total (last SKU for this ad)
+                if (next_idx >= len(ad_sku_sorted) or 
+                    ad_sku_sorted.iloc[next_idx]['ad_name'] != ad_name or
+                    ad_sku_sorted.iloc[next_idx]['adset_name'] != adset_name or
+                    ad_sku_sorted.iloc[next_idx]['campaign_name'] != campaign_name):
+                    
+                    # Add ad total row
+                    ad_key = (campaign_name, adset_name, ad_name)
+                    if ad_key in ad_totals:
+                        total = ad_totals[ad_key]
+                        total_row = {
+                            'sku': '',
+                            'campaign_name': '',
+                            'adset_name': '',
+                            'ad_name': '',
+                            'ctr': '',
+                            'purchase_roas': '',
+                            'Clicks': '',
+                            'Add to Cart': '',
+                            'Conversion Rate (%)': '',
+                            'total_sales': int(total['total_sales']),
+                            'total_cogs': int(total['total_cogs']),
+                            'ad_spent': round(total['ad_spent'], 2),
+                            'net_profit': round(total['total_sales'] - total['total_cogs'] - total['ad_spent'], 2),
+                            'orders': int(total['orders'])
+                        }
+                        final_hierarchical_data.append(total_row)
+                
+                # Check if we need to add adset total (last SKU for this adset)
+                if (next_idx >= len(ad_sku_sorted) or 
+                    ad_sku_sorted.iloc[next_idx]['adset_name'] != adset_name or
+                    ad_sku_sorted.iloc[next_idx]['campaign_name'] != campaign_name):
+                    
+                    # Add adset total row
+                    adset_key = (campaign_name, adset_name)
+                    if adset_key in adset_totals:
+                        total = adset_totals[adset_key]
+                        total_row = {
+                            'sku': '',
+                            'campaign_name': '',
+                            'adset_name': '',
+                            'ad_name': '',
+                            'ctr': '',
+                            'purchase_roas': '',
+                            'Clicks': '',
+                            'Add to Cart': '',
+                            'Conversion Rate (%)': '',
+                            'total_sales': int(total['total_sales']),
+                            'total_cogs': int(total['total_cogs']),
+                            'ad_spent': round(total['ad_spent'], 2),
+                            'net_profit': round(total['total_sales'] - total['total_cogs'] - total['ad_spent'], 2),
+                            'orders': int(total['orders'])
+                        }
+                        final_hierarchical_data.append(total_row)
+                
+                # Check if we need to add campaign total (last SKU for this campaign)
+                if (next_idx >= len(ad_sku_sorted) or 
+                    ad_sku_sorted.iloc[next_idx]['campaign_name'] != campaign_name):
+                    
+                    # Add campaign total row
+                    if campaign_name in campaign_totals:
+                        total = campaign_totals[campaign_name]
+                        total_row = {
+                            'sku': '',
+                            'campaign_name': '',
+                            'adset_name': '',
+                            'ad_name': '',
+                            'ctr': '',
+                            'purchase_roas': '',
+                            'Clicks': '',
+                            'Add to Cart': '',
+                            'Conversion Rate (%)': '',
+                            'total_sales': int(total['total_sales']),
+                            'total_cogs': int(total['total_cogs']),
+                            'ad_spent': round(total['ad_spent'], 2),
+                            'net_profit': round(total['total_sales'] - total['total_cogs'] - total['ad_spent'], 2),
+                            'orders': int(total['orders'])
+                        }
+                        final_hierarchical_data.append(total_row)
+                
+                current_campaign = campaign_name
+                current_adset = adset_name
+                current_ad = ad_name
+            
+            # Add final blank row
+            final_hierarchical_data.append(self.create_blank_row())
+            
+            return pd.DataFrame(final_hierarchical_data)
+            
+        except Exception as e:
+            logging.error(f"Error creating hierarchical SKU performance: {e}")
+            return pd.DataFrame()
+    
+    def create_blank_row(self) -> Dict:
+        """Create a blank row for spacing in hierarchical format."""
+        return {
+            'sku': '',
+            'campaign_name': '',
+            'adset_name': '',
+            'ad_name': '',
+            'ctr': '',
+            'purchase_roas': '',
+            'Clicks': '',
+            'Add to Cart': '',
+            'Conversion Rate (%)': '',
+            'total_sales': '',
+            'total_cogs': '',
+            'ad_spent': '',
+            'net_profit': '',
+            'orders': ''
+        }
+    
+    def merge_hierarchical_cells(self, writer, sheet_name: str, hierarchical_data: pd.DataFrame) -> None:
+        """
+        Merge cells in the hierarchical structure where the same data appears across multiple rows.
+        
+        Args:
+            writer: Excel writer object
+            sheet_name: Name of the sheet to merge cells in
+            hierarchical_data: DataFrame with hierarchical data
+        """
+        try:
+            from openpyxl import load_workbook
+            from openpyxl.styles import Alignment, Border, Side
+            
+            # Load the workbook
+            workbook = writer.book
+            worksheet = workbook[sheet_name]
+            
+            # Define column mappings (0-indexed)
+            col_mapping = {
+                'sku': 0,
+                'campaign_name': 1,
+                'adset_name': 2,
+                'ad_name': 3,
+                'ctr': 4,
+                'purchase_roas': 5,
+                'Clicks': 6,
+                'Add to Cart': 7,
+                'Conversion Rate (%)': 8,
+                'total_sales': 9,
+                'total_cogs': 10,
+                'ad_spent': 11,
+                'net_profit': 12,
+                'orders': 13
+            }
+            
+            # Track ranges for merging
+            merge_ranges = []
+            
+            # Process each column for merging
+            for col_name, col_idx in col_mapping.items():
+                if col_name in ['campaign_name', 'adset_name', 'ad_name']:
+                    current_value = None
+                    start_row = None
+                    
+                    for row_idx, row in hierarchical_data.iterrows():
+                        cell_value = row[col_name]
+                        
+                        # Skip blank rows and total rows
+                        if cell_value == '' or pd.isna(cell_value):
+                            continue
+                        
+                        # If this is a new value, end previous merge and start new one
+                        if current_value != cell_value:
+                            # End previous merge if exists
+                            if current_value is not None and start_row is not None:
+                                end_row = row_idx + 1  # +1 because Excel is 1-indexed
+                                if end_row > start_row + 1:  # Only merge if more than 1 row
+                                    merge_ranges.append((col_idx + 1, start_row + 2, col_idx + 1, end_row + 1))
+                            
+                            # Start new merge
+                            current_value = cell_value
+                            start_row = row_idx
+                        else:
+                            # Continue current merge
+                            continue
+                    
+                    # End final merge if exists
+                    if current_value is not None and start_row is not None:
+                        end_row = len(hierarchical_data)
+                        if end_row > start_row + 1:
+                            merge_ranges.append((col_idx + 1, start_row + 2, col_idx + 1, end_row + 1))
+            
+            # Apply merges
+            for merge_range in merge_ranges:
+                try:
+                    worksheet.merge_cells(start_row=merge_range[1], start_column=merge_range[0],
+                                        end_row=merge_range[3], end_column=merge_range[2])
+                except Exception as e:
+                    logging.warning(f"Could not merge cells {merge_range}: {e}")
+            
+            # Apply formatting to merged cells
+            self.format_hierarchical_sheet(worksheet, hierarchical_data)
+            
+            logging.info(f"Applied {len(merge_ranges)} cell merges to {sheet_name}")
+            
+        except Exception as e:
+            logging.error(f"Error merging hierarchical cells: {e}")
+    
+    def format_hierarchical_sheet(self, worksheet, hierarchical_data: pd.DataFrame) -> None:
+        """
+        Apply formatting to the hierarchical sheet.
+        
+        Args:
+            worksheet: OpenPyXL worksheet object
+            hierarchical_data: DataFrame with hierarchical data
+        """
+        try:
+            from openpyxl.styles import Alignment, Border, Side, Font, PatternFill
+            
+            # Define styles
+            center_alignment = Alignment(horizontal='center', vertical='center')
+            left_alignment = Alignment(horizontal='left', vertical='center')
+            thin_border = Border(
+                left=Side(style='thin'),
+                right=Side(style='thin'),
+                top=Side(style='thin'),
+                bottom=Side(style='thin')
+            )
+            header_font = Font(bold=True)
+            total_fill = PatternFill(start_color='E6E6FA', end_color='E6E6FA', fill_type='solid')
+            
+            # Apply formatting to all cells
+            for row_idx in range(1, len(hierarchical_data) + 2):  # +2 for header
+                for col_idx in range(1, 15):  # 14 columns
+                    cell = worksheet.cell(row=row_idx, column=col_idx)
+                    
+                    # Apply border
+                    cell.border = thin_border
+                    
+                    # Header row formatting
+                    if row_idx == 1:
+                        cell.font = header_font
+                        cell.alignment = center_alignment
+                        cell.fill = PatternFill(start_color='D3D3D3', end_color='D3D3D3', fill_type='solid')
+                    else:
+                        # Data row formatting
+                        data_row_idx = row_idx - 2  # -2 because of header and 0-indexing
+                        if 0 <= data_row_idx < len(hierarchical_data):
+                            row_data = hierarchical_data.iloc[data_row_idx]
+                            
+                            # Check if this is a total row (empty sku, campaign_name, adset_name, ad_name)
+                            is_total_row = (row_data['sku'] == '' and 
+                                          row_data['campaign_name'] == '' and 
+                                          row_data['adset_name'] == '' and 
+                                          row_data['ad_name'] == '')
+                            
+                            if is_total_row:
+                                # Total row formatting
+                                cell.fill = total_fill
+                                cell.font = Font(bold=True)
+                                cell.alignment = center_alignment
+                            else:
+                                # Regular data row formatting
+                                if col_idx in [1, 2, 3, 4]:  # Text columns
+                                    cell.alignment = left_alignment
+                                else:  # Numeric columns
+                                    cell.alignment = center_alignment
+                                    
+                                # Format numeric columns
+                                if col_idx in [5, 6, 9, 10, 11, 12, 13]:  # Numeric columns
+                                    try:
+                                        if cell.value != '' and cell.value is not None:
+                                            if col_idx in [5, 6]:  # Decimal columns
+                                                cell.number_format = '0.00'
+                                            else:  # Integer columns
+                                                cell.number_format = '0'
+                                    except:
+                                        pass
+            
+            # Auto-adjust column widths
+            for col_idx in range(1, 15):
+                column_letter = worksheet.cell(row=1, column=col_idx).column_letter
+                max_length = 0
+                
+                for row_idx in range(1, len(hierarchical_data) + 2):
+                    cell_value = worksheet.cell(row=row_idx, column=col_idx).value
+                    if cell_value:
+                        max_length = max(max_length, len(str(cell_value)))
+                
+                # Set column width (with some padding)
+                adjusted_width = min(max_length + 2, 50)  # Cap at 50 characters
+                worksheet.column_dimensions[column_letter].width = adjusted_width
+            
+            logging.info("Applied formatting to hierarchical sheet")
+            
+        except Exception as e:
+            logging.error(f"Error formatting hierarchical sheet: {e}")
+    
+    def create_detailed_sku_attribution(self, results_df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Create detailed SKU-level attribution data showing which campaign/adset/ad sold which SKU.
+        
+        Args:
+            results_df: DataFrame with attribution results
+            
+        Returns:
+            DataFrame with detailed SKU attribution data
+        """
+        logging.info("Creating detailed SKU attribution data...")
+        
+        if results_df.empty:
+            return pd.DataFrame()
+        
+        detailed_data = []
+        
+        for _, row in results_df.iterrows():
+            if row['skus'] and row['is_attributed']:
+                # Get the line items data for this order to calculate proper SKU values
+                order_line_items = self.orders_df[self.orders_df['order_id'] == row['order_id']]
+                
+                # Create a mapping of SKU to its actual revenue, COGS, and quantity
+                sku_data_map = {}
+                
+                for _, line_item in order_line_items.iterrows():
+                    sku = line_item.get('sku')
+                    if sku:
+                        quantity = line_item.get('quantity', 0) or 0
+                        unit_price = line_item.get('discounted_unit_price_amount', 0) or line_item.get('original_unit_price_amount', 0) or 0
+                        unit_cost = line_item.get('unit_cost_amount', 0) or 0
+                        
+                        sku_revenue = quantity * unit_price
+                        sku_cogs = quantity * unit_cost
+                        sku_profit = sku_revenue - sku_cogs
+                        
+                        sku_data_map[sku] = {
+                            'quantity': quantity,
+                            'unit_price': unit_price,
+                            'unit_cost': unit_cost,
+                            'sku_revenue': sku_revenue,
+                            'sku_cogs': sku_cogs,
+                            'sku_profit': sku_profit,
+                            'product_title': line_item.get('product_title', ''),
+                            'variant_title': line_item.get('variant_title', '')
+                        }
+                
+                # Get ad spend data for this ad
+                ad_spend = 0
+                if row['ad_id'] and row['campaign_name'] and row['adset_name'] and row['ad_name']:
+                    # Find matching ad in ads data
+                    matching_ads = self.ads_df[
+                        (self.ads_df['campaign_name'] == row['campaign_name']) &
+                        (self.ads_df['adset_name'] == row['adset_name']) &
+                        (self.ads_df['ad_name'] == row['ad_name'])
+                    ]
+                    if not matching_ads.empty:
+                        ad_spend = matching_ads['spend'].sum()
+                
+                # Create detailed record for each SKU in this order
+                sku_list = [sku.strip() for sku in row['skus'].split(',')]
+                for sku in sku_list:
+                    if sku in sku_data_map:
+                        sku_data = sku_data_map[sku]
+                        
+                        detailed_record = {
+                            # Order Information
+                            'order_id': row['order_id'],
+                            'order_name': row['order_name'],
+                            'order_date': row['order_date'],
+                            'order_value': row['order_value'],
+                            
+                            # SKU Information
+                            'sku': sku,
+                            'product_title': sku_data['product_title'],
+                            'variant_title': sku_data['variant_title'],
+                            'quantity': sku_data['quantity'],
+                            'unit_price': sku_data['unit_price'],
+                            'unit_cost': sku_data['unit_cost'],
+                            'sku_revenue': sku_data['sku_revenue'],
+                            'sku_cogs': sku_data['sku_cogs'],
+                            'sku_profit': sku_data['sku_profit'],
+                            'sku_profit_margin': (sku_data['sku_profit'] / sku_data['sku_revenue'] * 100) if sku_data['sku_revenue'] > 0 else 0,
+                            
+                            # Campaign Information
+                            'campaign_id': row['campaign_id'],
+                            'campaign_name': row['campaign_name'],
+                            'adset_id': row['adset_id'],
+                            'adset_name': row['adset_name'],
+                            'ad_id': row['ad_id'],
+                            'ad_name': row['ad_name'],
+                            
+                            # Ad Spend Information
+                            'ad_spend': ad_spend,
+                            'sku_roas': (sku_data['sku_revenue'] / ad_spend) if ad_spend > 0 else 0,
+                            'sku_net_profit': sku_data['sku_profit'] - ad_spend,
+                            
+                            # Channel and Attribution
+                            'channel': row['channel'],
+                            'attribution_source': row['attribution_source'],
+                            'utm_source': row['utm_source'],
+                            'utm_medium': row['utm_medium'],
+                            'utm_campaign': row['utm_campaign'],
+                            'utm_content': row['utm_content'],
+                            'utm_term': row['utm_term']
+                        }
+                        
+                        detailed_data.append(detailed_record)
+        
+        return pd.DataFrame(detailed_data)
+    
+    def create_ad_level_summary(self, results_df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Create ad-level summary with ALL orders aggregated at the ad level.
+        Includes attributed orders, unknown campaigns, and blank/unattributed orders.
+        
+        Args:
+            results_df: DataFrame with attribution results
+            
+        Returns:
+            DataFrame with ad-level aggregated data
+        """
+        logging.info("Creating ad-level summary including all sales...")
+        
+        if results_df.empty:
+            return pd.DataFrame()
+        
+        # Use ALL orders, not just attributed ones
+        all_orders_df = results_df.copy()
+        
+        # Get ad spend data first
+        daily_ads = self.rollup_ads_to_daily()
+        
+        # Debug: Log total ads vs orders
+        logging.info(f"=== ADS VS ORDERS COMPARISON ===")
+        logging.info(f"Total ads in daily_ads: {len(daily_ads)}")
+        logging.info(f"Total orders in results_df: {len(results_df)}")
+        logging.info(f"Attributed orders: {results_df['is_attributed'].sum()}")
+        logging.info(f"Unattributed orders: {(~results_df['is_attributed']).sum()}")
+        logging.info(f"=== END ADS VS ORDERS COMPARISON ===")
+        
+        # Fill missing campaign/adset/ad names with appropriate labels
+        all_orders_df['campaign_name'] = all_orders_df['campaign_name'].fillna('Unknown Campaign')
+        all_orders_df['adset_name'] = all_orders_df['adset_name'].fillna('Unknown Adset')
+        all_orders_df['ad_name'] = all_orders_df['ad_name'].fillna('Unknown Ad')
+        all_orders_df['campaign_id'] = all_orders_df['campaign_id'].fillna('Unknown')
+        all_orders_df['adset_id'] = all_orders_df['adset_id'].fillna('Unknown')
+        all_orders_df['ad_id'] = all_orders_df['ad_id'].fillna('Unknown')
+        
+        # For unattributed orders, use channel information if available
+        unattributed_mask = ~all_orders_df['is_attributed']
+        if unattributed_mask.any():
+            # For unattributed orders, use channel + "Unknown" pattern
+            all_orders_df.loc[unattributed_mask, 'campaign_name'] = all_orders_df.loc[unattributed_mask, 'channel'] + ' - Unknown Campaign'
+            all_orders_df.loc[unattributed_mask, 'adset_name'] = all_orders_df.loc[unattributed_mask, 'channel'] + ' - Unknown Adset'
+            all_orders_df.loc[unattributed_mask, 'ad_name'] = all_orders_df.loc[unattributed_mask, 'channel'] + ' - Unknown Ad'
+        
+        # Convert ID columns to string BEFORE grouping to ensure consistent data types
+        id_columns = ['campaign_id', 'adset_id', 'ad_id']
+        for col in id_columns:
+            if col in all_orders_df.columns:
+                all_orders_df[col] = all_orders_df[col].astype(str)
+        
+        # Fix ad_id format in orders data (convert scientific notation to full string)
+        def fix_ad_id_format(ad_id):
+            if pd.isna(ad_id) or ad_id == 'Unknown':
+                return ad_id
+            try:
+                # Convert to float first to handle scientific notation, then to int, then to string
+                return str(int(float(ad_id)))
+            except (ValueError, TypeError):
+                return str(ad_id)
+        
+        # Apply the fix to orders data
+        for col in id_columns:
+            if col in all_orders_df.columns:
+                all_orders_df[col] = all_orders_df[col].apply(fix_ad_id_format)
+        
+        # First, get all ads from ads data (even if they have no orders)
+        all_ads_df = daily_ads[['campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name']].drop_duplicates()
+        
+        # Convert ID columns to string in all_ads_df and fix format
+        for col in ['campaign_id', 'adset_id', 'ad_id']:
+            if col in all_ads_df.columns:
+                all_ads_df[col] = all_ads_df[col].astype(str)
+                all_ads_df[col] = all_ads_df[col].apply(fix_ad_id_format)
+        
+        # Debug: Log orders data before grouping
+        logging.info("=== ORDERS DATA DEBUG ===")
+        logging.info(f"Total orders in all_orders_df: {len(all_orders_df)}")
+        logging.info(f"Orders with campaign_name: {all_orders_df['campaign_name'].notna().sum()}")
+        logging.info(f"Orders with ad_id: {all_orders_df['ad_id'].notna().sum()}")
+        logging.info(f"Sample order ad_ids: {all_orders_df['ad_id'].head().tolist()}")
+        logging.info(f"Sample order campaign_names: {all_orders_df['campaign_name'].head().tolist()}")
+        
+        # Show sample orders data
+        for idx, row in all_orders_df.head(5).iterrows():
+            logging.info(f"Order {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, orders=1")
+        logging.info("=== END ORDERS DATA DEBUG ===")
+        
+        # Group orders by ad level and aggregate ALL orders
+        orders_by_ad = all_orders_df.groupby([
+            'campaign_id', 'campaign_name', 'adset_id', 'adset_name', 
+            'ad_id', 'ad_name', 'channel'
+        ]).agg({
+            'order_id': 'count',
+            'order_value': 'sum',
+            'total_cogs': 'sum',
+            'skus': lambda x: ', '.join(set([sku for sku_list in x.dropna() for sku in sku_list.split(', ')])),
+            'unique_skus_count': 'sum',
+            'total_sku_quantity': 'sum',
+            'is_attributed': 'sum'  # Count of attributed orders
+        }).reset_index()
+        
+        # Debug: Log grouped orders data
+        logging.info("=== GROUPED ORDERS DATA DEBUG ===")
+        logging.info(f"Total grouped orders: {len(orders_by_ad)}")
+        logging.info(f"Total orders in grouped data: {orders_by_ad['order_id'].sum()}")
+        for idx, row in orders_by_ad.head(5).iterrows():
+            logging.info(f"Grouped {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, orders={row['order_id']}")
+        logging.info("=== END GROUPED ORDERS DATA DEBUG ===")
+        
+        # Merge all ads with orders (left join to include all ads, even those without orders)
+        ad_summary = all_ads_df.merge(
+            orders_by_ad,
+            on=['campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name'],
+            how='left'
+        )
+        
+        # Debug: Log merge results
+        logging.info("=== MERGE RESULTS DEBUG ===")
+        logging.info(f"Total ads after merge: {len(ad_summary)}")
+        logging.info(f"Ads with orders: {ad_summary['order_id'].notna().sum()}")
+        logging.info(f"Total orders after merge: {ad_summary['order_id'].sum()}")
+        for idx, row in ad_summary.head(5).iterrows():
+            logging.info(f"Merged {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, orders={row.get('order_id', 'N/A')}")
+        logging.info("=== END MERGE RESULTS DEBUG ===")
+        
+        # Fill NaN values for ads without orders
+        ad_summary['channel'] = ad_summary['channel'].fillna('Unknown')
+        ad_summary['order_id'] = ad_summary['order_id'].fillna(0)
+        ad_summary['order_value'] = ad_summary['order_value'].fillna(0)
+        ad_summary['total_cogs'] = ad_summary['total_cogs'].fillna(0)
+        ad_summary['skus'] = ad_summary['skus'].fillna('')
+        ad_summary['unique_skus_count'] = ad_summary['unique_skus_count'].fillna(0)
+        ad_summary['total_sku_quantity'] = ad_summary['total_sku_quantity'].fillna(0)
+        ad_summary['is_attributed'] = ad_summary['is_attributed'].fillna(0)
+        
+        # Rename columns for clarity
+        ad_summary = ad_summary.rename(columns={
+            'order_id': 'orders',
+            'order_value': 'total_sales',
+            'total_cogs': 'total_cogs',
+            'skus': 'all_skus',
+            'unique_skus_count': 'total_unique_skus',
+            'total_sku_quantity': 'total_sku_quantity',
+            'is_attributed': 'attributed_orders'
+        })
+        
+        # Add attributed column (True if all orders are attributed, False if any are unattributed)
+        ad_summary['attributed'] = (ad_summary['attributed_orders'] == ad_summary['orders'])
+        
+        # Get ad spend data for each ad (only for known campaigns)
+        if not daily_ads.empty:
+            # Convert ID columns to string in ads data BEFORE aggregation
+            id_columns = ['campaign_id', 'adset_id', 'ad_id']
+            for col in id_columns:
+                if col in daily_ads.columns:
+                    daily_ads[col] = daily_ads[col].astype(str)
+            
+            # Debug: Log sample ad data
+            logging.info(f"Sample ad data from daily_ads:")
+            logging.info(f"Campaign names: {daily_ads['campaign_name'].head().tolist()}")
+            logging.info(f"Ad names: {daily_ads['ad_name'].head().tolist()}")
+            logging.info(f"Ad IDs: {daily_ads['ad_id'].head().tolist()}")
+            logging.info(f"Spend values: {daily_ads['spend'].head().tolist()}")
+            logging.info(f"Total spend in ads data: {daily_ads['spend'].sum()}")
+            
+            # Debug: Log raw spend data
+            logging.info("=== RAW SPEND DATA DEBUG ===")
+            for idx, row in daily_ads.head(10).iterrows():
+                logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, spend={row['spend']}")
+            logging.info("=== END RAW SPEND DATA DEBUG ===")
+            
+            # Debug: Log sample ad summary data
+            logging.info(f"Sample ad summary data:")
+            logging.info(f"Campaign names: {ad_summary['campaign_name'].head().tolist()}")
+            logging.info(f"Ad names: {ad_summary['ad_name'].head().tolist()}")
+            logging.info(f"Ad IDs: {ad_summary['ad_id'].head().tolist()}")
+            
+            # Debug: Log raw ad summary data
+            logging.info("=== RAW AD SUMMARY DATA DEBUG ===")
+            for idx, row in ad_summary.head(10).iterrows():
+                logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, orders={row['orders']}")
+            logging.info("=== END RAW AD SUMMARY DATA DEBUG ===")
+            
+            # Aggregate ads data by ad level
+            ads_aggregated = daily_ads.groupby([
+                'campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name'
+            ]).agg({
+                'impressions': 'sum',
+                'clicks': 'sum',
+                'spend': 'sum'
+            }).reset_index()
+            
+            logging.info(f"Aggregated ads data shape: {ads_aggregated.shape}")
+            logging.info(f"Total spend in aggregated ads: {ads_aggregated['spend'].sum()}")
+            
+            # Debug: Log aggregated ads data
+            logging.info("=== AGGREGATED ADS DATA DEBUG ===")
+            for idx, row in ads_aggregated.head(10).iterrows():
+                logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, spend={row['spend']}")
+            logging.info("=== END AGGREGATED ADS DATA DEBUG ===")
+            
+            # Ensure ad_summary ID columns are also strings (should already be from earlier conversion)
+            for col in id_columns:
+                if col in ad_summary.columns:
+                    ad_summary[col] = ad_summary[col].astype(str)
+            
+            # Try multiple merge strategies
+            # Strategy 1: Exact match on all fields
+            ad_summary_merged = ad_summary.merge(
+                ads_aggregated,
+                on=['campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name'],
+                how='left',
+                suffixes=('', '_ads')
+            )
+            
+            # Check how many matches we got
+            matched_count = 0
+            if 'spend' in ad_summary_merged.columns:
+                matched_count = ad_summary_merged['spend'].notna().sum()
+            total_count = len(ad_summary_merged)
+            logging.info(f"Exact match results: {matched_count}/{total_count} rows matched")
+            
+            # If no matches, try matching by ad_id only (for known campaigns)
+            if matched_count == 0:
+                logging.info("No exact matches found, trying ad_id only matching...")
+                
+                # Filter out unknown campaigns for ad_id matching
+                known_campaigns = ad_summary[
+                    (~ad_summary['campaign_name'].str.contains('Unknown', na=False)) &
+                    (ad_summary['ad_id'] != 'Unknown')
+                ].copy()
+                
+                if not known_campaigns.empty:
+                    try:
+                        # Debug: Log sample ad_ids from both datasets
+                        logging.info(f"Sample ad_ids from known_campaigns: {known_campaigns['ad_id'].head().tolist()}")
+                        logging.info(f"Sample ad_ids from ads_aggregated: {ads_aggregated['ad_id'].head().tolist()}")
+                        logging.info(f"Known campaigns count: {len(known_campaigns)}")
+                        logging.info(f"Ads aggregated count: {len(ads_aggregated)}")
+                        
+                        # Fix ad_id format mismatch: convert scientific notation to full string
+                        def fix_ad_id_format(ad_id):
+                            if pd.isna(ad_id) or ad_id == 'Unknown':
+                                return ad_id
+                            try:
+                                # Convert to float first to handle scientific notation, then to int, then to string
+                                return str(int(float(ad_id)))
+                            except (ValueError, TypeError):
+                                return str(ad_id)
+                        
+                        # Apply the fix to both datasets
+                        known_campaigns_fixed = known_campaigns.copy()
+                        known_campaigns_fixed['ad_id'] = known_campaigns_fixed['ad_id'].apply(fix_ad_id_format)
+                        
+                        ads_aggregated_fixed = ads_aggregated.copy()
+                        ads_aggregated_fixed['ad_id'] = ads_aggregated_fixed['ad_id'].apply(fix_ad_id_format)
+                        
+                        logging.info(f"Fixed ad_ids from known_campaigns: {known_campaigns_fixed['ad_id'].head().tolist()}")
+                        logging.info(f"Fixed ad_ids from ads_aggregated: {ads_aggregated_fixed['ad_id'].head().tolist()}")
+                        
+                        # Debug: Log the fixed data
+                        logging.info("=== FIXED KNOWN CAMPAIGNS DATA DEBUG ===")
+                        for idx, row in known_campaigns_fixed.head(5).iterrows():
+                            logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}")
+                        logging.info("=== END FIXED KNOWN CAMPAIGNS DATA DEBUG ===")
+                        
+                        logging.info("=== FIXED ADS AGGREGATED DATA DEBUG ===")
+                        for idx, row in ads_aggregated_fixed.head(5).iterrows():
+                            logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, spend={row['spend']}")
+                        logging.info("=== END FIXED ADS AGGREGATED DATA DEBUG ===")
+                        
+                        # Try matching by ad_id only
+                        known_campaigns_merged = known_campaigns_fixed.merge(
+                            ads_aggregated_fixed[['ad_id', 'impressions', 'clicks', 'spend']],
+                            on='ad_id',
+                            how='left',
+                            suffixes=('', '_ads')
+                        )
+                        
+                        logging.info(f"After ad_id merge: {len(known_campaigns_merged)} rows")
+                        logging.info(f"Rows with spend data: {known_campaigns_merged['spend'].notna().sum()}")
+                        
+                        # Debug: Log the merged data
+                        logging.info("=== MERGED DATA DEBUG ===")
+                        for idx, row in known_campaigns_merged.head(5).iterrows():
+                            logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, spend={row.get('spend', 'N/A')}")
+                        logging.info("=== END MERGED DATA DEBUG ===")
+                        
+                        # Update the main dataframe with matched data
+                        matches_found = 0
+                        total_spend_applied = 0
+                        for idx, row in known_campaigns_merged.iterrows():
+                            if pd.notna(row.get('spend', 0)) and row.get('spend', 0) > 0:
+                                # Use the original ad_id from known_campaigns for matching back to ad_summary
+                                original_ad_id = known_campaigns.iloc[idx]['ad_id']
+                                spend_value = row.get('spend', 0)
+                                
+                                # Debug: Log the update
+                                logging.info(f"Updating ad_id {original_ad_id} with spend {spend_value}")
+                                
+                                # Update the dataframe
+                                mask = ad_summary['ad_id'] == original_ad_id
+                                ad_summary.loc[mask, 'impressions'] = row.get('impressions', 0)
+                                ad_summary.loc[mask, 'clicks'] = row.get('clicks', 0)
+                                ad_summary.loc[mask, 'spend'] = spend_value
+                                
+                                matches_found += 1
+                                total_spend_applied += spend_value
+                        
+                        logging.info(f"Individual matches applied: {matches_found}")
+                        logging.info(f"Total spend applied: {total_spend_applied}")
+                        logging.info(f"Ad_summary spend total after updates: {ad_summary['spend'].sum()}")
+                        
+                        # Debug: Log ad_summary after updates
+                        logging.info("=== AD_SUMMARY AFTER UPDATES DEBUG ===")
+                        for idx, row in ad_summary.head(5).iterrows():
+                            logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, spend={row.get('spend', 'N/A')}")
+                        logging.info("=== END AD_SUMMARY AFTER UPDATES DEBUG ===")
+                        
+                        # Safe matched count calculation
+                        matched_count = 0
+                        if 'spend' in ad_summary.columns:
+                            matched_count = ad_summary['spend'].notna().sum()
+                        logging.info(f"Ad_id match results: {matched_count}/{total_count} rows matched")
+                    except Exception as e:
+                        logging.error(f"Error in ad_id matching: {e}")
+                        matched_count = 0
+            
+            # Use the merged data, but preserve any spend data we found through ad_id matching
+            # The ad_summary_merged might not have spend data if exact matching failed
+            # but we may have updated ad_summary directly with spend data from ad_id matching
+            
+            # Check if we have spend data in the original ad_summary (from ad_id matching)
+            logging.info("=== FINAL DECISION DEBUG ===")
+            logging.info(f"ad_summary has spend column: {'spend' in ad_summary.columns}")
+            if 'spend' in ad_summary.columns:
+                logging.info(f"ad_summary spend sum: {ad_summary['spend'].sum()}")
+                logging.info(f"ad_summary spend non-null count: {ad_summary['spend'].notna().sum()}")
+            logging.info(f"ad_summary_merged has spend column: {'spend' in ad_summary_merged.columns}")
+            if 'spend' in ad_summary_merged.columns:
+                logging.info(f"ad_summary_merged spend sum: {ad_summary_merged['spend'].sum()}")
+                logging.info(f"ad_summary_merged spend non-null count: {ad_summary_merged['spend'].notna().sum()}")
+            logging.info("=== END FINAL DECISION DEBUG ===")
+            
+            if 'spend' in ad_summary.columns and ad_summary['spend'].sum() > 0:
+                logging.info(f"Using spend data from ad_id matching: {ad_summary['spend'].sum()}")
+                # Keep the original ad_summary with spend data
+                final_ad_summary = ad_summary.copy()
+            else:
+                logging.info("Using merged data (no spend from ad_id matching)")
+                # Use the merged data
+                final_ad_summary = ad_summary_merged.copy()
+            
+            # Ensure required columns exist
+            if 'impressions' not in final_ad_summary.columns:
+                final_ad_summary['impressions'] = 0
+            if 'clicks' not in final_ad_summary.columns:
+                final_ad_summary['clicks'] = 0
+            if 'spend' not in final_ad_summary.columns:
+                final_ad_summary['spend'] = 0
+            
+            # Fill NaN values with 0 for unmatched campaigns
+            final_ad_summary['impressions'] = final_ad_summary['impressions'].fillna(0)
+            final_ad_summary['clicks'] = final_ad_summary['clicks'].fillna(0)
+            final_ad_summary['spend'] = final_ad_summary['spend'].fillna(0)
+            
+            # Use the final dataframe
+            ad_summary = final_ad_summary
+            
+            logging.info(f"Final spend total in ad_summary: {ad_summary['spend'].sum()}")
+            
+            # Debug: Check if we're missing ads with spend but no orders
+            logging.info("=== MISSING ADS CHECK ===")
+            ads_with_spend = daily_ads[daily_ads['spend'] > 0]
+            logging.info(f"Ads with spend > 0: {len(ads_with_spend)}")
+            logging.info(f"Total spend in ads with spend > 0: {ads_with_spend['spend'].sum()}")
+            
+            # Check which ads with spend are not in our ad_summary
+            ads_with_spend_ids = set(ads_with_spend['ad_id'].astype(str))
+            ad_summary_ids = set(ad_summary['ad_id'].astype(str))
+            missing_ads = ads_with_spend_ids - ad_summary_ids
+            
+            if missing_ads:
+                logging.info(f"Missing ads with spend: {len(missing_ads)}")
+                logging.info(f"Missing ad IDs: {list(missing_ads)[:10]}")  # Show first 10
+                
+                # Show spend for missing ads
+                missing_spend = ads_with_spend[ads_with_spend['ad_id'].astype(str).isin(missing_ads)]['spend'].sum()
+                logging.info(f"Total spend for missing ads: {missing_spend}")
+            else:
+                logging.info("No missing ads with spend")
+            logging.info("=== END MISSING ADS CHECK ===")
+        else:
+            # If no ads data, add empty columns
+            ad_summary['impressions'] = 0
+            ad_summary['clicks'] = 0
+            ad_summary['spend'] = 0
+            logging.info("No ads data available")
+        
+        # Calculate performance metrics
+        ad_summary['roas'] = np.where(ad_summary['spend'] > 0, 
+                                    (ad_summary['total_sales'] / ad_summary['spend']), 0)
+        ad_summary['ctr'] = np.where(ad_summary['impressions'] > 0, 
+                                   (ad_summary['clicks'] / ad_summary['impressions'] * 100), 0)
+        ad_summary['conversion_rate'] = np.where(ad_summary['clicks'] > 0, 
+                                               (ad_summary['orders'] / ad_summary['clicks'] * 100), 0)
+        ad_summary['avg_order_value'] = np.where(ad_summary['orders'] > 0, 
+                                               (ad_summary['total_sales'] / ad_summary['orders']), 0)
+        ad_summary['net_profit'] = ad_summary['total_sales'] - ad_summary['total_cogs'] - ad_summary['spend']
+        ad_summary['profit_margin'] = np.where(ad_summary['total_sales'] > 0, 
+                                             (ad_summary['net_profit'] / ad_summary['total_sales'] * 100), 0)
+        
+        # Sort by total sales descending
+        ad_summary = ad_summary.sort_values('total_sales', ascending=False)
+        
+        logging.info(f"Created ad-level summary with {len(ad_summary)} ads")
+        return ad_summary
+
     def save_results(self, results_df: pd.DataFrame, summary: Dict, output_prefix: str = "attribution_results") -> None:
         """
-        Save results to Excel file with multiple sheets.
+        Save results to Excel file with two sheets:
+        1. Raw_Attribution_Data: Unique orders with SKU column, price, and COGS
+        2. Ad_Level_Attributed_Orders: All ads with attributed orders at the ad level
         
         Args:
             results_df: DataFrame with attribution results
@@ -1012,209 +2022,83 @@ class AttributionEngine:
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         excel_file = f"{output_prefix}_{timestamp}.xlsx"
         
+        # Prepare data outside try block to avoid reference errors
+        # Sheet 1: Raw Attribution Data (unique orders with SKU column, price, COGS)
+        raw_data = results_df.copy()
+        
+        # Rename columns for clarity in the raw data sheet
+        raw_data = raw_data.rename(columns={
+            'order_value': 'price',
+            'total_cogs': 'cogs',
+            'skus': 'sku'  # This already contains comma-separated SKUs
+        })
+        
+        # Select relevant columns for the raw data sheet
+        raw_columns = [
+            'order_id', 'order_name', 'order_date', 'price', 'cogs', 'sku',
+            'campaign_name', 'adset_name', 'ad_name', 'channel', 'attribution_source'
+        ]
+        
+        # Filter to only include columns that exist
+        available_columns = [col for col in raw_columns if col in raw_data.columns]
+        raw_data_sheet = raw_data[available_columns]
+        
+        # Sheet 2: Ad Level Attributed Orders
+        ad_level_data = self.create_ad_level_summary(results_df)
+        ad_level_sheet = None
+        
+        if not ad_level_data.empty:
+            # Select relevant columns for the ad level sheet
+            ad_columns = [
+                'campaign_name', 'adset_name', 'ad_name', 'channel', 'attributed',
+                'orders', 'attributed_orders', 'total_sales', 'total_cogs', 'spend', 'net_profit',
+                'roas', 'ctr', 'conversion_rate', 'avg_order_value', 'profit_margin',
+                'impressions', 'clicks', 'all_skus', 'total_unique_skus', 'total_sku_quantity'
+            ]
+            
+            # Filter to only include columns that exist
+            available_ad_columns = [col for col in ad_columns if col in ad_level_data.columns]
+            ad_level_sheet = ad_level_data[available_ad_columns]
+        
         # Create Excel writer
         try:
             with pd.ExcelWriter(excel_file, engine='openpyxl') as writer:
                 
-                # Sheet 1: Raw Attribution Data (All Orders)
-                results_df.to_excel(writer, sheet_name='Raw_Attribution_Data', index=False)
+                # Save raw attribution data
+                raw_data_sheet.to_excel(writer, sheet_name='Raw_Attribution_Data', index=False)
                 logging.info(f"Saved raw attribution data to sheet 'Raw_Attribution_Data'")
                 
-                # Sheet 2: Channel Breakdown
-                summary['channel_breakdown'].to_excel(writer, sheet_name='Channel_Breakdown')
-                logging.info(f"Saved channel breakdown to sheet 'Channel_Breakdown'")
-                
-                # Sheet 3: Attribution Source Breakdown
-                summary['source_breakdown'].to_excel(writer, sheet_name='Attribution_Source_Breakdown')
-                logging.info(f"Saved attribution source breakdown to sheet 'Attribution_Source_Breakdown'")
-                
-                                # Sheet 4: Campaign Performance (if available)
-                if summary['campaign_performance'] is not None and not summary['campaign_performance'].empty:
-                    # Campaign Performance includes ad-level details (campaign_name, adset_name, ad_name)
-                    summary['campaign_performance'].to_excel(writer, sheet_name='Campaign_Performance')
-                    logging.info(f"Saved campaign performance (with ad-level details) to sheet 'Campaign_Performance'")
-                    
-                    # Sheet 4b: Campaign Summary (aggregated by campaign only)
-                    campaign_summary = summary['campaign_performance'].groupby(['campaign_name', 'channel']).agg({
-                        'orders': 'sum',
-                        'total_sales': 'sum',
-                        'total_cogs': 'sum',
-                        'ad_spend': 'sum',
-                        'ad_impressions': 'sum',
-                        'ad_clicks': 'sum',
-                        'shopify_purchases': 'sum',
-                        'shopify_revenue': 'sum'
-                    }).reset_index()
-                    campaign_summary['roas'] = np.where(campaign_summary['ad_spend'] > 0, 
-                                                   (campaign_summary['shopify_revenue'] / campaign_summary['ad_spend']), 0)
-                    campaign_summary['ctr'] = np.where(campaign_summary['ad_impressions'] > 0, 
-                                                  (campaign_summary['ad_clicks'] / campaign_summary['ad_impressions'] * 100), 0)
-                    campaign_summary['conversion_rate'] = np.where(campaign_summary['ad_clicks'] > 0, 
-                                                              (campaign_summary['shopify_purchases'] / campaign_summary['ad_clicks'] * 100), 0)
-                    campaign_summary['avg_order_value'] = np.where(campaign_summary['shopify_purchases'] > 0, 
-                                                              (campaign_summary['shopify_revenue'] / campaign_summary['shopify_purchases']), 0)
-                    campaign_summary = campaign_summary.sort_values('total_sales', ascending=False)
-                    campaign_summary.to_excel(writer, sheet_name='Campaign_Summary', index=False)
-                    logging.info(f"Saved campaign summary to sheet 'Campaign_Summary'")
-                    
-                    # Sheet 4c: Ad-Level Performance (detailed ad breakdown)
-                    ad_performance = summary['campaign_performance'].groupby(['campaign_name', 'adset_name', 'ad_name', 'channel']).agg({
-                        'orders': 'sum',
-                        'total_sales': 'sum',
-                        'total_cogs': 'sum',
-                        'ad_spend': 'first',
-                        'ad_impressions': 'first',
-                        'ad_clicks': 'first',
-                        'shopify_purchases': 'sum',
-                        'shopify_revenue': 'sum'
-                    }).reset_index()
-                    ad_performance['roas'] = np.where(ad_performance['ad_spend'] > 0, 
-                                                     (ad_performance['shopify_revenue'] / ad_performance['ad_spend']), 0)
-                    ad_performance['ctr'] = np.where(ad_performance['ad_impressions'] > 0, 
-                                                    (ad_performance['ad_clicks'] / ad_performance['ad_impressions'] * 100), 0)
-                    ad_performance['conversion_rate'] = np.where(ad_performance['ad_clicks'] > 0, 
-                                                                (ad_performance['shopify_purchases'] / ad_performance['ad_clicks'] * 100), 0)
-                    ad_performance['avg_order_value'] = np.where(ad_performance['shopify_purchases'] > 0, 
-                                                                (ad_performance['shopify_revenue'] / ad_performance['shopify_purchases']), 0)
-                    ad_performance = ad_performance.sort_values('total_sales', ascending=False)
-                    ad_performance.to_excel(writer, sheet_name='Ad_Level_Performance', index=False)
-                    logging.info(f"Saved ad-level performance to sheet 'Ad_Level_Performance'")
-                    
-                    # Sheet 4d: SKU-Level Performance (SKU breakdown by channel/campaign)
-                    if not results_df.empty:
-                        # Create SKU-level analysis by expanding the SKU lists
-                        sku_data = []
-                        for _, row in results_df.iterrows():
-                            if row['skus'] and row['is_attributed']:
-                                # Get the line items data for this order to calculate proper SKU values
-                                order_line_items = self.orders_df[self.orders_df['order_id'] == row['order_id']]
-                                
-                                # Create a mapping of SKU to its actual revenue and COGS
-                                sku_revenue_map = {}
-                                sku_cogs_map = {}
-                                
-                                for _, line_item in order_line_items.iterrows():
-                                    sku = line_item.get('sku')
-                                    if sku:
-                                        quantity = line_item.get('quantity', 0) or 0
-                                        unit_price = line_item.get('discounted_unit_price_amount', 0) or line_item.get('original_unit_price_amount', 0) or 0
-                                        unit_cost = line_item.get('unit_cost_amount', 0) or 0
-                                        
-                                        sku_revenue = quantity * unit_price
-                                        sku_cogs = quantity * unit_cost
-                                        
-                                        sku_revenue_map[sku] = sku_revenue_map.get(sku, 0) + sku_revenue
-                                        sku_cogs_map[sku] = sku_cogs_map.get(sku, 0) + sku_cogs
-                                
-                                # Now add each SKU with its actual revenue and COGS
-                                sku_list = [sku.strip() for sku in row['skus'].split(',')]
-                                for sku in sku_list:
-                                    sku_data.append({
-                                        'sku': sku,
-                                        'order_id': row['order_id'],
-                                        'sku_revenue': sku_revenue_map.get(sku, 0),  # Actual SKU revenue
-                                        'sku_cogs': sku_cogs_map.get(sku, 0),        # Actual SKU COGS
-                                        'channel': row['channel'],
-                                        'campaign_name': row['campaign_name'],
-                                        'adset_name': row['adset_name'],
-                                        'ad_name': row['ad_name'],
-                                        'attribution_source': row['attribution_source']
-                                    })
-                        
-                        if sku_data:
-                            sku_df = pd.DataFrame(sku_data)
-                            sku_performance = sku_df.groupby(['sku', 'channel', 'campaign_name']).agg({
-                                'order_id': 'count',
-                                'sku_revenue': 'sum',  # Sum actual SKU revenue
-                                'sku_cogs': 'sum'      # Sum actual SKU COGS
-                            }).reset_index()
-                            sku_performance = sku_performance.rename(columns={'order_id': 'orders'})
-                            sku_performance = sku_performance.sort_values('sku_revenue', ascending=False)
-                            sku_performance.to_excel(writer, sheet_name='SKU_Performance', index=False)
-                            logging.info(f"Saved SKU performance to sheet 'SKU_Performance'")
-                        else:
-                            logging.info("No SKU data available - skipping SKU_Performance sheet")
-                    else:
-                        logging.info("No orders data available - skipping SKU_Performance sheet")
+                # Save ad level data if available
+                if ad_level_sheet is not None and not ad_level_sheet.empty:
+                    ad_level_sheet.to_excel(writer, sheet_name='Ad_Level_Attributed_Orders', index=False)
+                    logging.info(f"Saved ad-level attributed orders to sheet 'Ad_Level_Attributed_Orders'")
                 else:
-                    logging.info("No campaign performance data available - skipping campaign sheets")
-                
-                # Sheet 5: Summary Statistics
-                total_cogs = results_df['total_cogs'].sum() if not results_df.empty else 0
-                
-                # Calculate SKU statistics
-                total_sku_quantity = results_df['total_sku_quantity'].sum() if not results_df.empty else 0
-                unique_skus = set()
-                if not results_df.empty:
-                    for skus_str in results_df['skus'].dropna():
-                        if skus_str:
-                            sku_list = [sku.strip() for sku in skus_str.split(',')]
-                            unique_skus.update(sku_list)
-                total_unique_skus = len(unique_skus)
-                
-                summary_stats = {
-                    'Metric': [
-                        'Total Orders', 'Total Revenue', 'Total COGS', 'Total SKU Quantity', 
-                        'Total Unique SKUs', 'Attributed Orders', 'Attribution Rate (%)'
-                    ],
-            'Value': [
-                summary['total_orders'],
-                
-                summary['total_revenue'],
-                        total_cogs,
-                        total_sku_quantity,
-                        total_unique_skus,
-                summary['attributed_orders'],
-                summary['attribution_rate']
-            ]
-        }
-                pd.DataFrame(summary_stats).to_excel(writer, sheet_name='Summary_Statistics', index=False)
-                logging.info(f"Saved summary statistics to sheet 'Summary_Statistics'")
-                
-                # Sheet 6: Attributed Orders Only (for easier analysis)
-                if not results_df.empty:
-                    attributed_orders = results_df[results_df['is_attributed'] == True]
-                    if not attributed_orders.empty:
-                        attributed_orders.to_excel(writer, sheet_name='Attributed_Orders_Only', index=False)
-                        logging.info(f"Saved attributed orders only to sheet 'Attributed_Orders_Only'")
-                    else:
-                        logging.info("No attributed orders available - skipping Attributed_Orders_Only sheet")
-                else:
-                    logging.info("No orders data available - skipping Attributed_Orders_Only sheet")
-                
-                # Sheet 7: Unattributed Orders (for investigation)
-                if not results_df.empty:
-                    unattributed_orders = results_df[results_df['is_attributed'] == False]
-                    if not unattributed_orders.empty:
-                        unattributed_orders.to_excel(writer, sheet_name='Unattributed_Orders', index=False)
-                        logging.info(f"Saved unattributed orders to sheet 'Unattributed_Orders'")
-                    else:
-                        logging.info("No unattributed orders available - skipping Unattributed_Orders sheet")
-                else:
-                    logging.info("No orders data available - skipping Unattributed_Orders sheet")
-                
-                # Sheet 8: Raw Data Investigation (sample of orders with JSON data)
-                investigation_data = self.create_investigation_data()
-                if not investigation_data.empty:
-                    investigation_data.to_excel(writer, sheet_name='Raw_Data_Investigation', index=False)
-                    logging.info(f"Saved raw data investigation to sheet 'Raw_Data_Investigation'")
-                else:
-                    logging.info("No investigation data available - skipping Raw_Data_Investigation sheet")
+                    logging.info("No ad-level data to save")
             
-            logging.info(f"Saved all results to Excel file: {excel_file}")
+            logging.info(f"Saved attribution results to Excel file: {excel_file}")
             
         except Exception as e:
             logging.error(f"Error saving Excel file: {e}")
-            # Fallback to CSV only
+            # Fallback to CSV files
             results_file = f"{output_prefix}_{timestamp}.csv"
-            results_df.to_csv(results_file, index=False)
-            logging.info(f"Fallback: Saved results to CSV file: {results_file}")
+            raw_data_sheet.to_csv(results_file, index=False)
+            logging.info(f"Fallback: Saved raw data to CSV file: {results_file}")
+            
+            if ad_level_sheet is not None and not ad_level_sheet.empty:
+                ad_file = f"{output_prefix}_ad_level_{timestamp}.csv"
+                ad_level_sheet.to_csv(ad_file, index=False)
+                logging.info(f"Fallback: Saved ad-level data to CSV file: {ad_file}")
             raise
         
         # Also save individual CSV files for compatibility
-        results_file = f"{output_prefix}_{timestamp}.csv"
-        results_df.to_csv(results_file, index=False)
-        logging.info(f"Also saved detailed results to CSV: {results_file}")
+        raw_csv_file = f"{output_prefix}_raw_{timestamp}.csv"
+        raw_data_sheet.to_csv(raw_csv_file, index=False)
+        logging.info(f"Also saved raw data to CSV: {raw_csv_file}")
+        
+        if ad_level_sheet is not None and not ad_level_sheet.empty:
+            ad_csv_file = f"{output_prefix}_ad_level_{timestamp}.csv"
+            ad_level_sheet.to_csv(ad_csv_file, index=False)
+            logging.info(f"Also saved ad-level data to CSV: {ad_csv_file}")
     
     def run_attribution_analysis(self, output_prefix: str = "attribution_results") -> Tuple[pd.DataFrame, Dict]:
         """
@@ -1465,8 +2349,7 @@ def test_database_connection(db_config: Dict, start_date: str = None, end_date: 
         return False
 
 
-
-
-
 if __name__ == "__main__":
     main()
+
+

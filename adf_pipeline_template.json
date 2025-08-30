@@ -1,0 +1,416 @@
+{
+    "name": "AttributionAnalysisPipeline",
+    "type": "Microsoft.DataFactory/factories/pipelines",
+    "properties": {
+        "description": "Attribution Analysis Pipeline - Processes attribution data and stores in PostgreSQL",
+        "activities": [
+            {
+                "name": "GetPipelineParameters",
+                "type": "Lookup",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "PostgreSqlSource",
+                        "query": "SELECT start_date, end_date, time_range_days FROM pipeline_parameters WHERE is_active = true ORDER BY created_at DESC LIMIT 1"
+                    },
+                    "dataset": {
+                        "referenceName": "PipelineParameters",
+                        "type": "DatasetReference"
+                    },
+                    "firstRowOnly": true
+                }
+            },
+            {
+                "name": "SetDateVariables",
+                "type": "SetVariable",
+                "dependsOn": [
+                    {
+                        "activity": "GetPipelineParameters",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "variableName": "startDate",
+                    "value": {
+                        "value": "@activity('GetPipelineParameters').output.firstRow.start_date",
+                        "type": "Expression"
+                    }
+                }
+            },
+            {
+                "name": "SetEndDateVariable",
+                "type": "SetVariable",
+                "dependsOn": [
+                    {
+                        "activity": "GetPipelineParameters",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "variableName": "endDate",
+                    "value": {
+                        "value": "@activity('GetPipelineParameters').output.firstRow.end_date",
+                        "type": "Expression"
+                    }
+                }
+            },
+            {
+                "name": "SetTimeRangeVariable",
+                "type": "SetVariable",
+                "dependsOn": [
+                    {
+                        "activity": "GetPipelineParameters",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "variableName": "timeRangeDays",
+                    "value": {
+                        "value": "@activity('GetPipelineParameters').output.firstRow.time_range_days",
+                        "type": "Expression"
+                    }
+                }
+            },
+            {
+                "name": "LogPipelineStart",
+                "type": "StoredProcedure",
+                "dependsOn": [
+                    {
+                        "activity": "SetTimeRangeVariable",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "storedProcedureName": "log_pipeline_start",
+                    "storedProcedureParameters": {
+                        "pipeline_name": {
+                            "value": "@pipeline().Pipeline",
+                            "type": "String"
+                        },
+                        "pipeline_run_id": {
+                            "value": "@pipeline().RunId",
+                            "type": "String"
+                        },
+                        "batch_id": {
+                            "value": "@guid()",
+                            "type": "String"
+                        },
+                        "start_date": {
+                            "value": "@variables('startDate')",
+                            "type": "String"
+                        },
+                        "end_date": {
+                            "value": "@variables('endDate')",
+                            "type": "String"
+                        }
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "PostgreSQL_Attribution",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "ExecuteAttributionAnalysis",
+                "type": "AzureFunctionActivity",
+                "dependsOn": [
+                    {
+                        "activity": "LogPipelineStart",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 2,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "functionName": "attribution-analysis",
+                    "method": "POST",
+                    "body": {
+                        "start_date": "@variables('startDate')",
+                        "end_date": "@variables('endDate')",
+                        "time_range_days": "@variables('timeRangeDays')",
+                        "pipeline_name": "@pipeline().Pipeline",
+                        "pipeline_run_id": "@pipeline().RunId",
+                        "batch_id": "@activity('LogPipelineStart').output.batch_id"
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "AzureFunction_Attribution",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "ValidateDataQuality",
+                "type": "StoredProcedure",
+                "dependsOn": [
+                    {
+                        "activity": "ExecuteAttributionAnalysis",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "storedProcedureName": "validate_attribution_data_quality",
+                    "storedProcedureParameters": {
+                        "batch_id": {
+                            "value": "@activity('LogPipelineStart').output.batch_id",
+                            "type": "String"
+                        }
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "PostgreSQL_Attribution",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "UpdateAnalyticalViews",
+                "type": "StoredProcedure",
+                "dependsOn": [
+                    {
+                        "activity": "ValidateDataQuality",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "storedProcedureName": "refresh_analytical_views",
+                    "storedProcedureParameters": {
+                        "batch_id": {
+                            "value": "@activity('LogPipelineStart').output.batch_id",
+                            "type": "String"
+                        }
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "PostgreSQL_Attribution",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "LogPipelineSuccess",
+                "type": "StoredProcedure",
+                "dependsOn": [
+                    {
+                        "activity": "UpdateAnalyticalViews",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "storedProcedureName": "log_pipeline_success",
+                    "storedProcedureParameters": {
+                        "batch_id": {
+                            "value": "@activity('LogPipelineStart').output.batch_id",
+                            "type": "String"
+                        },
+                        "total_orders": {
+                            "value": "@activity('ExecuteAttributionAnalysis').output.total_orders",
+                            "type": "Int32"
+                        },
+                        "total_ads": {
+                            "value": "@activity('ExecuteAttributionAnalysis').output.total_ads",
+                            "type": "Int32"
+                        },
+                        "attributed_orders": {
+                            "value": "@activity('ExecuteAttributionAnalysis').output.attributed_orders",
+                            "type": "Int32"
+                        },
+                        "total_spend": {
+                            "value": "@activity('ExecuteAttributionAnalysis').output.total_spend",
+                            "type": "Decimal"
+                        },
+                        "total_sales": {
+                            "value": "@activity('ExecuteAttributionAnalysis').output.total_sales",
+                            "type": "Decimal"
+                        },
+                        "quality_score": {
+                            "value": "@activity('ValidateDataQuality').output.quality_score",
+                            "type": "Decimal"
+                        }
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "PostgreSQL_Attribution",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "SendSuccessNotification",
+                "type": "WebActivity",
+                "dependsOn": [
+                    {
+                        "activity": "LogPipelineSuccess",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "url": "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK",
+                    "method": "POST",
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "body": {
+                        "text": "✅ Attribution Analysis Pipeline Completed Successfully\n\n📊 **Pipeline Details:**\n• Pipeline: @{pipeline().Pipeline}\n• Run ID: @{pipeline().RunId}\n• Batch ID: @{activity('LogPipelineStart').output.batch_id}\n• Date Range: @{variables('startDate')} to @{variables('endDate')}\n\n📈 **Results:**\n• Total Orders: @{activity('ExecuteAttributionAnalysis').output.total_orders}\n• Total Ads: @{activity('ExecuteAttributionAnalysis').output.total_ads}\n• Attributed Orders: @{activity('ExecuteAttributionAnalysis').output.attributed_orders}\n• Total Spend: ₹@{activity('ExecuteAttributionAnalysis').output.total_spend}\n• Total Sales: ₹@{activity('ExecuteAttributionAnalysis').output.total_sales}\n• Data Quality Score: @{activity('ValidateDataQuality').output.quality_score}%\n\n⏱️ **Execution Time:** @{div(sub(activity('LogPipelineSuccess').output.execution_end_time, activity('LogPipelineStart').output.execution_start_time), 1000)} seconds"
+                    }
+                }
+            },
+            {
+                "name": "LogPipelineFailure",
+                "type": "StoredProcedure",
+                "dependsOn": [
+                    {
+                        "activity": "ExecuteAttributionAnalysis",
+                        "dependencyConditions": [
+                            "Failed"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "storedProcedureName": "log_pipeline_failure",
+                    "storedProcedureParameters": {
+                        "batch_id": {
+                            "value": "@activity('LogPipelineStart').output.batch_id",
+                            "type": "String"
+                        },
+                        "error_message": {
+                            "value": "@activity('ExecuteAttributionAnalysis').error.message",
+                            "type": "String"
+                        }
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "PostgreSQL_Attribution",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "SendFailureNotification",
+                "type": "WebActivity",
+                "dependsOn": [
+                    {
+                        "activity": "LogPipelineFailure",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "url": "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK",
+                    "method": "POST",
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "body": {
+                        "text": "❌ Attribution Analysis Pipeline Failed\n\n📊 **Pipeline Details:**\n• Pipeline: @{pipeline().Pipeline}\n• Run ID: @{pipeline().RunId}\n• Batch ID: @{activity('LogPipelineStart').output.batch_id}\n• Date Range: @{variables('startDate')} to @{variables('endDate')}\n\n🚨 **Error Details:**\n• Error: @{activity('ExecuteAttributionAnalysis').error.message}\n• Activity: @{activity('ExecuteAttributionAnalysis').name}\n\n⏱️ **Execution Time:** @{div(sub(utcnow(), activity('LogPipelineStart').output.execution_start_time), 1000)} seconds\n\n🔧 **Next Steps:**\n• Check pipeline logs for detailed error information\n• Verify source data availability\n• Review database connectivity\n• Contact data engineering team if issue persists"
+                    }
+                }
+            }
+        ],
+        "variables": {
+            "startDate": {
+                "type": "String"
+            },
+            "endDate": {
+                "type": "String"
+            },
+            "timeRangeDays": {
+                "type": "String"
+            }
+        },
+        "annotations": [
+            "attribution",
+            "analytics",
+            "marketing",
+            "postgresql"
+        ],
+        "lastPublishTime": "2025-01-01T00:00:00Z"
+    }
+}
