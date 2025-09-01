@@ -2127,7 +2127,7 @@ class AttributionEngine:
 
         ads['date_only'] = pd.to_datetime(ads['date_start']).dt.date
         # Normalize hourly_window into canonical 'HH:00:00 - HH:59:59'
-        ads['hour_label'] = ads['hourly_window'].apply(self._normalize_hour_window)
+        ads['hour_label'] = ads['hourly_window'].apply(self._normalize_hourly_window)
 
         # Keep only true hourly rows (hour_label present)
         hourly_ads = ads[ads['hour_label'].notna()].copy()

@@ -1,89 +1,123 @@
-2025-09-01 18:05:35,569 - INFO - Attribution Engine initialized with 30 days lookback
-2025-09-01 18:05:35,569 - INFO - Starting complete attribution analysis...
-2025-09-01 18:05:35,570 - INFO - Connected to PostgreSQL database successfully
-2025-09-01 18:05:35,570 - INFO - Using date range: 2025-07-01 to 2025-07-30
-2025-09-01 18:05:35,570 - INFO - Loading Shopify orders data from PostgreSQL...
-2025-09-01 18:05:36,494 - INFO - Loaded 1271 orders from PostgreSQL
-2025-09-01 18:05:36,495 - INFO - Orders date range (IST): 2025-07-01 00:59:44+0530 to 2025-07-30 23:59:56+0530
-2025-09-01 18:05:36,495 - INFO - Sample order columns: ['order_id', 'order_name', 'created_at', 'processed_at', 'updated_at', 'closed_at', 'cancelled_at', 'total_price_amount', 'total_price_currency', 'total_shipping_amount', 'total_shipping_currency', 'display_fulfillment_status', 'ship_city', 'ship_province', 'ship_country', 'customer_referrer_url', 'customer_utm_source', 'customer_utm_medium', 'customer_utm_campaign', 'customer_utm_content', 'customer_utm_term', 'created_at_ist', 'processed_at_ist', 'updated_at_ist', 'closed_at_ist', 'cancelled_at_ist', 'customer_journey', 'custom_attributes', 'item_id', 'product_title', 'quantity', 'original_unit_price_amount', 'original_unit_price_currency', 'discounted_unit_price_amount', 'discounted_unit_price_currency', 'variant_id', 'sku', 'variant_title', 'unit_cost_amount', 'unit_cost_currency', 'product_id', 'variant_product_title', 'vendor', 'selling_price']
-2025-09-01 18:05:36,495 - INFO - Loading ad insights data from PostgreSQL...
-2025-09-01 18:05:36,929 - INFO - Loaded 24066 ad records from PostgreSQL
-2025-09-01 18:05:36,931 - INFO - Ads date range: 2025-07-01 to 2025-07-30
-2025-09-01 18:05:36,931 - INFO - Sample ads columns: ['campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name', 'date_start', 'date_stop', 'hourly_window', 'impressions', 'clicks', 'spend', 'cpm', 'cpc', 'ctr', 'action_onsite_web_purchase', 'value_onsite_web_purchase', 'action_onsite_web_add_to_cart', 'action_onsite_web_initiate_checkout', 'action_onsite_web_view_content', 'action_link_click']
-2025-09-01 18:05:36,935 - INFO - Data loaded successfully: 1271 orders and 24066 ad records
-2025-09-01 18:05:36,935 - INFO - Starting attribution processing...
-2025-09-01 18:05:36,935 - INFO - Rolling up hourly ad data to daily level...
-2025-09-01 18:05:36,947 - INFO - Rolled up to 1852 daily ad records
-2025-09-01 18:05:36,947 - INFO - Available ad data: 1852 records
-2025-09-01 18:05:36,947 - INFO - Ad ID range: 120220003148360783 to 120229049400850783
-2025-09-01 18:05:36,947 - INFO - Campaign ID range: 120218303994450783 to 120229049400810783
-2025-09-01 18:05:36,947 - INFO - Adset ID range: 120219313253170783 to 120229049400870783
-2025-09-01 18:05:36,948 - INFO - Sample ad names: ['TH-036-PAWTR-ET139-SP368', 'TH-012-SNUGBOO_NT101_NT203 – Copy', 'TH-012-SNUGBOO_Static', 'TH-068-WILD_Static', 'TH-036FMB-ET101-SI210-ET137-ET139 – Copy']
-2025-09-01 18:05:36,948 - INFO - Sample campaign names: ['TH - Remarketing - Video - India - IG & FB - Sales - 29/03/2025', 'R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025', 'R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025', 'R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025', 'TH - E2 RPP - Video - India - IG & FB - Sales - 04/05/2025']
-2025-09-01 18:05:36,950 - INFO - Processing 897 unique orders with line items...
-2025-09-01 18:05:36,952 - INFO - Processing order gid://shopify/Order/6336349339737: 1 line items, customer_journey type=<class 'dict'>, custom_attributes type=<class 'list'>
-2025-09-01 18:05:36,952 - INFO - Order gid://shopify/Order/6336349339737 channel classification: Source='ig', Medium='120221341262910783', Campaign='120221343090860783' → Channel='Meta'
-2025-09-01 18:05:36,952 - INFO - Order gid://shopify/Order/6336349339737 attribution: {'source': 'ig', 'medium': '120221341262910783', 'campaign': '120221343090860783', 'content': '120221343090860783', 'term': '120221341262900783', 'attribution_id': '120221343090860783', 'attribution_type': 'content'}
-2025-09-01 18:05:36,954 - INFO - Order gid://shopify/Order/6336349339737 campaign match: TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025 - TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2
-2025-09-01 18:05:36,954 - INFO - Processing order gid://shopify/Order/6336356057177: 1 line items, customer_journey type=<class 'dict'>, custom_attributes type=<class 'list'>
-2025-09-01 18:05:36,954 - INFO - Order gid://shopify/Order/6336356057177 channel classification: Source='ig', Medium='120226643827580783', Campaign='120226643827570783' → Channel='Meta'
-2025-09-01 18:05:36,954 - INFO - Order gid://shopify/Order/6336356057177 attribution: {'source': 'ig', 'medium': '120226643827580783', 'campaign': '120226643827570783', 'content': '120226643827550783', 'term': '120226643827570783', 'attribution_id': '120226643827550783', 'attribution_type': 'content'}
-2025-09-01 18:05:36,956 - INFO - Order gid://shopify/Order/6336356057177 campaign match: TH-063-SILBOO - TH-063-SILBOO
-2025-09-01 18:05:36,956 - INFO - Processing order gid://shopify/Order/6336447873113: 1 line items, customer_journey type=<class 'dict'>, custom_attributes type=<class 'list'>
-2025-09-01 18:05:36,956 - INFO - Order gid://shopify/Order/6336447873113 channel classification: Source='facebook', Medium='paid', Campaign='120219910470100783' → Channel='Meta'
-2025-09-01 18:05:36,956 - INFO - Order gid://shopify/Order/6336447873113 attribution: {'source': 'facebook', 'medium': 'paid', 'campaign': '120219910470100783', 'content': 'Facebook_UA', 'term': '120219910470110783', 'attribution_id': 'Facebook_UA', 'attribution_type': 'content'}
-2025-09-01 18:05:36,957 - INFO - Order gid://shopify/Order/6336447873113 campaign match: Unknown Campaign - Meta - Unknown Ad - Meta
-2025-09-01 18:05:36,957 - INFO - Order gid://shopify/Order/6337000931417 channel classification: Source='ig', Medium='120226390275250783', Campaign='120226390275230783' → Channel='Meta'
-2025-09-01 18:05:36,957 - INFO - Order gid://shopify/Order/6337000931417 attribution: {'source': 'ig', 'medium': '120226390275250783', 'campaign': '120226390275230783', 'content': '120226390275200783', 'term': '120226390275230783', 'attribution_id': '120226390275200783', 'attribution_type': 'content'}
-2025-09-01 18:05:36,958 - INFO - Order gid://shopify/Order/6337000931417 campaign match: TH-053-JACKET - TH-053-JACKET_ET156_IM259
-2025-09-01 18:05:36,958 - INFO - Order gid://shopify/Order/6337018429529 channel classification: Source='ig', Medium='120218303994450783', Campaign='120219313253170783' → Channel='Meta'
-2025-09-01 18:05:36,958 - INFO - Order gid://shopify/Order/6337018429529 attribution: {'source': 'ig', 'medium': '120218303994450783', 'campaign': '120219313253170783', 'content': '120220327473500783', 'term': '120219313253170783', 'attribution_id': '120220327473500783', 'attribution_type': 'content'}
-2025-09-01 18:05:36,959 - INFO - Order gid://shopify/Order/6337018429529 campaign match: TH - Remarketing - Video - India - IG & FB - Sales - 29/03/2025 - TH-036-PAWTR-ET139-SP368
-2025-09-01 18:05:37,075 - INFO - Processed 100/897 orders...
-2025-09-01 18:05:37,195 - INFO - Processed 200/897 orders...
-2025-09-01 18:05:37,311 - INFO - Processed 300/897 orders...
-2025-09-01 18:05:37,435 - INFO - Processed 400/897 orders...
-2025-09-01 18:05:37,537 - INFO - Processed 500/897 orders...
-2025-09-01 18:05:37,652 - INFO - Processed 600/897 orders...
-2025-09-01 18:05:37,767 - INFO - Processed 700/897 orders...
-2025-09-01 18:05:37,873 - INFO - Processed 800/897 orders...
-2025-09-01 18:05:37,978 - INFO - Completed attribution processing for 897 orders
-2025-09-01 18:05:37,981 - INFO - Attribution matching summary: 782/897 orders matched to campaigns (87.2%)
-2025-09-01 18:05:37,985 - INFO - Channel classification summary:
-2025-09-01 18:05:37,985 - INFO -   Meta: 704 orders
-2025-09-01 18:05:37,985 - INFO -   Direct: 115 orders
-2025-09-01 18:05:37,985 - INFO -   Google: 78 orders
-2025-09-01 18:05:37,986 - INFO - Sample Meta orders:
-2025-09-01 18:05:37,986 - INFO -   Order gid://shopify/Order/6336349339737: UTM Source='ig', UTM Medium='120221341262910783'
-2025-09-01 18:05:37,986 - INFO -   Order gid://shopify/Order/6336356057177: UTM Source='ig', UTM Medium='120226643827580783'
-2025-09-01 18:05:37,986 - INFO -   Order gid://shopify/Order/6336447873113: UTM Source='facebook', UTM Medium='paid'
-2025-09-01 18:05:37,986 - INFO - Sample Google orders:
-2025-09-01 18:05:37,986 - INFO -   Order gid://shopify/Order/6338706800729: UTM Source='google', UTM Medium='product_sync'
-2025-09-01 18:05:37,986 - INFO -   Order gid://shopify/Order/6338723381337: UTM Source='google', UTM Medium='product_sync'
-2025-09-01 18:05:37,986 - INFO -   Order gid://shopify/Order/6338807332953: UTM Source='google', UTM Medium='product_sync'
-2025-09-01 18:05:37,987 - INFO - Sample Direct orders:
-2025-09-01 18:05:37,987 - INFO -   Order gid://shopify/Order/6337075478617: UTM Source='None', UTM Medium='None'
-2025-09-01 18:05:37,987 - INFO -   Order gid://shopify/Order/6337173356633: UTM Source='None', UTM Medium='None'
-2025-09-01 18:05:37,987 - INFO -   Order gid://shopify/Order/6337829732441: UTM Source='None', UTM Medium='None'
-2025-09-01 18:05:37,988 - INFO - Organic orders count: 0
-2025-09-01 18:05:37,988 - INFO - Google orders count: 78
-2025-09-01 18:05:37,988 - INFO - Meta orders count: 704
-2025-09-01 18:05:37,988 - INFO - Direct orders count: 115
-2025-09-01 18:05:37,988 - INFO - Sample Google order UTM: Source='google', Medium='product_sync'
-2025-09-01 18:05:37,988 - INFO - Sample Meta order UTM: Source='ig', Medium='120221341262910783', Campaign='120221343090860783'
-2025-09-01 18:05:37,988 - INFO - Sample Direct order UTM: Source='None', Medium='None', Campaign='None'
-2025-09-01 18:05:37,995 - INFO - Generating summary report...
-2025-09-01 18:05:37,995 - INFO - Results DataFrame shape: (897, 32)
-2025-09-01 18:05:37,995 - INFO - Results DataFrame columns: ['order_id', 'order_name', 'order_date', 'order_value', 'order_currency', 'ship_city', 'ship_province', 'ship_country', 'total_cogs', 'line_items_count', 'skus', 'unique_skus_count', 'total_sku_quantity', 'channel', 'attribution_source', 'attribution_id', 'attribution_type', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name', 'has_customer_journey', 'has_custom_attributes', 'is_attributed', 'is_paid_channel']
-2025-09-01 18:05:37,995 - INFO - is_attributed column dtype: bool
-2025-09-01 18:05:37,996 - INFO - is_attributed unique values: [ True False]
-2025-09-01 18:05:37,996 - INFO - is_attributed sample values: [True, True, True, True, True]
-2025-09-01 18:05:37,998 - INFO - Rolling up hourly ad data to daily level...
-2025-09-01 18:05:38,006 - INFO - Rolled up to 1852 daily ad records
-2025-09-01 18:05:38,007 - INFO - Before aggregation - daily_ads shape: (1852, 19)
-2025-09-01 18:05:38,007 - INFO - Before aggregation - campaign_performance shape: (106, 7)
-2025-09-01 18:05:38,008 - INFO - After aggregation - daily_ads_aggregated shape: (230, 6)
-2025-09-01 18:05:38,010 - INFO - After join - campaign_performance shape: (106, 10)
-2025-09-01 18:05:38,011 - INFO - Summary: 897 orders, 87.2% attribution rate
-2025-09-01 18:05:38,012 - INFO - Creating granular insights (deduped, hour-bucketed)...
-2025-09-01 18:05:38,037 - ERROR - Analysis failed: 'AttributionEngine' object has no attribute '_normalize_hour_window'
+2025-09-01 18:07:02,892 - INFO - Attribution Engine initialized with 30 days lookback
+2025-09-01 18:07:02,892 - INFO - Starting complete attribution analysis...
+2025-09-01 18:07:02,893 - INFO - Connected to PostgreSQL database successfully
+2025-09-01 18:07:02,893 - INFO - Using date range: 2025-07-01 to 2025-07-30
+2025-09-01 18:07:02,893 - INFO - Loading Shopify orders data from PostgreSQL...
+2025-09-01 18:07:04,345 - INFO - Loaded 1271 orders from PostgreSQL
+2025-09-01 18:07:04,347 - INFO - Orders date range (IST): 2025-07-01 00:59:44+0530 to 2025-07-30 23:59:56+0530
+2025-09-01 18:07:04,347 - INFO - Sample order columns: ['order_id', 'order_name', 'created_at', 'processed_at', 'updated_at', 'closed_at', 'cancelled_at', 'total_price_amount', 'total_price_currency', 'total_shipping_amount', 'total_shipping_currency', 'display_fulfillment_status', 'ship_city', 'ship_province', 'ship_country', 'customer_referrer_url', 'customer_utm_source', 'customer_utm_medium', 'customer_utm_campaign', 'customer_utm_content', 'customer_utm_term', 'created_at_ist', 'processed_at_ist', 'updated_at_ist', 'closed_at_ist', 'cancelled_at_ist', 'customer_journey', 'custom_attributes', 'item_id', 'product_title', 'quantity', 'original_unit_price_amount', 'original_unit_price_currency', 'discounted_unit_price_amount', 'discounted_unit_price_currency', 'variant_id', 'sku', 'variant_title', 'unit_cost_amount', 'unit_cost_currency', 'product_id', 'variant_product_title', 'vendor', 'selling_price']
+2025-09-01 18:07:04,347 - INFO - Loading ad insights data from PostgreSQL...
+2025-09-01 18:07:04,971 - INFO - Loaded 24066 ad records from PostgreSQL
+2025-09-01 18:07:04,972 - INFO - Ads date range: 2025-07-01 to 2025-07-30
+2025-09-01 18:07:04,972 - INFO - Sample ads columns: ['campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name', 'date_start', 'date_stop', 'hourly_window', 'impressions', 'clicks', 'spend', 'cpm', 'cpc', 'ctr', 'action_onsite_web_purchase', 'value_onsite_web_purchase', 'action_onsite_web_add_to_cart', 'action_onsite_web_initiate_checkout', 'action_onsite_web_view_content', 'action_link_click']
+2025-09-01 18:07:04,976 - INFO - Data loaded successfully: 1271 orders and 24066 ad records
+2025-09-01 18:07:04,976 - INFO - Starting attribution processing...
+2025-09-01 18:07:04,976 - INFO - Rolling up hourly ad data to daily level...
+2025-09-01 18:07:04,986 - INFO - Rolled up to 1852 daily ad records
+2025-09-01 18:07:04,986 - INFO - Available ad data: 1852 records
+2025-09-01 18:07:04,986 - INFO - Ad ID range: 120220003148360783 to 120229049400850783
+2025-09-01 18:07:04,986 - INFO - Campaign ID range: 120218303994450783 to 120229049400810783
+2025-09-01 18:07:04,986 - INFO - Adset ID range: 120219313253170783 to 120229049400870783
+2025-09-01 18:07:04,986 - INFO - Sample ad names: ['TH-036-PAWTR-ET139-SP368', 'TH-012-SNUGBOO_NT101_NT203 – Copy', 'TH-012-SNUGBOO_Static', 'TH-068-WILD_Static', 'TH-036FMB-ET101-SI210-ET137-ET139 – Copy']
+2025-09-01 18:07:04,986 - INFO - Sample campaign names: ['TH - Remarketing - Video - India - IG & FB - Sales - 29/03/2025', 'R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025', 'R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025', 'R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025', 'TH - E2 RPP - Video - India - IG & FB - Sales - 04/05/2025']
+2025-09-01 18:07:04,989 - INFO - Processing 897 unique orders with line items...
+2025-09-01 18:07:04,990 - INFO - Processing order gid://shopify/Order/6336349339737: 1 line items, customer_journey type=<class 'dict'>, custom_attributes type=<class 'list'>
+2025-09-01 18:07:04,990 - INFO - Order gid://shopify/Order/6336349339737 channel classification: Source='ig', Medium='120221341262910783', Campaign='120221343090860783' → Channel='Meta'
+2025-09-01 18:07:04,990 - INFO - Order gid://shopify/Order/6336349339737 attribution: {'source': 'ig', 'medium': '120221341262910783', 'campaign': '120221343090860783', 'content': '120221343090860783', 'term': '120221341262900783', 'attribution_id': '120221343090860783', 'attribution_type': 'content'}
+2025-09-01 18:07:04,992 - INFO - Order gid://shopify/Order/6336349339737 campaign match: TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025 - TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2
+2025-09-01 18:07:04,992 - INFO - Processing order gid://shopify/Order/6336356057177: 1 line items, customer_journey type=<class 'dict'>, custom_attributes type=<class 'list'>
+2025-09-01 18:07:04,992 - INFO - Order gid://shopify/Order/6336356057177 channel classification: Source='ig', Medium='120226643827580783', Campaign='120226643827570783' → Channel='Meta'
+2025-09-01 18:07:04,992 - INFO - Order gid://shopify/Order/6336356057177 attribution: {'source': 'ig', 'medium': '120226643827580783', 'campaign': '120226643827570783', 'content': '120226643827550783', 'term': '120226643827570783', 'attribution_id': '120226643827550783', 'attribution_type': 'content'}
+2025-09-01 18:07:04,994 - INFO - Order gid://shopify/Order/6336356057177 campaign match: TH-063-SILBOO - TH-063-SILBOO
+2025-09-01 18:07:04,994 - INFO - Processing order gid://shopify/Order/6336447873113: 1 line items, customer_journey type=<class 'dict'>, custom_attributes type=<class 'list'>
+2025-09-01 18:07:04,994 - INFO - Order gid://shopify/Order/6336447873113 channel classification: Source='facebook', Medium='paid', Campaign='120219910470100783' → Channel='Meta'
+2025-09-01 18:07:04,994 - INFO - Order gid://shopify/Order/6336447873113 attribution: {'source': 'facebook', 'medium': 'paid', 'campaign': '120219910470100783', 'content': 'Facebook_UA', 'term': '120219910470110783', 'attribution_id': 'Facebook_UA', 'attribution_type': 'content'}
+2025-09-01 18:07:04,995 - INFO - Order gid://shopify/Order/6336447873113 campaign match: Unknown Campaign - Meta - Unknown Ad - Meta
+2025-09-01 18:07:04,995 - INFO - Order gid://shopify/Order/6337000931417 channel classification: Source='ig', Medium='120226390275250783', Campaign='120226390275230783' → Channel='Meta'
+2025-09-01 18:07:04,995 - INFO - Order gid://shopify/Order/6337000931417 attribution: {'source': 'ig', 'medium': '120226390275250783', 'campaign': '120226390275230783', 'content': '120226390275200783', 'term': '120226390275230783', 'attribution_id': '120226390275200783', 'attribution_type': 'content'}
+2025-09-01 18:07:04,996 - INFO - Order gid://shopify/Order/6337000931417 campaign match: TH-053-JACKET - TH-053-JACKET_ET156_IM259
+2025-09-01 18:07:04,996 - INFO - Order gid://shopify/Order/6337018429529 channel classification: Source='ig', Medium='120218303994450783', Campaign='120219313253170783' → Channel='Meta'
+2025-09-01 18:07:04,996 - INFO - Order gid://shopify/Order/6337018429529 attribution: {'source': 'ig', 'medium': '120218303994450783', 'campaign': '120219313253170783', 'content': '120220327473500783', 'term': '120219313253170783', 'attribution_id': '120220327473500783', 'attribution_type': 'content'}
+2025-09-01 18:07:04,997 - INFO - Order gid://shopify/Order/6337018429529 campaign match: TH - Remarketing - Video - India - IG & FB - Sales - 29/03/2025 - TH-036-PAWTR-ET139-SP368
+2025-09-01 18:07:05,101 - INFO - Processed 100/897 orders...
+2025-09-01 18:07:05,208 - INFO - Processed 200/897 orders...
+2025-09-01 18:07:05,308 - INFO - Processed 300/897 orders...
+2025-09-01 18:07:05,419 - INFO - Processed 400/897 orders...
+2025-09-01 18:07:05,521 - INFO - Processed 500/897 orders...
+2025-09-01 18:07:05,623 - INFO - Processed 600/897 orders...
+2025-09-01 18:07:05,733 - INFO - Processed 700/897 orders...
+2025-09-01 18:07:05,839 - INFO - Processed 800/897 orders...
+2025-09-01 18:07:05,987 - INFO - Completed attribution processing for 897 orders
+2025-09-01 18:07:05,990 - INFO - Attribution matching summary: 782/897 orders matched to campaigns (87.2%)
+2025-09-01 18:07:05,994 - INFO - Channel classification summary:
+2025-09-01 18:07:05,994 - INFO -   Meta: 704 orders
+2025-09-01 18:07:05,994 - INFO -   Direct: 115 orders
+2025-09-01 18:07:05,994 - INFO -   Google: 78 orders
+2025-09-01 18:07:05,995 - INFO - Sample Meta orders:
+2025-09-01 18:07:05,995 - INFO -   Order gid://shopify/Order/6336349339737: UTM Source='ig', UTM Medium='120221341262910783'
+2025-09-01 18:07:05,995 - INFO -   Order gid://shopify/Order/6336356057177: UTM Source='ig', UTM Medium='120226643827580783'
+2025-09-01 18:07:05,995 - INFO -   Order gid://shopify/Order/6336447873113: UTM Source='facebook', UTM Medium='paid'
+2025-09-01 18:07:05,995 - INFO - Sample Google orders:
+2025-09-01 18:07:05,995 - INFO -   Order gid://shopify/Order/6338706800729: UTM Source='google', UTM Medium='product_sync'
+2025-09-01 18:07:05,995 - INFO -   Order gid://shopify/Order/6338723381337: UTM Source='google', UTM Medium='product_sync'
+2025-09-01 18:07:05,995 - INFO -   Order gid://shopify/Order/6338807332953: UTM Source='google', UTM Medium='product_sync'
+2025-09-01 18:07:05,996 - INFO - Sample Direct orders:
+2025-09-01 18:07:05,996 - INFO -   Order gid://shopify/Order/6337075478617: UTM Source='None', UTM Medium='None'
+2025-09-01 18:07:05,996 - INFO -   Order gid://shopify/Order/6337173356633: UTM Source='None', UTM Medium='None'
+2025-09-01 18:07:05,996 - INFO -   Order gid://shopify/Order/6337829732441: UTM Source='None', UTM Medium='None'
+2025-09-01 18:07:05,996 - INFO - Organic orders count: 0
+2025-09-01 18:07:05,996 - INFO - Google orders count: 78
+2025-09-01 18:07:05,996 - INFO - Meta orders count: 704
+2025-09-01 18:07:05,996 - INFO - Direct orders count: 115
+2025-09-01 18:07:05,997 - INFO - Sample Google order UTM: Source='google', Medium='product_sync'
+2025-09-01 18:07:05,997 - INFO - Sample Meta order UTM: Source='ig', Medium='120221341262910783', Campaign='120221343090860783'
+2025-09-01 18:07:05,997 - INFO - Sample Direct order UTM: Source='None', Medium='None', Campaign='None'
+2025-09-01 18:07:06,004 - INFO - Generating summary report...
+2025-09-01 18:07:06,004 - INFO - Results DataFrame shape: (897, 32)
+2025-09-01 18:07:06,004 - INFO - Results DataFrame columns: ['order_id', 'order_name', 'order_date', 'order_value', 'order_currency', 'ship_city', 'ship_province', 'ship_country', 'total_cogs', 'line_items_count', 'skus', 'unique_skus_count', 'total_sku_quantity', 'channel', 'attribution_source', 'attribution_id', 'attribution_type', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name', 'has_customer_journey', 'has_custom_attributes', 'is_attributed', 'is_paid_channel']
+2025-09-01 18:07:06,004 - INFO - is_attributed column dtype: bool
+2025-09-01 18:07:06,004 - INFO - is_attributed unique values: [ True False]
+2025-09-01 18:07:06,004 - INFO - is_attributed sample values: [True, True, True, True, True]
+2025-09-01 18:07:06,006 - INFO - Rolling up hourly ad data to daily level...
+2025-09-01 18:07:06,013 - INFO - Rolled up to 1852 daily ad records
+2025-09-01 18:07:06,014 - INFO - Before aggregation - daily_ads shape: (1852, 19)
+2025-09-01 18:07:06,014 - INFO - Before aggregation - campaign_performance shape: (106, 7)
+2025-09-01 18:07:06,015 - INFO - After aggregation - daily_ads_aggregated shape: (230, 6)
+2025-09-01 18:07:06,017 - INFO - After join - campaign_performance shape: (106, 10)
+2025-09-01 18:07:06,018 - INFO - Summary: 897 orders, 87.2% attribution rate
+2025-09-01 18:07:06,019 - INFO - Creating granular insights (deduped, hour-bucketed)...
+2025-09-01 18:07:06,423 - INFO - Channel distribution in granular insights:
+2025-09-01 18:07:06,423 - INFO -   : 0.0 orders, ₹0.00 revenue
+2025-09-01 18:07:06,423 - INFO -   Direct: 115.0 orders, ₹232,846.00 revenue
+2025-09-01 18:07:06,423 - INFO -   Google: 78.0 orders, ₹142,322.00 revenue
+2025-09-01 18:07:06,423 - INFO -   Meta: 704.0 orders, ₹1,492,263.00 revenue
+2025-09-01 18:07:06,428 - INFO - Unmatched orders by channel (added as Unknown Campaign):
+2025-09-01 18:07:06,428 - INFO -   Direct: 115.0 orders, ₹232,846.00 revenue
+2025-09-01 18:07:06,428 - INFO -   Google: 78.0 orders, ₹142,322.00 revenue
+2025-09-01 18:07:06,428 - INFO -   Meta: 46.0 orders, ₹99,171.00 revenue
+2025-09-01 18:07:06,428 - INFO - Sample orders by channel in granular insights:
+2025-09-01 18:07:06,429 - INFO -   Meta channel sample:
+2025-09-01 18:07:06,429 - INFO -     Campaign: TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025, Orders: 1.0, Revenue: ₹1,598.00
+2025-09-01 18:07:06,429 - INFO -     Campaign: TH-063-SILBOO, Orders: 1.0, Revenue: ₹1,899.00
+2025-09-01 18:07:06,430 - INFO -   Google channel sample:
+2025-09-01 18:07:06,430 - INFO -     Campaign: Unknown Campaign - Google, Orders: 2.0, Revenue: ₹2,198.00
+2025-09-01 18:07:06,430 - INFO -     Campaign: Unknown Campaign - Google, Orders: 1.0, Revenue: ₹598.00
+2025-09-01 18:07:06,431 - INFO -   Direct channel sample:
+2025-09-01 18:07:06,431 - INFO -     Campaign: Unknown Campaign - Direct, Orders: 1.0, Revenue: ₹1,799.00
+2025-09-01 18:07:06,431 - INFO -     Campaign: Unknown Campaign - Direct, Orders: 1.0, Revenue: ₹2,099.00
+2025-09-01 18:07:06,432 - INFO - Data types of key columns in granular insights:
+2025-09-01 18:07:06,432 - INFO -   channel: object
+2025-09-01 18:07:06,432 - INFO -     Sample values: ['Meta', '', '']
+2025-09-01 18:07:06,432 - INFO -   shopify_orders: float64
+2025-09-01 18:07:06,432 - INFO -   shopify_revenue: float64
+2025-09-01 18:07:06,432 - INFO -   shopify_cogs: float64
+2025-09-01 18:07:06,433 - INFO - Granular insights rows: 24280; Shopify revenue total: 1,867,431.00
+2025-09-01 18:07:06,435 - INFO - Granular data columns: ['campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name', 'date_only', 'hour_label', 'spend', 'cpm', 'cpc', 'ctr', 'action_onsite_web_purchase', 'value_onsite_web_purchase', 'shopify_orders', 'shopify_revenue', 'shopify_cogs', 'total_sku_quantity', 'channel', 'attribution_source', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'order_ids', 'date_start', 'hourly_window']
+2025-09-01 18:07:06,435 - INFO - Granular data shape: (24280, 28)
+2025-09-01 18:07:06,435 - INFO - Available granular columns: ['campaign_name', 'adset_name', 'ad_name', 'date_start', 'hour_label', 'channel', 'spend', 'cpm', 'cpc', 'ctr', 'action_onsite_web_purchase', 'value_onsite_web_purchase', 'shopify_orders', 'shopify_revenue', 'shopify_cogs', 'total_sku_quantity', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'order_ids', 'attribution_source']
+2025-09-01 18:07:06,544 - INFO - Saved raw attribution data to sheet 'Raw_Attribution_Data'
+2025-09-01 18:07:08,750 - INFO - Saved compact granular insights to sheet 'Granular_Insights_Compact'
+2025-09-01 18:07:11,612 - INFO - Saved attribution results to Excel file: attribution_analysis_20250901_180706.xlsx
+2025-09-01 18:07:11,618 - INFO - Also saved raw data to CSV: attribution_analysis_raw_20250901_180706.csv
+2025-09-01 18:07:11,714 - INFO - Also saved granular insights to CSV: attribution_analysis_granular_20250901_180706.csv
+2025-09-01 18:07:11,716 - INFO - Attribution analysis completed successfully!
