@@ -1,0 +1,898 @@
+order_id,order_name,order_date,price,cogs,sku,campaign_name,adset_name,ad_name,channel,attribution_source
+gid://shopify/Order/6336349339737,TC-001/25-26/4852,2025-07-01 00:59:44,1598.0,422.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6336356057177,TC-001/25-26/4853,2025-07-01 01:03:10,1899.0,725.0,TH-068-WILD-M,TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6336447873113,TC-001/25-26/4854,2025-07-01 01:55:12,1099.0,384.0,TH-067-SIPEASE,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6337000931417,TC-001/25-26/4856,2025-07-01 08:38:00,2999.0,1339.0,TH-028-COMCARE,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6337018429529,TC-001/25-26/4857,2025-07-01 08:52:43,1099.0,397.0,TH-038-PAWTR,TH - Remarketing - Video - India - IG & FB - Sales - 29/03/2025,AS3 - Remarketing IC (30) – New,TH-036-PAWTR-ET139-SP368,Meta,customer_journey
+gid://shopify/Order/6337074495577,TC-001/25-26/4858,2025-07-01 09:43:29,1599.0,582.0,TH-063-SILBOO-L,TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6337075478617,TC-001/25-26/4859,2025-07-01 09:44:31,1799.0,540.0,TH-058-CAPE-M,,,,Direct,
+gid://shopify/Order/6337131642969,TC-001/25-26/4860,2025-07-01 10:20:22,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6337140785241,TC-001/25-26/4861,2025-07-01 10:28:52,1999.0,751.0,TH-068-WILD-L,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6337140949081,TC-001/25-26/4862,2025-07-01 10:28:59,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6337161855065,TC-001/25-26/4864,2025-07-01 10:48:02,2199.0,826.0,TH-068-WILD-XXL,TH-068-WILD - Alternate Twin,Luxury Spenders,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6337173356633,TC-001/25-26/4865,2025-07-01 11:03:29,2099.0,788.0,TH-068-WILD-XL,,,,Direct,
+gid://shopify/Order/6337189904473,TC-001/25-26/4867,2025-07-01 11:23:37,549.0,196.0,TH-010-PETWIP,TH-068-WILD,Adventure Trekkers,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6337227194457,TC-001/25-26/4868,2025-07-01 12:09:57,2698.0,936.0,"TH-037-MISTBRU, TH-068-WILD-M",TH-068-WILD - Alternate Twin,Tier 2 Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6337256292441,TC-001/25-26/4869,2025-07-01 12:46:10,1799.0,682.0,TH-068-WILD-S,TH-053-JACKET,Urban Pet Parents,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6337257078873,TC-001/25-26/4870,2025-07-01 12:47:28,2199.0,826.0,TH-068-WILD-XXL,TH-068-WILD - Alternate Twin,Tier 2 Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6337309540441,TC-001/25-26/4871,2025-07-01 13:44:21,1799.0,682.0,TH-068-WILD-S,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6337381302361,TC-001/25-26/4872,2025-07-01 15:12:01,2099.0,1121.0,TH-073-SMARTSIP,TH-073-SMARTSIP,ICP Pet Parent,TH-073-SMARTSIP_VP048_ET122,Meta,customer_journey
+gid://shopify/Order/6337414922329,TC-001/25-26/4873,2025-07-01 16:03:38,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6337440251993,TC-001/25-26/4874,2025-07-01 16:34:32,919.0,354.0,TH-003-NTTOSH,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6337451622489,TC-001/25-26/4875,2025-07-01 16:46:16,1599.0,582.0,TH-063-SILBOO-L,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6337510867033,TC-001/25-26/4876,2025-07-01 17:50:09,1899.0,725.0,TH-068-WILD-M,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6337582989401,TC-001/25-26/4878,2025-07-01 18:50:09,2399.0,832.0,TH-053-COAT-XXL,TH-053-JACKET – Life Time,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6337597046873,TC-001/25-26/4879,2025-07-01 19:00:10,2499.0,879.0,TH-053-COAT-XXXL,TH-053-JACKET – Life Time,Remarketing,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6337600225369,TC-001/25-26/4880,2025-07-01 19:02:57,1999.0,988.0,TH-056-UMB,TH-056-UMB,ICP Pet Parent,TH-056-UMB_ET139_VP007,Meta,customer_journey
+gid://shopify/Order/6337617100889,TC-001/25-26/4881,2025-07-01 19:15:14,2199.0,826.0,TH-068-WILD-XXL,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6337633353817,TC-001/25-26/4882,2025-07-01 19:26:59,1399.0,541.0,TH-063-SILBOO-S,TH-063-SILBOO,Urban Pet Parents,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6337730150489,TC-001/25-26/4883,2025-07-01 20:27:30,1999.0,751.0,TH-068-WILD-L,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6337742864473,TC-001/25-26/4884,2025-07-01 20:35:25,1699.0,473.0,TH-053-COAT-S,TH-053-JACKET – Life Time,Remarketing,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6337814593625,TC-001/25-26/4885,2025-07-01 21:18:54,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6337829732441,TC-001/25-26/4886,2025-07-01 21:28:26,2898.0,1332.0,"TH-073-SMARTSIP, TH-037-MISTBRU",,,,Direct,
+gid://shopify/Order/6337846149209,TC-001/25-26/4887,2025-07-01 21:38:22,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6337876590681,TC-001/25-26/4888,2025-07-01 21:57:53,2099.0,1121.0,TH-073-SMARTSIP,TH-073-SMARTSIP,Cat Lover,TH-073-SMARTSIP_VP048_ET122,Meta,customer_journey
+gid://shopify/Order/6337950646361,TC-001/25-26/4890,2025-07-01 22:42:02,2999.0,1015.0,TH-064-LITTER,,,,Direct,
+gid://shopify/Order/6338129264729,TC-001/25-26/4892,2025-07-02 00:37:20,1799.0,682.0,TH-068-WILD-S,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6338583101529,TC-001/25-26/4895,2025-07-02 06:15:50,1599.0,818.0,TH-012-SNUGBOO-M,,,,Direct,
+gid://shopify/Order/6338598371417,TC-001/25-26/4896,2025-07-02 06:28:48,2199.0,743.0,TH-053-COAT-XL,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6338621440089,TC-001/25-26/4897,2025-07-02 06:48:05,2399.0,832.0,TH-053-COAT-XXL,,,,Direct,
+gid://shopify/Order/6338706800729,TC-001/25-26/4898,2025-07-02 08:03:53,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6338723381337,TC-001/25-26/4899,2025-07-02 08:19:28,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6338731081817,TC-001/25-26/4900,2025-07-02 08:27:08,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6338752905305,TC-001/25-26/4901,2025-07-02 08:49:56,2099.0,788.0,TH-068-WILD-XL,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6338786230361,TC-001/25-26/4902,2025-07-02 09:26:04,2199.0,826.0,TH-068-WILD-XXL,,,,Direct,
+gid://shopify/Order/6338797207641,TC-001/25-26/4904,2025-07-02 09:37:49,2399.0,832.0,TH-053-COAT-XXL,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6338807332953,TC-001/25-26/4905,2025-07-02 09:46:44,598.0,396.0,TH-006-FLEBRU,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6338834137177,TC-001/25-26/4906,2025-07-02 10:01:48,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,ICP Pet Parent,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6338843443289,TC-001/25-26/4907,2025-07-02 10:13:35,4398.0,1569.0,"TH-053-COAT-XL, TH-068-WILD-XXL",TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6338846556249,TC-001/25-26/4908,2025-07-02 10:17:36,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6338852356185,TC-001/25-26/4909,2025-07-02 10:24:10,899.0,735.0,TH-066-SCOOP,,,,Direct,
+gid://shopify/Order/6338872672345,TC-001/25-26/4912,2025-07-02 10:50:10,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6338950299737,TC-001/25-26/4913,2025-07-02 12:52:36,2698.0,1215.0,"TH-012-SNUGBOO-M, TH-038-PAWTR",TH-068-WILD,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6338950594649,TC-001/25-26/4914,2025-07-02 12:53:09,2918.0,1105.0,"TH-068-WILD-L, TH-002-SKMISH",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6338957377625,TC-001/25-26/4915,2025-07-02 13:06:06,2099.0,1121.0,TH-073-SMARTSIP,TH-073-SMARTSIP,Cat Lover,TH-073-SMARTSIP_VP048_ET122,Meta,customer_journey
+gid://shopify/Order/6338962489433,TC-001/25-26/4916,2025-07-02 13:13:53,2099.0,1121.0,TH-073-SMARTSIP,,,,Direct,
+gid://shopify/Order/6338963210329,TC-001/25-26/4917,2025-07-02 13:15:07,2099.0,788.0,TH-068-WILD-XL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6338979692633,TC-001/25-26/4918,2025-07-02 13:35:03,1999.0,751.0,TH-068-WILD-L,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6338997452889,TC-001/25-26/4919,2025-07-02 13:42:38,1799.0,682.0,TH-068-WILD-S,TH-068-WILD,Remarketing-Custom Audience,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6339003088985,TC-001/25-26/4920,2025-07-02 13:45:07,1999.0,950.0,TH-072-AEROPOD-PINK,TH-072-AEROPOD,Frequent Travellers,TH-072-AEROPOD_ET113_IM253,Meta,customer_journey
+gid://shopify/Order/6339026518105,TC-001/25-26/4921,2025-07-02 14:18:45,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6339079995481,TC-001/25-26/4922,2025-07-02 15:41:09,1799.0,682.0,TH-068-WILD-S,TH-068-WILD - Alternate Twin,Luxury Spenders,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6339091562585,TC-001/25-26/4923,2025-07-02 15:54:20,2499.0,879.0,TH-053-COAT-XXXL,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6339131244633,TC-001/25-26/4924,2025-07-02 16:41:57,2099.0,788.0,TH-068-WILD-XL,,,,Direct,
+gid://shopify/Order/6339142811737,TC-001/25-26/4925,2025-07-02 16:53:47,1899.0,725.0,TH-068-WILD-M,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6339145859161,TC-001/25-26/4926,2025-07-02 16:58:01,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6339184689241,TC-001/25-26/4927,2025-07-02 17:39:31,1799.0,682.0,TH-068-WILD-S,,,,Direct,
+gid://shopify/Order/6339244720217,TC-001/25-26/4928,2025-07-02 18:35:50,2499.0,879.0,TH-053-COAT-XXXL,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6339266379865,TC-001/25-26/4929,2025-07-02 18:53:01,1899.0,725.0,TH-068-WILD-M,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6339281158233,TC-001/25-26/4930,2025-07-02 19:06:17,2199.0,826.0,TH-068-WILD-XXL,TH-068-WILD,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6339291676761,TC-001/25-26/4931,2025-07-02 19:14:52,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6339354591321,TC-001/25-26/4932,2025-07-02 20:03:06,1999.0,751.0,TH-068-WILD-L,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6339383001177,TC-001/25-26/4933,2025-07-02 20:21:32,2099.0,1121.0,TH-073-SMARTSIP,TH-073-SMARTSIP,ICP Pet Parent,TH-073-SMARTSIP_VP048_ET122,Meta,customer_journey
+gid://shopify/Order/6339402760281,TC-001/25-26/4934,2025-07-02 20:32:41,2199.0,826.0,TH-068-WILD-XXL,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6339539370073,TC-001/25-26/4938,2025-07-02 22:01:24,799.0,211.0,TH-037-MISTBRU,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6339550085209,TC-001/25-26/4939,2025-07-02 22:07:28,1799.0,652.0,TH-063-SILBOO-XXL,TH-063-SILBOO,Urban Pet Parents,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6339648192601,TC-001/25-26/4941,2025-07-02 23:08:09,2199.0,743.0,TH-053-COAT-XL,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6339727229017,TC-001/25-26/4942,2025-07-03 00:01:52,1899.0,657.0,TH-053-COAT-L,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6339870097497,TC-001/25-26/4943,2025-07-03 01:36:58,1999.0,751.0,TH-068-WILD-L,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6340036755545,TC-001/25-26/4945,2025-07-03 03:34:53,2099.0,788.0,TH-068-WILD-XL,,,,Direct,
+gid://shopify/Order/6340320460889,TC-001/25-26/4946,2025-07-03 07:36:42,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6340321214553,TC-001/25-26/4947,2025-07-03 07:37:25,2199.0,826.0,TH-068-WILD-XXL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6340379312217,TC-001/25-26/4949,2025-07-03 08:32:10,1799.0,682.0,TH-068-WILD-S,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6340401234009,TC-001/25-26/4951,2025-07-03 08:54:39,1899.0,725.0,TH-068-WILD-M,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6340422238297,TC-001/25-26/4952,2025-07-03 09:16:09,2099.0,788.0,TH-068-WILD-XL,,,,Direct,
+gid://shopify/Order/6340423909465,TC-001/25-26/4953,2025-07-03 09:18:08,1599.0,582.0,TH-063-SILBOO-L,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6340448976985,TC-001/25-26/4954,2025-07-03 09:43:19,1499.0,560.0,TH-063-SILBOO-M,TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6340472733785,TC-001/25-26/4955,2025-07-03 09:55:37,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6340498391129,TC-001/25-26/4956,2025-07-03 10:22:59,2199.0,826.0,TH-068-WILD-XXL,TH-068-WILD – HARDSCALE,Remarketing-Custom Audience,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6340514807897,TC-001/25-26/4957,2025-07-03 10:39:20,2699.0,1673.0,TH-075-NAPDEN-L,,,,Direct,
+gid://shopify/Order/6340522180697,TC-001/25-26/4958,2025-07-03 10:50:55,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6340524769369,TC-001/25-26/4959,2025-07-03 10:54:19,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6340554293337,TC-001/25-26/4960,2025-07-03 11:36:20,2199.0,826.0,TH-068-WILD-XXL,,,,Direct,
+gid://shopify/Order/6340555014233,TC-001/25-26/4961,2025-07-03 11:37:23,2099.0,788.0,TH-068-WILD-XL,,,,Direct,
+gid://shopify/Order/6340562813017,TC-001/25-26/4962,2025-07-03 11:49:16,2099.0,788.0,TH-068-WILD-XL,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6340575002713,TC-001/25-26/4963,2025-07-03 12:09:06,1799.0,682.0,TH-068-WILD-S,,,,Direct,
+gid://shopify/Order/6340587683929,TC-001/25-26/4964,2025-07-03 12:24:13,2199.0,826.0,TH-068-WILD-XXL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6340594892889,TC-001/25-26/4965,2025-07-03 12:34:51,549.0,196.0,TH-010-PETWIP,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6340605476953,TC-001/25-26/4966,2025-07-03 12:48:05,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6340616585305,TC-001/25-26/4967,2025-07-03 13:03:38,2099.0,1121.0,TH-073-SMARTSIP,TH-073-SMARTSIP,ICP Pet Parent,TH-073-SMARTSIP_VP048_ET122,Meta,customer_journey
+gid://shopify/Order/6340657283161,TC-001/25-26/4968,2025-07-03 13:41:31,1099.0,397.0,TH-038-PAWTR,TH - Remarketing - Video - India - IG & FB - Sales - 29/03/2025,AS3 - Remarketing IC (30) – New,TH-036-PAWTR-ET139-SP368,Meta,customer_journey
+gid://shopify/Order/6340683530329,TC-001/25-26/4969,2025-07-03 14:10:03,1198.0,405.0,"TH-037-MISTBRU, TH-008-CLIBRU",TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6340701913177,TC-001/25-26/4971,2025-07-03 14:38:53,1699.0,473.0,TH-053-COAT-S,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6340722163801,TC-001/25-26/4972,2025-07-03 15:12:38,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6340726358105,TC-001/25-26/4973,2025-07-03 15:18:48,799.0,211.0,TH-037-MISTBRU,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6340741234777,TC-001/25-26/4974,2025-07-03 15:40:11,2199.0,743.0,TH-053-COAT-XL,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6340749066329,TC-001/25-26/4975,2025-07-03 15:52:52,1999.0,988.0,TH-056-UMB,TH-056-UMB,Tier 2 & 3 Pet Parents,TH-056-UMB_ET139_VP007,Meta,customer_journey
+gid://shopify/Order/6340768137305,TC-001/25-26/4976,2025-07-03 16:19:46,2199.0,826.0,TH-068-WILD-XXL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6340841046105,TC-001/25-26/4977,2025-07-03 17:40:04,3898.0,1476.0,"TH-068-WILD-L, TH-068-WILD-M",,,,Direct,
+gid://shopify/Order/6340850188377,TC-001/25-26/4978,2025-07-03 17:49:45,1899.0,657.0,TH-053-COAT-L,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6340868341849,TC-001/25-26/4979,2025-07-03 18:07:47,1799.0,545.0,TH-053-COAT-M,,,,Direct,
+gid://shopify/Order/6340919722073,TC-001/25-26/4982,2025-07-03 18:48:26,2399.0,832.0,TH-053-COAT-XXL,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6340980572249,TC-001/25-26/4983,2025-07-03 19:31:48,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6340996071513,TC-001/25-26/4984,2025-07-03 19:42:47,4698.0,1705.0,"TH-068-WILD-XXL, TH-053-COAT-XXXL",TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6341034967129,TC-001/25-26/4985,2025-07-03 20:09:31,1699.0,615.0,TH-063-SILBOO-XL,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6341065015385,TC-001/25-26/4986,2025-07-03 20:25:41,1996.0,784.0,TH-010-PETWIP,,,,Direct,
+gid://shopify/Order/6341098078297,TC-001/25-26/4987,2025-07-03 20:44:45,4298.0,1531.0,"TH-053-COAT-XL, TH-068-WILD-XL",TH-068-WILD,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6341177245785,TC-001/25-26/4989,2025-07-03 21:32:37,1999.0,751.0,TH-068-WILD-L,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6341193564249,TC-001/25-26/4990,2025-07-03 21:42:27,2199.0,826.0,TH-068-WILD-XXL,TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6341195169881,TC-001/25-26/4991,2025-07-03 21:43:34,2399.0,832.0,TH-053-COAT-XXL,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6341224464473,TC-001/25-26/4993,2025-07-03 22:02:25,5497.0,2089.0,"TH-068-WILD-M, TH-068-WILD-S",TH-068-WILD,Remarketing-Custom Audience,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6341236719705,TC-001/25-26/4994,2025-07-03 22:09:49,1999.0,751.0,TH-068-WILD-L,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6341251104857,TC-001/25-26/4995,2025-07-03 22:17:35,2099.0,788.0,TH-068-WILD-XL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6341276565593,TC-001/25-26/4997,2025-07-03 22:31:55,1999.0,988.0,TH-056-UMB,TH-056-UMB,Tier 2 & 3 Pet Parents,TH-056-UMB_ET139_VP007,Meta,customer_journey
+gid://shopify/Order/6341325422681,TC-001/25-26/4998,2025-07-03 23:01:45,3915.0,1635.0,"TH-063-SILBOO-XS, TH-008-CLIBRU, TH-016-SIPBOT, TH-002-SKMISH, TH-037-MISTBRU",TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6341397872729,TC-001/25-26/4999,2025-07-03 23:45:36,2199.0,826.0,TH-068-WILD-XXL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6341467406425,TC-001/25-26/5000,2025-07-04 00:28:26,1499.0,560.0,TH-063-SILBOO-M,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6341512069209,TC-001/25-26/5001,2025-07-04 00:57:24,1899.0,725.0,TH-068-WILD-M,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6341573017689,TC-001/25-26/5002,2025-07-04 01:37:57,2099.0,788.0,TH-068-WILD-XL,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6341653561433,TC-001/25-26/5003,2025-07-04 02:30:19,1999.0,950.0,TH-072-AEROPOD-BEIGE,TH-072-AEROPOD,Frequent Travellers,TH-072-AEROPOD_ET113_IM253,Meta,customer_journey
+gid://shopify/Order/6342081740889,TC-001/25-26/5004,2025-07-04 08:06:36,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6342166478937,TC-001/25-26/5005,2025-07-04 09:33:19,1318.0,548.0,"TH-008-CLIBRU, TH-004-TNFSH",,,,Direct,
+gid://shopify/Order/6342239748185,TC-001/25-26/5006,2025-07-04 10:44:18,1899.0,657.0,TH-053-COAT-L,,,,Direct,
+gid://shopify/Order/6342246695001,TC-001/25-26/5007,2025-07-04 10:53:48,1999.0,950.0,TH-072-AEROPOD-PINK,TH-072-AEROPOD,Urban Pet Parents,TH-072-AEROPOD_ET113_IM253,Meta,customer_journey
+gid://shopify/Order/6342261342297,TC-001/25-26/5008,2025-07-04 11:13:02,2199.0,743.0,TH-053-COAT-XL,TH-053-JACKET – Alt Twin,Tier 2 & 3 Pet Parents,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6342295093337,TC-001/25-26/5009,2025-07-04 12:02:11,2099.0,1121.0,TH-073-SMARTSIP,TH-073-SMARTSIP,Cat Lover,TH-073-SMARTSIP_VP048_ET122,Meta,customer_journey
+gid://shopify/Order/6342297878617,TC-001/25-26/5010,2025-07-04 12:07:14,1999.0,988.0,TH-056-UMB,TH-068-WILD_Weather Protection_Statics,TH-068-WILD _Weather _ALL,TH-068-WILD _statics Weather,Meta,customer_journey
+gid://shopify/Order/6342331334745,TC-001/25-26/5011,2025-07-04 12:56:28,549.0,196.0,TH-010-PETWIP,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6342332186713,TC-001/25-26/5012,2025-07-04 12:58:17,4898.0,1711.0,"TH-053-COAT-XXL, TH-053-COAT-XXXL",TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6342408437849,TC-001/25-26/5014,2025-07-04 14:13:44,998.0,448.0,"TH-005-AQCASHO, TH-044-GREAGLO",,,,Direct,
+gid://shopify/Order/6342448742489,TC-001/25-26/5015,2025-07-04 15:19:43,1698.0,606.0,"TH-033-SNOG-L, TH-038-PAWTR",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6342765969497,TC-001/25-26/5017,2025-07-04 17:42:48,1799.0,545.0,TH-053-COAT-M,,,,Direct,
+gid://shopify/Order/6342903464025,TC-001/25-26/5018,2025-07-04 18:33:49,1599.0,818.0,TH-012-SNUGBOO-M,TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Direct,customer_journey
+gid://shopify/Order/6343697104985,TC-001/25-26/5023,2025-07-04 23:34:43,2499.0,879.0,TH-053-COAT-XXXL,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6344888352857,TC-001/25-26/5024,2025-07-05 08:24:25,1699.0,615.0,TH-063-SILBOO-XL,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6344916533337,TC-001/25-26/5025,2025-07-05 08:48:09,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6344980398169,TC-001/25-26/5026,2025-07-05 09:43:16,1849.0,664.0,TH-070-TGSB,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6345038987353,TC-001/25-26/5027,2025-07-05 10:31:37,1499.0,560.0,TH-063-SILBOO-M,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6345095086169,TC-001/25-26/5029,2025-07-05 11:56:05,1799.0,652.0,TH-063-SILBOO-XXL,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6345100001369,TC-001/25-26/5030,2025-07-05 12:04:53,2499.0,879.0,TH-053-COAT-XXXL,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6345101279321,TC-001/25-26/5031,2025-07-05 12:07:20,1699.0,615.0,TH-063-SILBOO-XL,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6345134047321,TC-001/25-26/5033,2025-07-05 13:01:18,2499.0,879.0,TH-053-COAT-XXXL,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6345134375001,TC-001/25-26/5034,2025-07-05 13:01:40,1899.0,940.0,TH-012-SNUGBOO-XXL,R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025,Top Cities -Broad,TH-012-SNUGBOO_Static,Meta,customer_journey
+gid://shopify/Order/6345134440537,TC-001/25-26/5035,2025-07-05 13:01:58,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO,ICP Pet Parent,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6345168846937,TC-001/25-26/5036,2025-07-05 13:41:02,1499.0,775.0,TH-012-SNUGBOO-S,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6345171730521,TC-001/25-26/5037,2025-07-05 13:42:29,1799.0,545.0,TH-053-COAT-M,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6345190080601,TC-001/25-26/5039,2025-07-05 14:05:14,2418.0,914.0,"TH-063-SILBOO-M, TH-002-SKMISH",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6345196765273,TC-001/25-26/5040,2025-07-05 14:16:30,2018.0,751.0,"TH-038-PAWTR, TH-002-SKMISH",TH-056-UMB,Urban Pet Parents,TH-056-UMB_ET139_VP007,Meta,customer_journey
+gid://shopify/Order/6345241985113,TC-001/25-26/5042,2025-07-05 15:44:59,1599.0,582.0,TH-063-SILBOO-L,,,,Direct,
+gid://shopify/Order/6345250013273,TC-001/25-26/5043,2025-07-05 16:01:32,2199.0,743.0,TH-053-COAT-XL,TH-053-JACKET – Life Time,Urban Pet Parents,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6345341927513,TC-001/25-26/5045,2025-07-05 18:00:18,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6345387343961,TC-001/25-26/5047,2025-07-05 18:42:24,1999.0,988.0,TH-056-UMB,TH-056-UMB,Urban Pet Parents,TH-056-UMB_ET139_VP007,Meta,customer_journey
+gid://shopify/Order/6345424306265,TC-001/25-26/5048,2025-07-05 19:14:57,1099.0,397.0,TH-038-PAWTR,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6345428369497,TC-001/25-26/5049,2025-07-05 19:17:27,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO- Alternate Twin,Tier 2 Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6345521889369,TC-001/25-26/5051,2025-07-05 20:26:57,1999.0,988.0,TH-056-UMB,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6345846030425,TC-001/25-26/5053,2025-07-05 23:45:59,1399.0,541.0,TH-063-SILBOO-S,TH-063-SILBOO,Urban Pet Parents,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6346496966745,TC-001/25-26/5057,2025-07-06 08:19:32,1599.0,818.0,TH-012-SNUGBOO-M,,,,Direct,
+gid://shopify/Order/6346503716953,TC-001/25-26/5058,2025-07-06 08:27:08,2499.0,879.0,TH-053-COAT-XXXL,TH-053-JACKET – Life Time,Urban Pet Parents,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6346534355033,TC-001/25-26/5059,2025-07-06 09:03:41,1599.0,818.0,TH-012-SNUGBOO-M,R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025,Top Cities -Broad,TH-012-SNUGBOO_Static,Meta,customer_journey
+gid://shopify/Order/6346548379737,TC-001/25-26/5060,2025-07-06 09:19:04,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6346570268761,TC-001/25-26/5061,2025-07-06 09:44:32,1999.0,1096.0,TH-052-PLAYPEN,,,,Direct,
+gid://shopify/Order/6346572169305,TC-001/25-26/5062,2025-07-06 09:46:41,2598.0,1476.0,"TH-073-SMARTSIP, TH-016-SIPBOT",,,,Direct,
+gid://shopify/Order/6346609819737,TC-001/25-26/5064,2025-07-06 10:12:38,1899.0,940.0,TH-012-SNUGBOO-XXL,R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025,Top Cities -Broad,TH-012-SNUGBOO_Static,Meta,customer_journey
+gid://shopify/Order/6346637377625,TC-001/25-26/5065,2025-07-06 10:51:59,1899.0,940.0,TH-012-SNUGBOO-XXL,R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025,Top Cities -Broad,TH-012-SNUGBOO_Static,Meta,customer_journey
+gid://shopify/Order/6346640949337,TC-001/25-26/5066,2025-07-06 10:57:35,2499.0,879.0,TH-053-COAT-XXXL,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6346654613593,TC-001/25-26/5067,2025-07-06 11:19:03,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6346656186457,TC-001/25-26/5068,2025-07-06 11:21:34,2499.0,879.0,TH-053-COAT-XXXL,TH-053-JACKET – Life Time,Urban Pet Parents,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6346656972889,TC-001/25-26/5069,2025-07-06 11:22:50,799.0,211.0,TH-037-MISTBRU,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6346694590553,TC-001/25-26/5071,2025-07-06 12:30:35,1799.0,905.0,TH-012-SNUGBOO-XL,,,,Direct,
+gid://shopify/Order/6346713235545,TC-001/25-26/5072,2025-07-06 13:04:30,1499.0,560.0,TH-063-SILBOO-M,,,,Direct,
+gid://shopify/Order/6346759241817,TC-001/25-26/5073,2025-07-06 13:51:57,1898.0,1086.0,"TH-012-SNUGBOO-XS, TH-016-SIPBOT",,,,Direct,
+gid://shopify/Order/6346790830169,TC-001/25-26/5075,2025-07-06 14:43:27,1099.0,397.0,TH-038-PAWTR,,,,Direct,
+gid://shopify/Order/6346804985945,TC-001/25-26/5077,2025-07-06 15:08:59,1799.0,652.0,TH-063-SILBOO-XXL,TH-063-SILBOO,Urban Pet Parents,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6346809933913,TC-001/25-26/5078,2025-07-06 15:19:02,1897.0,740.0,"TH-006-FLEBRU, TH-011-PPGLO, TH-038-PAWTR",TH-068-WILD - Alternate Twin,Tier 2 Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6346833231961,TC-001/25-26/5080,2025-07-06 16:03:41,2199.0,743.0,TH-053-COAT-XL,TH-053-JACKET – Life Time,Urban Pet Parents,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6346860232793,TC-001/25-26/5082,2025-07-06 16:44:09,1999.0,723.0,TH-058-CAPE-XL,,,,Direct,
+gid://shopify/Order/6346878877785,TC-001/25-26/5084,2025-07-06 17:09:44,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6346895589465,TC-001/25-26/5085,2025-07-06 17:33:21,698.0,392.0,"TH-006-FLEBRU, TH-008-CLIBRU",TH-053-JACKET,Urban Pet Parents,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6346913415257,TC-001/25-26/5086,2025-07-06 17:56:12,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO- Alternate Twin,Tier 2 Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6346945593433,TC-001/25-26/5087,2025-07-06 18:33:09,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO,ICP Pet Parent,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6346984521817,TC-001/25-26/5088,2025-07-06 19:09:31,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6347080826969,TC-001/25-26/5089,2025-07-06 20:24:39,1799.0,905.0,TH-012-SNUGBOO-XL,TH-012-SNUGBOO,ICP Pet Parent,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6347087478873,TC-001/25-26/5091,2025-07-06 20:29:38,2199.0,743.0,TH-053-COAT-XL,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6347108614233,TC-001/25-26/5092,2025-07-06 20:47:09,1599.0,582.0,TH-063-SILBOO-L,,,,Direct,
+gid://shopify/Order/6347163631705,TC-001/25-26/5094,2025-07-06 21:29:05,1599.0,818.0,TH-012-SNUGBOO-M,R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025,Top Cities -Broad,TH-012-SNUGBOO_Static,Meta,customer_journey
+gid://shopify/Order/6347194663001,TC-001/25-26/5096,2025-07-06 21:45:48,3398.0,1432.0,"TH-012-SNUGBOO-S, TH-053-COAT-L",TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6347262066777,TC-001/25-26/5097,2025-07-06 22:28:35,1699.0,861.0,TH-012-SNUGBOO-L,R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025,Top Cities -Broad,TH-012-SNUGBOO_Static,Meta,customer_journey
+gid://shopify/Order/6347358535769,TC-001/25-26/5099,2025-07-06 23:29:12,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6347379474521,TC-001/25-26/5100,2025-07-06 23:37:37,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6347384062041,TC-001/25-26/5101,2025-07-06 23:39:24,1799.0,905.0,TH-012-SNUGBOO-XL,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6347403657305,TC-001/25-26/5102,2025-07-06 23:48:03,1499.0,775.0,TH-012-SNUGBOO-S,TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6347624743001,TC-001/25-26/5103,2025-07-07 00:51:14,1099.0,397.0,TH-038-PAWTR,R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025,Top Cities -Broad,TH-012-SNUGBOO_Static,Meta,customer_journey
+gid://shopify/Order/6348245303385,TC-001/25-26/5105,2025-07-07 07:45:06,1699.0,615.0,TH-063-SILBOO-XL,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6348327845977,TC-001/25-26/5107,2025-07-07 08:57:42,1699.0,615.0,TH-063-SILBOO-XL,TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6348363694169,TC-001/25-26/5108,2025-07-07 09:30:04,3998.0,1722.0,"TH-012-SNUGBOO-XL, TH-058-CAPE-XXL",Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6348374999129,TC-001/25-26/5109,2025-07-07 09:41:21,1299.0,521.0,TH-063-SILBOO-XS,TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6348440174681,TC-001/25-26/5111,2025-07-07 10:41:45,2698.0,1215.0,"TH-012-SNUGBOO-M, TH-038-PAWTR",TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6348445155417,TC-001/25-26/5112,2025-07-07 10:50:03,1999.0,988.0,TH-056-UMB,TH-056-UMB,Urban Pet Parents,TH-056-UMB_ET139_VP007,Meta,customer_journey
+gid://shopify/Order/6348451151961,TC-001/25-26/5113,2025-07-07 10:58:15,1799.0,905.0,TH-012-SNUGBOO-XL,,,,Direct,
+gid://shopify/Order/6348501844057,TC-001/25-26/5114,2025-07-07 12:24:59,3298.0,1679.0,"TH-012-SNUGBOO-M, TH-012-SNUGBOO-L",,,,Direct,
+gid://shopify/Order/6348541886553,TC-001/25-26/5116,2025-07-07 13:33:13,1999.0,988.0,TH-056-UMB,,,,Direct,
+gid://shopify/Order/6348589793369,TC-001/25-26/5117,2025-07-07 14:13:33,1499.0,560.0,TH-063-SILBOO-M,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6348627935321,TC-001/25-26/5118,2025-07-07 15:17:41,1699.0,861.0,TH-012-SNUGBOO-L,TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6348631670873,TC-001/25-26/5119,2025-07-07 15:24:57,1599.0,818.0,TH-012-SNUGBOO-M,TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6348673187929,TC-001/25-26/5120,2025-07-07 16:28:08,1397.0,539.0,"TH-007-FROLL, TH-008-CLIBRU, TH-044-GREAGLO",TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6348682362969,TC-001/25-26/5121,2025-07-07 16:37:43,549.0,196.0,TH-010-PETWIP,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6348726632537,TC-001/25-26/5122,2025-07-07 17:27:44,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6348785188953,TC-001/25-26/5123,2025-07-07 18:25:33,1499.0,775.0,TH-012-SNUGBOO-S,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6348790431833,TC-001/25-26/5124,2025-07-07 18:31:58,1899.0,940.0,TH-012-SNUGBOO-XXL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6348830736473,TC-001/25-26/5125,2025-07-07 19:04:05,1799.0,540.0,TH-058-CAPE-M,,,,Direct,
+gid://shopify/Order/6348884901977,TC-001/25-26/5126,2025-07-07 19:50:57,799.0,211.0,TH-037-MISTBRU,,,,Direct,
+gid://shopify/Order/6348915048537,TC-001/25-26/5127,2025-07-07 20:13:50,1699.0,615.0,TH-063-SILBOO-XL,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6348917964889,TC-001/25-26/5128,2025-07-07 20:15:47,1399.0,541.0,TH-063-SILBOO-S,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6348980256857,TC-001/25-26/5129,2025-07-07 21:02:51,1599.0,818.0,TH-012-SNUGBOO-M,,,,Direct,
+gid://shopify/Order/6348999458905,TC-001/25-26/5130,2025-07-07 21:16:07,1799.0,905.0,TH-012-SNUGBOO-XL,,,,Direct,
+gid://shopify/Order/6349013909593,TC-001/25-26/5131,2025-07-07 21:23:43,1099.0,397.0,TH-038-PAWTR,TH-038-PAWTR,Grooming Conscious Females,TH-038-PAWTR_ET108_ET129,Meta,customer_journey
+gid://shopify/Order/6349046841433,TC-001/25-26/5133,2025-07-07 21:46:53,1799.0,905.0,TH-012-SNUGBOO-XL,,,,Direct,
+gid://shopify/Order/6349238960217,TC-001/25-26/5135,2025-07-07 23:15:00,1799.0,652.0,TH-063-SILBOO-XXL,TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6349255082073,TC-001/25-26/5136,2025-07-07 23:25:25,1699.0,861.0,TH-012-SNUGBOO-L,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6349961986137,TC-001/25-26/5137,2025-07-08 08:43:20,998.0,392.0,TH-010-PETWIP,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6349992722521,TC-001/25-26/5138,2025-07-08 09:14:46,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6349994885209,TC-001/25-26/5139,2025-07-08 09:17:20,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6350117109849,TC-001/25-26/5142,2025-07-08 11:46:42,2398.0,1177.0,"TH-005-AQCASHO, TH-012-SNUGBOO-XL",Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6350175633497,TC-001/25-26/5145,2025-07-08 13:25:48,2399.0,832.0,TH-053-COAT-XXL,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6350175862873,TC-001/25-26/5146,2025-07-08 13:25:57,2199.0,743.0,TH-053-COAT-XL,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6350215807065,TC-001/25-26/5147,2025-07-08 13:57:01,919.0,354.0,TH-002-SKMISH,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6350312144985,TC-001/25-26/5149,2025-07-08 16:16:15,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO- Alternate Twin,Tier 2 Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6350376665177,TC-001/25-26/5151,2025-07-08 17:30:46,1699.0,861.0,TH-012-SNUGBOO-L,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6350423916633,TC-001/25-26/5152,2025-07-08 18:16:35,1799.0,905.0,TH-012-SNUGBOO-XL,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6350464778329,TC-001/25-26/5153,2025-07-08 18:52:59,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO – DUP,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6350497906777,TC-001/25-26/5154,2025-07-08 19:20:49,1699.0,615.0,TH-063-SILBOO-XL,TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6350515929177,TC-001/25-26/5155,2025-07-08 19:36:08,1699.0,615.0,TH-063-SILBOO-XL,TH-063-SILBOO- Alternate Twin,Tier 2 Pet Parents,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6350666956889,TC-001/25-26/5156,2025-07-08 21:26:38,1699.0,861.0,TH-012-SNUGBOO-L,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6350702608473,TC-001/25-26/5157,2025-07-08 21:52:07,919.0,354.0,TH-001-THARSH,TH-063-SILBOO – Life Time,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6350824439897,TC-001/25-26/5159,2025-07-08 23:10:18,1799.0,545.0,TH-053-COAT-M,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259 – Statics,Meta,customer_journey
+gid://shopify/Order/6350838038617,TC-001/25-26/5160,2025-07-08 23:18:55,1599.0,818.0,TH-012-SNUGBOO-M,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6350869299289,TC-001/25-26/5161,2025-07-08 23:40:30,1399.0,541.0,TH-063-SILBOO-S,,,,Direct,
+gid://shopify/Order/6350877687897,TC-001/25-26/5162,2025-07-08 23:45:28,1899.0,940.0,TH-012-SNUGBOO-XXL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6350926610521,TC-001/25-26/5163,2025-07-09 00:19:59,1899.0,,,TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6350990278745,TC-001/25-26/5164,2025-07-09 01:04:48,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6351420424281,TC-001/25-26/5165,2025-07-09 07:06:04,1699.0,615.0,TH-063-SILBOO-XL,TH-063-SILBOO – Life Time,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6351441756249,TC-001/25-26/5166,2025-07-09 07:26:07,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6351457910873,TC-001/25-26/5167,2025-07-09 07:39:56,4396.0,1945.0,"TH-005-AQCASHO, TH-037-MISTBRU, TH-035-FURLUXE, TH-039-ALLGRO",TH-063-SILBOO- Alternate Twin,Luxury Spenders,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6351504769113,TC-001/25-26/5168,2025-07-09 08:26:24,1499.0,560.0,TH-063-SILBOO-M,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6351552413785,TC-001/25-26/5169,2025-07-09 09:17:30,1499.0,560.0,TH-063-SILBOO-M,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6351555362905,TC-001/25-26/5170,2025-07-09 09:20:59,1799.0,652.0,TH-063-SILBOO-XXL,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6351562211417,TC-001/25-26/5171,2025-07-09 09:29:22,1599.0,818.0,TH-012-SNUGBOO-M,,,,Direct,
+gid://shopify/Order/6351625191513,TC-001/25-26/5172,2025-07-09 10:25:30,1599.0,582.0,TH-063-SILBOO-L,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6351627911257,TC-001/25-26/5173,2025-07-09 10:30:38,2698.0,,TH-035-FURLUXE,TH-085-COMFORTCRIB,Broad Advantage+,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6351694266457,TC-001/25-26/5174,2025-07-09 12:27:09,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6351712944217,TC-001/25-26/5175,2025-07-09 13:00:22,2499.0,879.0,TH-053-COAT-XXXL,,,,Direct,
+gid://shopify/Order/6351722578009,TC-001/25-26/5176,2025-07-09 13:20:45,4697.0,1527.0,"TH-053-COAT-S, TH-038-PAWTR, TH-053-COAT-L",,,,Direct,
+gid://shopify/Order/6351762489433,TC-001/25-26/5178,2025-07-09 13:52:28,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO- Alternate Twin,Luxury Spenders,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6351771238489,TC-001/25-26/5179,2025-07-09 14:05:18,4296.0,1990.0,"TH-027-NAS, TH-012-SNUGBOO-L, TH-018-NAICUTFIL, TH-044-GREAGLO",TH-012-SNUGBOO- Alternate Twin,Luxury Spenders,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6351868395609,TC-001/25-26/5181,2025-07-09 16:48:50,2497.0,972.0,"TH-063-SILBOO-L, TH-010-PETWIP, TH-008-CLIBRU",TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6351978725465,TC-001/25-26/5183,2025-07-09 18:47:18,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6352023126105,TC-001/25-26/5184,2025-07-09 19:25:43,2398.0,1126.0,"TH-072-AEROPOD-BEIGE, TH-044-GREAGLO",TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6352053141593,TC-001/25-26/5185,2025-07-09 19:51:35,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6352071295065,TC-001/25-26/5186,2025-07-09 20:03:26,1849.0,664.0,TH-070-TGSB,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6352092037209,TC-001/25-26/5187,2025-07-09 20:17:16,1399.0,541.0,TH-063-SILBOO-S,,,,Direct,
+gid://shopify/Order/6352112549977,TC-001/25-26/5188,2025-07-09 20:31:24,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6352170582105,TC-001/25-26/5189,2025-07-09 21:12:15,1799.0,652.0,TH-063-SILBOO-XXL,,,,Direct,
+gid://shopify/Order/6352181723225,TC-001/25-26/5190,2025-07-09 21:19:33,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6352226287705,TC-001/25-26/5191,2025-07-09 21:52:32,7097.0,3234.0,"TH-073-SMARTSIP, TH-085-COMFORTCRIB-L-G, TH-064-LITTER",TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6352236970073,TC-001/25-26/5192,2025-07-09 22:00:59,1799.0,652.0,TH-063-SILBOO-XXL,TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6352261513305,TC-001/25-26/5193,2025-07-09 22:17:33,1699.0,861.0,TH-012-SNUGBOO-L,,,,Direct,
+gid://shopify/Order/6352317153369,TC-001/25-26/5194,2025-07-09 22:56:10,1699.0,615.0,TH-063-SILBOO-XL,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6352353558617,TC-001/25-26/5197,2025-07-09 23:22:05,1599.0,582.0,TH-063-SILBOO-L,,,,Direct,
+gid://shopify/Order/6352933847129,TC-001/25-26/5199,2025-07-10 07:12:28,1899.0,940.0,TH-012-SNUGBOO-XXL,,,,Direct,
+gid://shopify/Order/6353007837273,TC-001/25-26/5200,2025-07-10 08:24:10,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6353018716249,TC-001/25-26/5201,2025-07-10 08:34:41,1499.0,560.0,TH-063-SILBOO-M,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6353024647257,TC-001/25-26/5202,2025-07-10 08:40:27,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6353051025497,TC-001/25-26/5203,2025-07-10 09:11:27,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6353060954201,TC-001/25-26/5205,2025-07-10 09:22:56,1499.0,560.0,TH-063-SILBOO-M,TH-063-SILBOO – Life Time,Urban Pet Parents,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6353084219481,TC-001/25-26/5207,2025-07-10 09:47:33,1499.0,775.0,TH-012-SNUGBOO-S,TH-076-GRIPEASE,Urban Pet Parents,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6353100210265,TC-001/25-26/5208,2025-07-10 09:53:56,5398.0,3346.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6353102405721,TC-001/25-26/5209,2025-07-10 09:55:17,1499.0,775.0,TH-012-SNUGBOO-S,TH-072-AEROPOD,Urban Pet Parents,TH-072-AEROPOD_ET113_IM253,Meta,customer_journey
+gid://shopify/Order/6353146740825,TC-001/25-26/5211,2025-07-10 10:52:15,3698.0,1592.0,"TH-012-SNUGBOO-XXL, TH-063-SILBOO-XXL",TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6353154048089,TC-001/25-26/5212,2025-07-10 11:03:16,1799.0,652.0,TH-063-SILBOO-XXL,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6353157488729,TC-001/25-26/5213,2025-07-10 11:09:48,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6353169547353,TC-001/25-26/5214,2025-07-10 11:28:07,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-063-SILBOO – Life Time,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6353226039385,TC-001/25-26/5215,2025-07-10 13:07:00,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6353362976857,TC-001/25-26/5216,2025-07-10 16:31:48,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6353394434137,TC-001/25-26/5217,2025-07-10 17:08:55,1699.0,615.0,TH-063-SILBOO-XL,TH-063-SILBOO – Life Time,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6353527373913,TC-001/25-26/5218,2025-07-10 19:16:36,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6353613914201,TC-001/25-26/5219,2025-07-10 20:25:41,1799.0,905.0,TH-012-SNUGBOO-XL,TH-012-SNUGBOO- Alternate Twin,Luxury Spenders,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6353656053849,TC-001/25-26/5221,2025-07-10 20:56:31,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6353662672985,TC-001/25-26/5222,2025-07-10 21:01:19,1799.0,652.0,TH-063-SILBOO-XXL,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6353707303001,TC-001/25-26/5223,2025-07-10 21:32:29,2599.0,1638.0,TH-023-POSADVCLEKIT,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6353805377625,TC-001/25-26/5225,2025-07-10 22:39:13,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6353839161433,TC-001/25-26/5226,2025-07-10 23:01:08,1999.0,1098.0,TH-085-COMFORTCRIB-L-G,TH-085-COMFORTCRIB,Broad Advantage+,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6353911087193,TC-001/25-26/5227,2025-07-10 23:50:20,1799.0,905.0,TH-012-SNUGBOO-XL,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6353928618073,TC-001/25-26/5228,2025-07-11 00:03:16,2399.0,832.0,TH-053-COAT-XXL,TH-063-SILBOO – Life Time,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6354623430745,TC-001/25-26/5229,2025-07-11 06:36:19,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6354669207641,TC-001/25-26/5230,2025-07-11 07:03:55,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO- Alternate Twin,Tier 2 Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6354849857625,TC-001/25-26/5231,2025-07-11 09:17:11,3098.0,1593.0,"TH-012-SNUGBOO-M, TH-012-SNUGBOO-S",TH-012-SNUGBOO,ICP Pet Parent,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6354923454553,TC-001/25-26/5232,2025-07-11 10:25:03,1899.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6354960613465,TC-001/25-26/5233,2025-07-11 11:18:51,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6354973884505,TC-001/25-26/5235,2025-07-11 11:38:59,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6354976309337,TC-001/25-26/5236,2025-07-11 11:42:58,1599.0,818.0,TH-012-SNUGBOO-M,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6355029622873,TC-001/25-26/5237,2025-07-11 13:13:12,449.0,194.0,TH-008-CLIBRU,TH-087-LITTERDEN,Broad Advantage+,TH-087-LITTERDEN_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6355037814873,TC-001/25-26/5238,2025-07-11 13:28:13,1399.0,731.0,TH-012-SNUGBOO-XS,TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6355088638041,TC-001/25-26/5242,2025-07-11 14:11:06,799.0,211.0,TH-037-MISTBRU,,,,Direct,
+gid://shopify/Order/6355097190489,TC-001/25-26/5243,2025-07-11 14:30:22,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6355118260313,TC-001/25-26/5244,2025-07-11 15:07:18,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6355154534489,TC-001/25-26/5245,2025-07-11 16:06:05,2999.0,2260.0,TH-087-LITTERDEN,TH-087-LITTERDEN,Broad Advantage+,TH-087-LITTERDEN_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6355255885913,TC-001/25-26/5247,2025-07-11 17:55:20,1997.0,867.0,"TH-005-AQCASHO, TH-006-FLEBRU, TH-038-PAWTR",,,,Direct,
+gid://shopify/Order/6355339870297,TC-001/25-26/5249,2025-07-11 18:54:57,1899.0,632.0,TH-058-CAPE-L,TH-068-WILD,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6355554861145,TC-001/25-26/5250,2025-07-11 20:47:33,2399.0,1098.0,TH-085-COMFORTCRIB-L-G,TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6355815202905,TC-001/25-26/5251,2025-07-11 22:20:53,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6355903119449,TC-001/25-26/5252,2025-07-11 22:43:37,3298.0,1302.0,"TH-012-SNUGBOO-XL, TH-038-PAWTR",R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025,Top Cities -Broad,TH-012-SNUGBOO_Static,Meta,customer_journey
+gid://shopify/Order/6355981762649,TC-001/25-26/5253,2025-07-11 23:04:33,2199.0,905.0,TH-012-SNUGBOO-XL,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6356184957017,TC-001/25-26/5254,2025-07-11 23:58:36,1099.0,426.0,TH-055-CHEWBALL,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6357473624153,TC-001/25-26/5260,2025-07-12 13:21:28,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6357482504281,TC-001/25-26/5261,2025-07-12 13:34:15,1099.0,397.0,TH-038-PAWTR,TH-076-GRIPEASE,Broad Advantage+,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6357537587289,TC-001/25-26/5262,2025-07-12 14:44:58,449.0,176.0,TH-044-GREAGLO,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6357557936217,TC-001/25-26/5263,2025-07-12 15:25:18,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6357559869529,TC-001/25-26/5264,2025-07-12 15:28:43,1299.0,499.0,TH-040-MAZE,TH - E2 RPP - Video - India - IG & FB - Sales - 04/05/2025,"9SDE - E2 - Ad Set 1 (Animal rescue groups, Dog agility, National Dog Show)",TH-036FMB-ET101-SI210-ET137-ET139 – Copy,Meta,customer_journey
+gid://shopify/Order/6357609087065,TC-001/25-26/5267,2025-07-12 16:44:59,1899.0,632.0,TH-058-CAPE-L,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6357610430553,TC-001/25-26/5268,2025-07-12 16:47:10,2299.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6357632548953,TC-001/25-26/5269,2025-07-12 17:19:57,2299.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO- Alternate Twin,Luxury Spenders,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6358134816857,TC-001/25-26/5271,2025-07-12 23:32:26,8396.0,2650.0,"TH-053-COAT-XL, TH-063-SILBOO-L",TH-012-SNUGBOO,ICP Pet Parent,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6358852436057,TC-001/25-26/5272,2025-07-13 09:25:58,2399.0,1098.0,TH-085-COMFORTCRIB-L-G,TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6358890086489,TC-001/25-26/5273,2025-07-13 09:57:28,2099.0,615.0,TH-063-SILBOO-XL,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6358913122393,TC-001/25-26/5274,2025-07-13 10:33:30,2999.0,2260.0,TH-087-LITTERDEN,TH-087-LITTERDEN,Broad Advantage+,TH-087-LITTERDEN_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6358926917721,TC-001/25-26/5275,2025-07-13 10:57:06,1599.0,554.0,TH-076-GRIPEASE,TH-076-GRIPEASE,Broad Advantage+,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6358928949337,TC-001/25-26/5276,2025-07-13 11:01:08,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6358989635673,TC-001/25-26/5278,2025-07-13 12:54:52,3999.0,3047.0,TH-082-FEEDSYNC,TH-082-FEEDSYNC,Broad Advantage+,TH-082-FEEDSYNC_CF309_ET110,Meta,customer_journey
+gid://shopify/Order/6359014408281,TC-001/25-26/5279,2025-07-13 13:35:20,1398.0,483.0,"TH-005-AQCASHO, TH-037-MISTBRU",TH-087-LITTERDEN,Broad Advantage+,TH-087-LITTERDEN_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6359034691673,TC-001/25-26/5280,2025-07-13 13:45:40,2297.0,991.0,"TH-051-LICKMAT, TH-018-NAICUTFIL, TH-013-PAWCLESH",TH-082-FEEDSYNC,ICP Pet Parent,TH-082-FEEDSYNC_CF309_ET110,Meta,customer_journey
+gid://shopify/Order/6359051305049,TC-001/25-26/5281,2025-07-13 14:07:45,1999.0,818.0,TH-012-SNUGBOO-M,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6359063953497,TC-001/25-26/5282,2025-07-13 14:28:36,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6359126081625,TC-001/25-26/5284,2025-07-13 16:22:05,2099.0,1121.0,TH-073-SMARTSIP,TH-073-SMARTSIP,ICP Pet Parent,TH-073-SMARTSIP_VP048_ET122,Meta,customer_journey
+gid://shopify/Order/6359137321049,TC-001/25-26/5285,2025-07-13 16:36:08,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6359140466777,TC-001/25-26/5286,2025-07-13 16:40:25,1099.0,397.0,TH-038-PAWTR,,,,Direct,
+gid://shopify/Order/6359168614489,TC-001/25-26/5287,2025-07-13 17:19:46,2299.0,940.0,TH-012-SNUGBOO-XXL,TH-053-JACKET – Life Time,Urban Pet Parents,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6359202529369,TC-001/25-26/5288,2025-07-13 18:02:51,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6359230021721,TC-001/25-26/5289,2025-07-13 18:33:29,2399.0,1098.0,TH-085-COMFORTCRIB-L-G,TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6359373578329,TC-001/25-26/5290,2025-07-13 20:39:54,4997.0,2232.0,"TH-069-CATFEED, TH-085-COMFORTCRIB-L-G, TH-013-PAWCLESH",TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6359378788441,TC-001/25-26/5291,2025-07-13 20:44:01,6098.0,4168.0,"TH-073-SMARTSIP, TH-082-FEEDSYNC",TH-082-FEEDSYNC,Broad Advantage+,TH-082-FEEDSYNC_CF309_ET110,Meta,customer_journey
+gid://shopify/Order/6359518740569,TC-001/25-26/5292,2025-07-13 22:18:31,2698.0,771.0,"TH-037-MISTBRU, TH-063-SILBOO-M",TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6359542431833,TC-001/25-26/5293,2025-07-13 22:34:00,899.0,341.0,TH-083-SPILLGUARD,TH-083-SPILLGUARD,Urban Pet Parents,TH-083-SPILLGUARD_ET112_ET199,Meta,customer_journey
+gid://shopify/Order/6359759487065,TC-001/25-26/5294,2025-07-14 00:42:02,6598.0,3847.0,"TH-082-FEEDSYNC, TH-061-PUPHOME",TH-082-FEEDSYNC,Broad Advantage+,TH-082-FEEDSYNC_CF309_ET110,Meta,customer_journey
+gid://shopify/Order/6359837311065,TC-001/25-26/5295,2025-07-14 01:31:00,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6359931781209,TC-001/25-26/5296,2025-07-14 02:29:30,4797.0,1719.0,"TH-012-SNUGBOO-M, TH-063-SILBOO-M, TH-083-SPILLGUARD",TH-063-SILBOO,Urban Pet Parents,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6360476287065,TC-001/25-26/5299,2025-07-14 10:07:27,1598.0,593.0,"TH-038-PAWTR, TH-010-PETWIP",,,,Direct,
+gid://shopify/Order/6360520261721,TC-001/25-26/5300,2025-07-14 11:12:34,2499.0,879.0,TH-053-COAT-XXXL,TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6360594317401,TC-001/25-26/5301,2025-07-14 11:59:56,1899.0,775.0,TH-012-SNUGBOO-S,,,,Direct,
+gid://shopify/Order/6360662868057,TC-001/25-26/5302,2025-07-14 12:27:24,1999.0,818.0,TH-012-SNUGBOO-M,TH-076-GRIPEASE,Broad Advantage+,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6360703926361,TC-001/25-26/5303,2025-07-14 12:43:40,1799.0,541.0,TH-063-SILBOO-S,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6360722833497,TC-001/25-26/5304,2025-07-14 12:51:48,898.0,549.0,"TH-008-CLIBRU, TH-016-SIPBOT",TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6360831393881,TC-001/25-26/5305,2025-07-14 13:34:23,2399.0,1098.0,TH-085-COMFORTCRIB-L-G,TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6360845582425,TC-001/25-26/5306,2025-07-14 13:38:18,2199.0,652.0,TH-063-SILBOO-XXL,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6361040388185,TC-001/25-26/5309,2025-07-14 15:59:09,2499.0,1071.0,TH-084-AQUAGLOW,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6361040420953,TC-001/25-26/5310,2025-07-14 15:59:15,1899.0,775.0,TH-012-SNUGBOO-S,TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6361060933721,TC-001/25-26/5311,2025-07-14 16:29:34,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6361070829657,TC-001/25-26/5312,2025-07-14 16:36:09,2099.0,615.0,TH-063-SILBOO-XL,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6361077743705,TC-001/25-26/5313,2025-07-14 16:44:06,1799.0,541.0,TH-063-SILBOO-S,TH-063-SILBOO- Alternate Twin,Luxury Spenders,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6361106841689,TC-001/25-26/5314,2025-07-14 17:20:21,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6361110052953,TC-001/25-26/5315,2025-07-14 17:24:33,1799.0,541.0,TH-063-SILBOO-S,TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6361243320409,TC-001/25-26/5317,2025-07-14 19:24:12,2199.0,905.0,TH-012-SNUGBOO-XL,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6361557631065,TC-001/25-26/5319,2025-07-14 22:29:08,2299.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6361584959577,TC-001/25-26/5320,2025-07-14 22:46:21,1799.0,541.0,TH-063-SILBOO-S,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6361681690713,TC-001/25-26/5321,2025-07-14 23:50:24,2499.0,879.0,TH-053-COAT-XXXL,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6362311098457,TC-001/25-26/5322,2025-07-15 07:47:36,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6362328236121,TC-001/25-26/5323,2025-07-15 08:04:07,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6362394722393,TC-001/25-26/5324,2025-07-15 09:12:30,449.0,194.0,TH-008-CLIBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-008-CLIBRU,Meta,customer_journey
+gid://shopify/Order/6362397802585,TC-001/25-26/5325,2025-07-15 09:16:18,799.0,211.0,TH-037-MISTBRU,,,,Direct,
+gid://shopify/Order/6362427293785,TC-001/25-26/5326,2025-07-15 09:47:51,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6362428440665,TC-001/25-26/5327,2025-07-15 09:49:48,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6362448330841,TC-001/25-26/5328,2025-07-15 10:00:47,3998.0,2118.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6362490011737,TC-001/25-26/5329,2025-07-15 11:00:25,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6362515505241,TC-001/25-26/5330,2025-07-15 11:37:40,1899.0,560.0,TH-063-SILBOO-M,,,,Direct,
+gid://shopify/Order/6362521534553,TC-001/25-26/5331,2025-07-15 11:48:56,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6362522288217,TC-001/25-26/5332,2025-07-15 11:50:27,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6362538868825,TC-001/25-26/5333,2025-07-15 12:16:51,2299.0,940.0,TH-012-SNUGBOO-XXL,TH-063-SILBOO- Alternate Twin,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6362694090841,TC-001/25-26/5337,2025-07-15 15:35:18,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6362709098585,TC-001/25-26/5339,2025-07-15 16:01:21,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6362757988441,TC-001/25-26/5342,2025-07-15 17:02:58,1999.0,818.0,TH-012-SNUGBOO-M,TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6362797506649,TC-001/25-26/5343,2025-07-15 17:47:27,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6362799276121,TC-001/25-26/5344,2025-07-15 17:49:09,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6362863272025,TC-001/25-26/5345,2025-07-15 18:49:19,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6362886930521,TC-001/25-26/5347,2025-07-15 19:11:48,2198.0,794.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6362935787609,TC-001/25-26/5348,2025-07-15 19:52:58,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6362981892185,TC-001/25-26/5349,2025-07-15 20:27:24,1999.0,582.0,TH-063-SILBOO-L,TH-063-SILBOO- Alternate Twin,Luxury Spenders,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6363005583449,TC-001/25-26/5350,2025-07-15 20:43:39,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6363019214937,TC-001/25-26/5351,2025-07-15 20:52:47,1899.0,657.0,TH-053-COAT-L,,,,Direct,
+gid://shopify/Order/6363099988057,TC-001/25-26/5352,2025-07-15 21:47:51,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6363111227481,TC-001/25-26/5353,2025-07-15 21:54:51,2099.0,861.0,TH-012-SNUGBOO-L,TH-076-GRIPEASE,Broad Advantage+,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6363242201177,TC-001/25-26/5354,2025-07-15 23:16:43,2497.0,992.0,"TH-006-FLEBRU, TH-038-PAWTR",ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6363327529049,TC-001/25-26/5355,2025-07-16 00:12:12,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6363367243865,TC-001/25-26/5356,2025-07-16 00:39:55,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6363379302489,TC-001/25-26/5357,2025-07-16 00:48:05,2099.0,1121.0,TH-073-SMARTSIP,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6363383824473,TC-001/25-26/5358,2025-07-16 00:50:52,1598.0,422.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6363721400409,TC-001/25-26/5359,2025-07-16 04:58:57,799.0,211.0,TH-037-MISTBRU,,,,Direct,
+gid://shopify/Order/6363957723225,TC-001/25-26/5360,2025-07-16 08:37:13,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6363962048601,TC-001/25-26/5361,2025-07-16 08:42:35,2199.0,905.0,TH-012-SNUGBOO-XL,,,,Direct,
+gid://shopify/Order/6364006711385,TC-001/25-26/5362,2025-07-16 09:34:15,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6364007039065,TC-001/25-26/5363,2025-07-16 09:34:46,2499.0,1039.0,TH-103-K9HARNESS,TH-103-K9HARNESS,Urban Pet Parents,TH-103-K9HARNESS_ET133_ET129,Meta,customer_journey
+gid://shopify/Order/6364045279321,TC-001/25-26/5364,2025-07-16 10:07:04,2099.0,615.0,TH-063-SILBOO-XL,TH-063-SILBOO- Alternate Twin,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6364046688345,TC-001/25-26/5365,2025-07-16 10:08:44,2299.0,940.0,TH-012-SNUGBOO-XXL,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6364052258905,TC-001/25-26/5366,2025-07-16 10:17:40,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6364070805593,TC-001/25-26/5368,2025-07-16 10:42:27,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6364072181849,TC-001/25-26/5369,2025-07-16 10:44:50,2499.0,879.0,TH-053-COAT-XXXL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6364102426713,TC-001/25-26/5370,2025-07-16 11:36:05,3698.0,1316.0,"TH-012-SNUGBOO-S, TH-063-SILBOO-S",R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025,Top Cities -Broad,TH-012-SNUGBOO_Static,Meta,customer_journey
+gid://shopify/Order/6364103180377,TC-001/25-26/5371,2025-07-16 11:37:14,3698.0,1316.0,"TH-012-SNUGBOO-S, TH-063-SILBOO-S",,,,Direct,
+gid://shopify/Order/6364110061657,TC-001/25-26/5372,2025-07-16 11:49:52,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6364111175769,TC-001/25-26/5373,2025-07-16 11:51:53,2399.0,1098.0,TH-085-COMFORTCRIB-L-G,TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6364125134937,TC-001/25-26/5374,2025-07-16 12:14:36,2199.0,905.0,TH-012-SNUGBOO-XL,TH-063-SILBOO- Alternate Twin,Luxury Spenders,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6364197290073,TC-001/25-26/5375,2025-07-16 13:45:56,1198.0,627.0,"TH-005-AQCASHO, TH-016-SIPBOT",TH-076-GRIPEASE,Broad Advantage+,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6364222849113,TC-001/25-26/5376,2025-07-16 14:29:10,899.0,341.0,TH-083-SPILLGUARD,ASC- CAT B & C,Broad + Video Viewers (Bowls & Feeders),TH-083-SPILLGUARD_ET112_ET199 – Copy,Meta,customer_journey
+gid://shopify/Order/6364246311001,TC-001/25-26/5378,2025-07-16 15:13:49,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6364253323353,TC-001/25-26/5379,2025-07-16 15:25:38,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6364253356121,TC-001/25-26/5380,2025-07-16 15:25:40,2199.0,652.0,TH-063-SILBOO-XXL,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6364260434009,TC-001/25-26/5381,2025-07-16 15:37:21,449.0,194.0,TH-008-CLIBRU,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6364293988441,TC-001/25-26/5382,2025-07-16 16:30:59,899.0,341.0,TH-083-SPILLGUARD,TH-083-SPILLGUARD,Broad Advantage+,TH-083-SPILLGUARD_ET112_ET199,Meta,customer_journey
+gid://shopify/Order/6364377088089,TC-001/25-26/5384,2025-07-16 18:08:13,2399.0,1098.0,TH-085-COMFORTCRIB-L-G,TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6364487450713,TC-001/25-26/5387,2025-07-16 19:44:51,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6364573040729,TC-001/25-26/5388,2025-07-16 20:49:11,1999.0,1059.0,TH-075-NAPDEN-M,TH-085-COMFORTCRIB,Broad Advantage+,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6364612395097,TC-001/25-26/5389,2025-07-16 21:16:40,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6364629139545,TC-001/25-26/5390,2025-07-16 21:29:08,2399.0,1098.0,TH-085-COMFORTCRIB-L-G,TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6364782985305,TC-001/25-26/5391,2025-07-16 23:20:21,2099.0,861.0,TH-012-SNUGBOO-L,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6364944957529,TC-001/25-26/5392,2025-07-17 01:13:39,1599.0,554.0,TH-076-GRIPEASE,TH-076-GRIPEASE,Broad Advantage+,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6365027827801,TC-001/25-26/5393,2025-07-17 02:12:53,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6365280927833,TC-001/25-26/5395,2025-07-17 05:38:58,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6365336928345,TC-001/25-26/5396,2025-07-17 06:28:34,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6365379821657,TC-001/25-26/5397,2025-07-17 07:06:56,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6365490708569,TC-001/25-26/5398,2025-07-17 08:59:18,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6365572595801,TC-001/25-26/5399,2025-07-17 10:31:29,449.0,194.0,TH-008-CLIBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-008-CLIBRU,Meta,customer_journey
+gid://shopify/Order/6365622272089,TC-001/25-26/5401,2025-07-17 11:47:12,2399.0,1098.0,TH-085-COMFORTCRIB-L-G,,,,Direct,
+gid://shopify/Order/6365633478745,TC-001/25-26/5402,2025-07-17 12:06:28,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6365654089817,TC-001/25-26/5403,2025-07-17 12:43:13,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6365671030873,TC-001/25-26/5404,2025-07-17 13:10:35,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6365674012761,TC-001/25-26/5405,2025-07-17 13:15:25,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6365674242137,TC-001/25-26/5406,2025-07-17 13:15:44,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6365676765273,TC-001/25-26/5407,2025-07-17 13:19:02,799.0,211.0,TH-037-MISTBRU,,,,Direct,
+gid://shopify/Order/6365681025113,TC-001/25-26/5408,2025-07-17 13:27:17,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6365684498521,TC-001/25-26/5409,2025-07-17 13:32:19,1799.0,682.0,TH-068-WILD-S,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6365733027929,TC-001/25-26/5411,2025-07-17 14:20:54,1899.0,725.0,TH-068-WILD-M,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6365735551065,TC-001/25-26/5412,2025-07-17 14:26:01,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6365736763481,TC-001/25-26/5413,2025-07-17 14:28:57,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6365740597337,TC-001/25-26/5414,2025-07-17 14:35:23,2499.0,1039.0,TH-103-K9HARNESS,TH-103-K9HARNESS,Broad Advantage+,TH-103-K9HARNESS_ET133_ET129,Meta,customer_journey
+gid://shopify/Order/6365766451289,TC-001/25-26/5415,2025-07-17 15:19:50,799.0,211.0,TH-037-MISTBRU,,,,Direct,
+gid://shopify/Order/6365773725785,TC-001/25-26/5416,2025-07-17 15:33:00,4398.0,1652.0,TH-068-WILD-XXL,,,,Direct,
+gid://shopify/Order/6365811540057,TC-001/25-26/5417,2025-07-17 16:31:35,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6366071947353,TC-001/25-26/5419,2025-07-17 20:15:33,2199.0,826.0,TH-068-WILD-XXL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6366178541657,TC-001/25-26/5420,2025-07-17 21:08:46,1198.0,482.0,"TH-051-LICKMAT, TH-015-MBOW",,,,Direct,
+gid://shopify/Order/6366305747033,TC-001/25-26/5421,2025-07-17 22:23:18,2199.0,652.0,TH-063-SILBOO-XXL,TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6367095259225,TC-001/25-26/5422,2025-07-18 07:59:06,2299.0,940.0,TH-012-SNUGBOO-XXL,ASC- PET SHOES,Broad + Lookalike (WILD),TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6367103254617,TC-001/25-26/5423,2025-07-18 08:05:30,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6367124095065,TC-001/25-26/5424,2025-07-18 08:24:51,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6367144542297,TC-001/25-26/5425,2025-07-18 08:42:41,2199.0,826.0,TH-068-WILD-XXL,ASC- PET SHOES,Broad + Video Viewers (SILBOO),TH-063-SILBOO_ET129_UI468 – Statics,Meta,customer_journey
+gid://shopify/Order/6367148212313,TC-001/25-26/5426,2025-07-18 08:46:22,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6367170068569,TC-001/25-26/5427,2025-07-18 09:09:17,1198.0,416.0,"TH-037-MISTBRU, TH-033-SNOG-S",TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6367183896665,TC-001/25-26/5428,2025-07-18 09:25:25,2417.0,818.0,"TH-037-MISTBRU, TH-051-LICKMAT, TH-002-SKMISH",TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6367207391321,TC-001/25-26/5429,2025-07-18 09:51:15,2199.0,826.0,TH-068-WILD-XXL,ASC- PET SHOES,Broad + Video Viewers (SILBOO),TH-063-SILBOO_ET129_UI468,Meta,customer_journey
+gid://shopify/Order/6367264178265,TC-001/25-26/5430,2025-07-18 10:53:33,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6367320604761,TC-001/25-26/5431,2025-07-18 12:18:05,799.0,211.0,TH-037-MISTBRU,,,,Direct,
+gid://shopify/Order/6367320866905,TC-001/25-26/5432,2025-07-18 12:18:36,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6367487721561,TC-001/25-26/5433,2025-07-18 16:11:02,2099.0,788.0,TH-068-WILD-XL,,,,Direct,
+gid://shopify/Order/6368313278553,TC-001/25-26/5434,2025-07-19 01:11:22,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6368714326105,TC-001/25-26/5435,2025-07-19 05:49:26,2699.0,1867.0,"TH-075-NAPDEN-L, TH-008-CLIBRU",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6368817315929,TC-001/25-26/5436,2025-07-19 07:23:30,799.0,211.0,TH-037-MISTBRU,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6368841629785,TC-001/25-26/5437,2025-07-19 07:48:08,2299.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6368850640985,TC-001/25-26/5438,2025-07-19 07:57:58,3698.0,1407.0,"TH-068-WILD-M, TH-068-WILD-S",TH-068-WILD - Alternate Twin,Luxury Spenders,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6368871415897,TC-001/25-26/5440,2025-07-19 08:18:47,2898.0,1810.0,"TH-071-SUMMERMAT, TH-008-CLIBRU, TH-083-SPILLGUARD",ASC- PMF,Broad + Video Viewers (SUMMERMAT),TH-071-SUMMERMAT_VP001_ET101,Google,customer_journey
+gid://shopify/Order/6368909557849,TC-001/25-26/5441,2025-07-19 08:59:11,1999.0,582.0,TH-063-SILBOO-L,ASC- PET SHOES,Broad + Video Viewers (SILBOO),TH-063-SILBOO_ET129_UI468,Meta,customer_journey
+gid://shopify/Order/6368965394521,TC-001/25-26/5442,2025-07-19 09:51:21,1899.0,725.0,TH-068-WILD-M,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6368978501721,TC-001/25-26/5443,2025-07-19 10:03:47,2099.0,861.0,TH-012-SNUGBOO-L,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6368979583065,TC-001/25-26/5444,2025-07-19 10:05:47,3198.0,1302.0,"TH-008-CLIBRU, TH-076-GRIPEASE",TH-076-GRIPEASE,Broad Advantage+,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6368988659801,TC-001/25-26/5445,2025-07-19 10:15:55,1999.0,582.0,TH-063-SILBOO-L,,,,Direct,
+gid://shopify/Order/6368993509465,TC-001/25-26/5446,2025-07-19 10:23:36,2199.0,652.0,TH-063-SILBOO-XXL,TH-063-SILBOO,Broad Advantage+,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6369004879961,TC-001/25-26/5447,2025-07-19 10:38:59,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6369012023385,TC-001/25-26/5448,2025-07-19 10:50:44,2399.0,1292.0,"TH-008-CLIBRU, TH-085-COMFORTCRIB-L-G",TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6369013891161,TC-001/25-26/5449,2025-07-19 10:53:56,1599.0,554.0,TH-076-GRIPEASE,TH-076-GRIPEASE,Broad Advantage+,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6369024311385,TC-001/25-26/5451,2025-07-19 11:12:21,2199.0,826.0,TH-068-WILD-XXL,TH-068-WILD,Adventure Trekkers,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6369031913561,TC-001/25-26/5452,2025-07-19 11:24:30,2199.0,826.0,TH-068-WILD-XXL,TH-068-WILD-New,Adventure Trekkers,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6369049182297,TC-001/25-26/5454,2025-07-19 11:57:39,5493.0,2662.0,"TH-080-ALOEDEO, TH-033-SNOG-S, TH-005-AQCASHO, TH-044-GREAGLO, TH-071-SUMMERMAT, TH-051-LICKMAT, TH-015-MBOW",Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6369049641049,TC-001/25-26/5455,2025-07-19 11:58:35,4198.0,1885.0,"TH-068-WILD-XXL, TH-075-NAPDEN-M",,,,Direct,
+gid://shopify/Order/6369052721241,TC-001/25-26/5457,2025-07-19 12:03:05,2199.0,905.0,TH-012-SNUGBOO-XL,TH-076-GRIPEASE,Broad Advantage+,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6369055473753,TC-001/25-26/5458,2025-07-19 12:07:49,1799.0,545.0,TH-053-COAT-M,,,,Direct,
+gid://shopify/Order/6369062879321,TC-001/25-26/5459,2025-07-19 12:21:05,1899.0,725.0,TH-068-WILD-M,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6369078378585,TC-001/25-26/5461,2025-07-19 12:46:18,2499.0,1265.0,"TH-084-AQUAGLOW, TH-008-CLIBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6369090961497,TC-001/25-26/5462,2025-07-19 13:09:28,2199.0,826.0,TH-068-WILD-XXL,ASC- PMF – Weather Protection,Broad + Video Viewers (WILD),TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6369092304985,TC-001/25-26/5463,2025-07-19 13:11:38,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6369094107225,TC-001/25-26/5464,2025-07-19 13:15:06,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6369098235993,TC-001/25-26/5465,2025-07-19 13:23:47,1999.0,751.0,TH-068-WILD-L,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6369132347481,TC-001/25-26/5467,2025-07-19 13:50:44,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6369143816281,TC-001/25-26/5468,2025-07-19 14:07:58,2798.0,1431.0,"TH-006-FLEBRU, TH-008-CLIBRU, TH-103-K9HARNESS",TH-103-K9HARNESS,Urban Pet Parents,TH-103-K9HARNESS_ET133_ET129,Meta,customer_journey
+gid://shopify/Order/6369159282777,TC-001/25-26/5469,2025-07-19 14:36:22,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6369166917721,TC-001/25-26/5470,2025-07-19 14:51:51,2598.0,1090.0,"TH-005-AQCASHO, TH-012-SNUGBOO-M",TH-012-SNUGBOO,ICP Pet Parent,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6369174159449,TC-001/25-26/5471,2025-07-19 15:06:35,2299.0,940.0,TH-012-SNUGBOO-XXL,TH-012-SNUGBOO- Alternate Twin,Remarketing,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6369217118297,TC-001/25-26/5472,2025-07-19 16:27:11,2598.0,1511.0,"TH-073-SMARTSIP, TH-010-PETWIP, TH-008-CLIBRU",TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6369285046361,TC-001/25-26/5473,2025-07-19 17:56:38,1498.0,591.0,"TH-038-PAWTR, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6369314865241,TC-001/25-26/5474,2025-07-19 18:27:39,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6369331740761,TC-001/25-26/5475,2025-07-19 18:43:53,599.0,272.0,TH-005-AQCASHO,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6369333117017,TC-001/25-26/5476,2025-07-19 18:45:18,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6369508360281,TC-001/25-26/5478,2025-07-19 20:44:34,2099.0,982.0,"TH-008-CLIBRU, TH-068-WILD-XL",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6369580515417,TC-001/25-26/5479,2025-07-19 21:23:35,1899.0,725.0,TH-068-WILD-M,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6369603092569,TC-001/25-26/5480,2025-07-19 21:35:39,799.0,211.0,TH-037-MISTBRU,,,,Direct,
+gid://shopify/Order/6369879195737,TC-001/25-26/5482,2025-07-20 00:16:53,2648.0,1095.0,"TH-035-FURLUXE, TH-070-TGSB, TH-008-CLIBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6369897709657,TC-001/25-26/5483,2025-07-20 00:27:40,2299.0,1134.0,"TH-012-SNUGBOO-XXL, TH-008-CLIBRU",TH-068-WILD-New,Adventure Trekkers,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6370277458009,TC-001/25-26/5484,2025-07-20 04:44:40,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-068-WILD,Remarketing-Custom Audience,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6370321268825,TC-001/25-26/5485,2025-07-20 05:22:10,2699.0,1867.0,"TH-075-NAPDEN-L, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6370537242713,TC-001/25-26/5486,2025-07-20 09:07:59,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6370540879961,TC-001/25-26/5487,2025-07-20 09:12:27,2499.0,1265.0,"TH-084-AQUAGLOW, TH-008-CLIBRU",TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6370567716953,TC-001/25-26/5488,2025-07-20 09:47:20,1999.0,1144.0,"TH-008-CLIBRU, TH-072-AEROPOD-PINK",ASC- PMF,Broad + Website Vistiors,TH-072-AEROPOD_ET113_IM253,Meta,customer_journey
+gid://shopify/Order/6370618998873,TC-001/25-26/5489,2025-07-20 10:45:40,2499.0,1265.0,"TH-084-AQUAGLOW, TH-008-CLIBRU",TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6370633154649,TC-001/25-26/5490,2025-07-20 11:09:19,2499.0,1233.0,"TH-008-CLIBRU, TH-103-K9HARNESS",TH-103-K9HARNESS,Urban Pet Parents,TH-103-K9HARNESS_ET133_ET129,Meta,customer_journey
+gid://shopify/Order/6370646720601,TC-001/25-26/5491,2025-07-20 11:35:09,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6370648096857,TC-001/25-26/5492,2025-07-20 11:37:51,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6370654126169,TC-001/25-26/5493,2025-07-20 11:50:01,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6370658254937,TC-001/25-26/5495,2025-07-20 11:59:22,2099.0,982.0,"TH-008-CLIBRU, TH-068-WILD-XL",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6370666020953,TC-001/25-26/5497,2025-07-20 12:12:49,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD,Adventure Trekkers,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6370669428825,TC-001/25-26/5498,2025-07-20 12:19:29,1698.0,678.0,"TH-037-MISTBRU, TH-013-PAWCLESH",TH-076-GRIPEASE,Broad Advantage+,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6370678243417,TC-001/25-26/5499,2025-07-20 12:35:55,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6370680569945,TC-001/25-26/5500,2025-07-20 12:39:07,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6370681815129,TC-001/25-26/5501,2025-07-20 12:42:20,1899.0,725.0,TH-068-WILD-M,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6370689482841,TC-001/25-26/5502,2025-07-20 12:58:14,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD - Alternate Twin,Luxury Spenders,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6370689908825,TC-001/25-26/5503,2025-07-20 12:59:13,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6370693349465,TC-001/25-26/5504,2025-07-20 13:05:18,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD - Alternate Twin,Luxury Spenders,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6370695282777,TC-001/25-26/5505,2025-07-20 13:09:37,2699.0,1867.0,"TH-075-NAPDEN-L, TH-008-CLIBRU",TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6370705277017,TC-001/25-26/5506,2025-07-20 13:30:22,2497.0,1324.0,"TH-027-NAS, TH-005-AQCASHO, TH-008-CLIBRU, TH-044-GREAGLO",TH-053-JACKET – Life Time,Remarketing,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6370757279833,TC-001/25-26/5507,2025-07-20 14:30:17,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-068-WILD,Remarketing-Custom Audience,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6370759508057,TC-001/25-26/5508,2025-07-20 14:34:41,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6370761801817,TC-001/25-26/5509,2025-07-20 14:39:26,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6370776612953,TC-001/25-26/5512,2025-07-20 15:10:43,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6370780250201,TC-001/25-26/5513,2025-07-20 15:16:49,1999.0,1012.0,"TH-012-SNUGBOO-M, TH-008-CLIBRU",TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6370793619545,TC-001/25-26/5514,2025-07-20 15:43:09,2699.0,1867.0,"TH-075-NAPDEN-L, TH-008-CLIBRU",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6370800828505,TC-001/25-26/5515,2025-07-20 15:57:11,2499.0,1265.0,"TH-084-AQUAGLOW, TH-008-CLIBRU",TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6370808430681,TC-001/25-26/5516,2025-07-20 16:10:56,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6370821079129,TC-001/25-26/5517,2025-07-20 16:32:19,2199.0,1099.0,"TH-012-SNUGBOO-XL, TH-008-CLIBRU",TH-063-SILBOO – Life Time,Remarketing,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6370863087705,TC-001/25-26/5518,2025-07-20 17:32:44,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6370906701913,TC-001/25-26/5519,2025-07-20 18:23:21,2299.0,1134.0,"TH-012-SNUGBOO-XXL, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6370908471385,TC-001/25-26/5520,2025-07-20 18:25:06,1799.0,731.0,TH-012-SNUGBOO-XS,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6370914435161,TC-001/25-26/5521,2025-07-20 18:31:42,1799.0,682.0,TH-068-WILD-S,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6370960474201,TC-001/25-26/5522,2025-07-20 19:14:40,1799.0,682.0,TH-068-WILD-S,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6371043410009,TC-001/25-26/5523,2025-07-20 20:26:20,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6371165765721,TC-001/25-26/5524,2025-07-20 21:56:05,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6371208659033,TC-001/25-26/5525,2025-07-20 22:25:48,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6371252535385,TC-001/25-26/5526,2025-07-20 22:51:13,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6371255484505,TC-001/25-26/5527,2025-07-20 22:52:59,1899.0,725.0,TH-068-WILD-M,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6371394256985,TC-001/25-26/5531,2025-07-21 00:26:39,998.0,392.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6371531817049,TC-001/25-26/5532,2025-07-21 02:02:17,2617.0,1217.0,"TH-005-AQCASHO, TH-038-PAWTR, TH-008-CLIBRU, TH-002-SKMISH",ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6371781345369,TC-001/25-26/5533,2025-07-21 05:04:03,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6371967991897,TC-001/25-26/5535,2025-07-21 07:33:21,2499.0,1265.0,"TH-084-AQUAGLOW, TH-008-CLIBRU",Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6372080681049,TC-001/25-26/5536,2025-07-21 09:18:57,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6372139204697,TC-001/25-26/5538,2025-07-21 10:14:03,3198.0,2063.0,"TH-010-PETWIP, TH-008-CLIBRU, TH-075-NAPDEN-L",TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6372142415961,TC-001/25-26/5539,2025-07-21 10:18:25,1899.0,725.0,TH-068-WILD-M,TH-063-SILBOO,Urban Pet Parents,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6372155129945,TC-001/25-26/5540,2025-07-21 10:37:41,1799.0,682.0,TH-068-WILD-S,,,,Direct,
+gid://shopify/Order/6372187570265,TC-001/25-26/5541,2025-07-21 11:28:42,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6372221780057,TC-001/25-26/5543,2025-07-21 12:26:33,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6372230103129,TC-001/25-26/5544,2025-07-21 12:38:35,1799.0,682.0,TH-068-WILD-S,,,,Direct,
+gid://shopify/Order/6372263886937,TC-001/25-26/5545,2025-07-21 13:34:06,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6372295082073,TC-001/25-26/5546,2025-07-21 13:59:04,449.0,194.0,TH-008-CLIBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-008-CLIBRU,Meta,customer_journey
+gid://shopify/Order/6372299702361,TC-001/25-26/5547,2025-07-21 14:05:34,2199.0,1099.0,"TH-012-SNUGBOO-XL, TH-008-CLIBRU",TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6372309991513,TC-001/25-26/5548,2025-07-21 14:18:33,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-012-SNUGBOO,ICP Pet Parent,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6372316282969,TC-001/25-26/5549,2025-07-21 14:31:40,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6372317298777,TC-001/25-26/5550,2025-07-21 14:32:52,2199.0,937.0,"TH-053-COAT-XL, TH-008-CLIBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6372330209369,TC-001/25-26/5551,2025-07-21 14:59:23,1799.0,682.0,TH-068-WILD-S,ASC- PET SHOES,Broad + Video Viewers (SILBOO),TH-063-SILBOO_ET129_UI468 – Statics,Meta,customer_journey
+gid://shopify/Order/6372362518617,TC-001/25-26/5552,2025-07-21 15:56:20,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6372363829337,TC-001/25-26/5553,2025-07-21 15:58:27,1099.0,397.0,TH-038-PAWTR,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-038-PAWTR,Meta,customer_journey
+gid://shopify/Order/6372394008665,TC-001/25-26/5555,2025-07-21 16:42:59,1099.0,397.0,TH-038-PAWTR,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6372399841369,TC-001/25-26/5556,2025-07-21 16:51:24,3018.0,1336.0,"TH-068-WILD-XL, TH-008-CLIBRU, TH-002-SKMISH",TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6372426448985,TC-001/25-26/5557,2025-07-21 17:25:06,6497.0,2451.0,"TH-063-SILBOO-XXL, TH-068-WILD-XL, TH-008-CLIBRU, TH-058-CAPE-XXL",TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6372458987609,TC-001/25-26/5559,2025-07-21 18:00:38,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6372480581721,TC-001/25-26/5561,2025-07-21 18:19:13,2399.0,1026.0,"TH-053-COAT-XXL, TH-008-CLIBRU",TH-053-JACKET,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6372487594073,TC-001/25-26/5562,2025-07-21 18:26:41,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6372595990617,TC-001/25-26/5563,2025-07-21 19:53:33,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6372872355929,TC-001/25-26/5564,2025-07-21 22:56:17,1999.0,990.0,TH-085-COMFORTCRIB Size (S),,,,Direct,
+gid://shopify/Order/6373465948249,TC-001/25-26/5567,2025-07-22 05:58:38,1999.0,751.0,TH-068-WILD-L,,,,Direct,
+gid://shopify/Order/6373472534617,TC-001/25-26/5568,2025-07-22 06:03:42,449.0,194.0,TH-008-CLIBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-008-CLIBRU,Meta,customer_journey
+gid://shopify/Order/6373722619993,TC-001/25-26/5572,2025-07-22 09:43:04,2299.0,1134.0,"TH-012-SNUGBOO-XXL, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6373764399193,TC-001/25-26/5573,2025-07-22 10:20:38,2299.0,1134.0,"TH-012-SNUGBOO-XXL, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6373772329049,TC-001/25-26/5574,2025-07-22 10:30:56,1698.0,678.0,"TH-037-MISTBRU, TH-013-PAWCLESH",ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6373784649817,TC-001/25-26/5575,2025-07-22 10:49:43,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6373805523033,TC-001/25-26/5577,2025-07-22 11:24:14,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-068-WILD - Alternate Twin,Tier 2 Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6373810176089,TC-001/25-26/5578,2025-07-22 11:32:40,2099.0,982.0,"TH-068-WILD-XL, TH-008-CLIBRU",TH-068-WILD,Adventure Trekkers,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6373810962521,TC-001/25-26/5579,2025-07-22 11:34:01,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6373817679961,TC-001/25-26/5581,2025-07-22 11:46:07,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6373837209689,TC-001/25-26/5582,2025-07-22 12:20:26,1699.0,521.0,TH-063-SILBOO-XS,ASC- PET SHOES,Broad + Video Viewers (SILBOO),TH-063-SILBOO_ET129_UI468 – Statics,Meta,customer_journey
+gid://shopify/Order/6373861359705,TC-001/25-26/5585,2025-07-22 13:05:48,1799.0,545.0,TH-053-COAT-M,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6373868044377,TC-001/25-26/5586,2025-07-22 13:17:39,1999.0,1012.0,"TH-012-SNUGBOO-M, TH-008-CLIBRU",TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6373873320025,TC-001/25-26/5587,2025-07-22 13:29:20,4097.0,1793.0,"TH-069-CATFEED, TH-068-WILD-M, TH-008-CLIBRU, TH-033-SNOG-M",TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6373893865561,TC-001/25-26/5589,2025-07-22 13:42:45,4498.0,1786.0,"TH-008-CLIBRU, TH-012-SNUGBOO-XXL, TH-063-SILBOO-XXL",TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6373898911833,TC-001/25-26/5590,2025-07-22 13:45:38,2499.0,1233.0,"TH-008-CLIBRU, TH-103-K9HARNESS",TH-103-K9HARNESS,Urban Pet Parents,TH-103-K9HARNESS_ET133_ET129,Meta,customer_journey
+gid://shopify/Order/6373933514841,TC-001/25-26/5591,2025-07-22 14:44:52,549.0,196.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6374092308569,TC-001/25-26/5595,2025-07-22 18:20:16,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD,Adventure Trekkers,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6374177931353,TC-001/25-26/5596,2025-07-22 19:36:07,4597.0,1934.0,"TH-008-CLIBRU, TH-015-MBOW, TH-068-WILD-XL, TH-058-CAPE-XL",TH-053-JACKET – Alt Twin,Backpacking,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6374252576857,TC-001/25-26/5597,2025-07-22 20:29:45,2099.0,809.0,"TH-063-SILBOO-XL, TH-008-CLIBRU",ASC- PET SHOES,Broad + Video Viewers (SILBOO),TH-063-SILBOO_ET129_UI468 – Statics,Meta,customer_journey
+gid://shopify/Order/6374320930905,TC-001/25-26/5598,2025-07-22 21:11:24,9098.0,6880.0,"TH-097-WCATHAM, TH-082-FEEDSYNC, TH-008-CLIBRU",TH-098-CALMQUENCH,Broad Advantage+,TH-098-CALMQUENCH_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6374343573593,TC-001/25-26/5599,2025-07-22 21:28:00,1799.0,682.0,TH-068-WILD-S,,,,Direct,
+gid://shopify/Order/6374348128345,TC-001/25-26/5600,2025-07-22 21:31:11,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6374486048857,TC-001/25-26/5601,2025-07-22 23:09:10,1799.0,682.0,TH-068-WILD-S,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6374613811289,TC-001/25-26/5602,2025-07-23 00:41:58,2999.0,1209.0,"TH-008-CLIBRU, TH-064-LITTER",Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6374614237273,TC-001/25-26/5603,2025-07-23 00:42:23,2399.0,1292.0,"TH-008-CLIBRU, TH-085-COMFORTCRIB-L-G",,,,Direct,
+gid://shopify/Order/6374742032473,TC-001/25-26/5604,2025-07-23 02:14:30,1799.0,682.0,TH-068-WILD-S,TH-072-AEROPOD,ICP Pet Parent,TH-072-AEROPOD_ET113_IM253,Meta,customer_journey
+gid://shopify/Order/6374942310489,TC-001/25-26/5605,2025-07-23 04:54:49,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6375235289177,TC-001/25-26/5606,2025-07-23 09:24:57,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6375270547545,TC-001/25-26/5607,2025-07-23 09:53:25,2099.0,982.0,"TH-068-WILD-XL, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6375275692121,TC-001/25-26/5608,2025-07-23 09:58:28,2499.0,1233.0,"TH-008-CLIBRU, TH-103-K9HARNESS",TH-103-K9HARNESS,Urban Pet Parents,TH-103-K9HARNESS_ET133_ET129,Meta,customer_journey
+gid://shopify/Order/6375285358681,TC-001/25-26/5609,2025-07-23 10:11:54,1598.0,422.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6375316750425,TC-001/25-26/5610,2025-07-23 11:02:00,1999.0,990.0,TH-085-COMFORTCRIB Size (S),TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6375360528473,TC-001/25-26/5614,2025-07-23 12:20:11,2299.0,1445.0,"TH-008-CLIBRU, TH-086-SEATCOVER",TH-086-SEATCOVER,Urban Pet Parents,TH-086-SEATCOVER_ET117_IM258,Meta,customer_journey
+gid://shopify/Order/6375360921689,TC-001/25-26/5615,2025-07-23 12:20:53,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6375372357721,TC-001/25-26/5616,2025-07-23 12:40:01,449.0,194.0,TH-008-CLIBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-008-CLIBRU,Meta,customer_journey
+gid://shopify/Order/6375388938329,TC-001/25-26/5618,2025-07-23 13:11:42,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6375481114713,TC-001/25-26/5621,2025-07-23 15:26:46,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6375489994841,TC-001/25-26/5622,2025-07-23 15:41:52,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6375577354329,TC-001/25-26/5624,2025-07-23 17:44:06,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6375628046425,TC-001/25-26/5625,2025-07-23 18:37:41,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6375680442457,TC-001/25-26/5626,2025-07-23 19:25:26,1799.0,682.0,TH-068-WILD-S,TH-068-WILD,Adventure Trekkers,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6375701610585,TC-001/25-26/5628,2025-07-23 19:44:35,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6375741554777,TC-001/25-26/5629,2025-07-23 20:16:10,1799.0,682.0,TH-068-WILD-S,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6376019820633,TC-001/25-26/5632,2025-07-23 23:44:30,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6376507605081,TC-001/25-26/5633,2025-07-24 06:30:17,549.0,355.0,TH-016-SIPBOT,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6376531886169,TC-001/25-26/5634,2025-07-24 06:55:06,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6376554004569,TC-001/25-26/5635,2025-07-24 07:15:20,2099.0,1315.0,"TH-073-SMARTSIP, TH-008-CLIBRU",TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6376580710489,TC-001/25-26/5636,2025-07-24 07:41:32,3598.0,1662.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6376630485081,TC-001/25-26/5637,2025-07-24 08:36:09,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6376685273177,TC-001/25-26/5638,2025-07-24 09:41:46,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF – DUP,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6376731508825,TC-001/25-26/5639,2025-07-24 10:31:59,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6376755560537,TC-001/25-26/5641,2025-07-24 11:08:43,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6376756641881,TC-001/25-26/5642,2025-07-24 11:10:43,2499.0,1233.0,"TH-008-CLIBRU, TH-103-K9HARNESS",TH-103-K9HARNESS,Urban Pet Parents,TH-103-K9HARNESS_ET133_ET129,Meta,customer_journey
+gid://shopify/Order/6376775549017,TC-001/25-26/5644,2025-07-24 11:45:28,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-068-WILD - Alternate Twin,Luxury Spenders,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6376804548697,TC-001/25-26/5647,2025-07-24 12:39:18,2099.0,1121.0,TH-073-SMARTSIP,TH-097-CATHAM -PMF – DUP,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6376807825497,TC-001/25-26/5649,2025-07-24 12:45:56,6497.0,4213.0,"TH-097-WCATHAM, TH-037-MISTBRU, TH-007-FROLL, TH-008-CLIBRU",TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6376827912281,TC-001/25-26/5651,2025-07-24 13:24:51,2399.0,1026.0,"TH-053-COAT-XXL, TH-008-CLIBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6376866578521,TC-001/25-26/5653,2025-07-24 14:05:32,2299.0,1134.0,"TH-012-SNUGBOO-XXL, TH-008-CLIBRU",TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6376892170329,TC-001/25-26/5654,2025-07-24 14:49:36,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD - Alternate Twin,Tier 2 Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6376908390489,TC-001/25-26/5655,2025-07-24 15:19:41,449.0,194.0,TH-008-CLIBRU,,,,Direct,
+gid://shopify/Order/6376966291545,TC-001/25-26/5656,2025-07-24 16:47:43,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6376978612313,TC-001/25-26/5657,2025-07-24 17:03:50,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6377002434649,TC-001/25-26/5658,2025-07-24 17:33:13,2097.0,812.0,"TH-037-MISTBRU, TH-010-PETWIP, TH-008-CLIBRU",ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6377036087385,TC-001/25-26/5659,2025-07-24 18:11:26,2299.0,1134.0,"TH-012-SNUGBOO-XXL, TH-008-CLIBRU",ASC- PET SHOES,Broad + Website Vistiors (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6377163817049,TC-001/25-26/5660,2025-07-24 19:22:13,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6377189605465,TC-001/25-26/5661,2025-07-24 19:32:58,2199.0,846.0,"TH-063-SILBOO-XXL, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6377428090969,TC-001/25-26/5662,2025-07-24 22:24:40,5698.0,4188.0,"TH-097-WCATHAM, TH-008-CLIBRU, TH-016-SIPBOT",TH-097-CATHAM -PMF,Luxury Buyers,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6377443623001,TC-001/25-26/5663,2025-07-24 22:36:27,2699.0,1867.0,"TH-075-NAPDEN-L, TH-008-CLIBRU",TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6377495199833,TC-001/25-26/5664,2025-07-24 23:17:04,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6377506308185,TC-001/25-26/5665,2025-07-24 23:25:53,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6377547104345,TC-001/25-26/5666,2025-07-24 23:58:20,1999.0,1012.0,"TH-012-SNUGBOO-M, TH-008-CLIBRU",ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6377772580953,TC-001/25-26/5667,2025-07-25 02:47:05,549.0,196.0,TH-010-PETWIP,TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6378125623385,TC-001/25-26/5668,2025-07-25 08:17:43,2499.0,1073.0,"TH-053-COAT-XXXL, TH-008-CLIBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6378126409817,TC-001/25-26/5669,2025-07-25 08:18:39,2798.0,1156.0,"TH-037-MISTBRU, TH-068-WILD-L, TH-008-CLIBRU",ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6378130800729,TC-001/25-26/5670,2025-07-25 08:23:43,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)) – Copy,TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6378138959961,TC-001/25-26/5671,2025-07-25 08:32:41,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6378148921433,TC-001/25-26/5672,2025-07-25 08:45:06,799.0,211.0,TH-037-MISTBRU,TH-037-MISTBRU,TH-037-MISTBRU,TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6378169991257,TC-001/25-26/5673,2025-07-25 09:09:48,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6378201120857,TC-001/25-26/5674,2025-07-25 09:50:42,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6378213015641,TC-001/25-26/5675,2025-07-25 09:57:52,2399.0,1098.0,TH-085-COMFORTCRIB-L-G,TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6378227466329,TC-001/25-26/5676,2025-07-25 10:09:34,5099.0,3639.0,TH-097-WCATHAM,TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6378231267417,TC-001/25-26/5677,2025-07-25 10:14:42,449.0,194.0,TH-008-CLIBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)) – Copy,TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6378236215385,TC-001/25-26/5678,2025-07-25 10:22:41,1799.0,731.0,TH-012-SNUGBOO-XS,ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6378237395033,TC-001/25-26/5679,2025-07-25 10:24:51,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6378240409689,TC-001/25-26/5680,2025-07-25 10:30:02,1818.0,606.0,"TH-080-ALOEDEO, TH-002-SKMISH",,,,Direct,
+gid://shopify/Order/6378257875033,TC-001/25-26/5681,2025-07-25 10:59:39,2499.0,1265.0,"TH-084-AQUAGLOW, TH-008-CLIBRU",TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6378262626393,TC-001/25-26/5682,2025-07-25 11:08:03,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6378263806041,TC-001/25-26/5683,2025-07-25 11:09:58,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6378264264793,TC-001/25-26/5684,2025-07-25 11:10:32,2199.0,905.0,TH-012-SNUGBOO-XL,ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6378283892825,TC-001/25-26/5685,2025-07-25 11:45:15,1999.0,1184.0,"TH-008-CLIBRU, TH-085-COMFORTCRIB Size (S)",TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6378290544729,TC-001/25-26/5686,2025-07-25 11:57:35,11793.0,6851.0,"TH-069-CATFEED, TH-048-PLAYFEEDER, TH-051-LICKMAT, TH-040-MAZE, TH-008-CLIBRU, TH-066-SCOOP, TH-098-CALMQUENCH, TH-082-FEEDSYNC",TH-082-FEEDSYNC,ICP Pet Parent,TH-082-FEEDSYNC__ET108_IM284,Meta,customer_journey
+gid://shopify/Order/6378294804569,TC-001/25-26/5687,2025-07-25 12:05:23,799.0,211.0,TH-037-MISTBRU,TH-037-MISTBRU,TH-037-MISTBRU,TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6378312892505,TC-001/25-26/5688,2025-07-25 12:39:47,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-012-SNUGBOO,ICP Pet Parent,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6378324590681,TC-001/25-26/5690,2025-07-25 12:59:15,2399.0,1292.0,"TH-008-CLIBRU, TH-085-COMFORTCRIB-L-G",TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6378354671705,TC-001/25-26/5692,2025-07-25 13:36:21,1599.0,554.0,TH-076-GRIPEASE,,,,Direct,
+gid://shopify/Order/6378373218393,TC-001/25-26/5693,2025-07-25 13:46:13,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD-New,Adventure Trekkers,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6378409164889,TC-001/25-26/5694,2025-07-25 14:44:09,2298.0,1016.0,"TH-094-DUALGROOM, TH-037-MISTBRU, TH-008-CLIBRU",ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6378432888921,TC-001/25-26/5697,2025-07-25 15:16:16,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6378485743705,TC-001/25-26/5698,2025-07-25 16:39:29,2699.0,1867.0,"TH-075-NAPDEN-L, TH-008-CLIBRU",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6378520674393,TC-001/25-26/5699,2025-07-25 17:21:11,1999.0,1012.0,"TH-012-SNUGBOO-M, TH-008-CLIBRU",ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6378526539865,TC-001/25-26/5700,2025-07-25 17:28:12,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD,Adventure Trekkers,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6378531323993,TC-001/25-26/5701,2025-07-25 17:33:12,1899.0,725.0,TH-068-WILD-M,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6378555572313,TC-001/25-26/5702,2025-07-25 17:59:25,919.0,354.0,TH-003-NTTOSH,ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6378561110105,TC-001/25-26/5703,2025-07-25 18:05:20,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6378561470553,TC-001/25-26/5704,2025-07-25 18:05:37,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6378587553881,TC-001/25-26/5705,2025-07-25 18:29:51,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-068-WILD,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6378604658777,TC-001/25-26/5706,2025-07-25 18:44:02,2299.0,1134.0,"TH-012-SNUGBOO-XXL, TH-008-CLIBRU",TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6378752147545,TC-001/25-26/5709,2025-07-25 20:41:33,1799.0,731.0,TH-012-SNUGBOO-XS,ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6378784161881,TC-001/25-26/5710,2025-07-25 21:03:42,2499.0,1265.0,"TH-084-AQUAGLOW, TH-008-CLIBRU",TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6378794713177,TC-001/25-26/5711,2025-07-25 21:10:03,1799.0,682.0,TH-068-WILD-S,ASC- DOG SHOES,Broad Advantage+ (WILD),TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6378892230745,TC-001/25-26/5713,2025-07-25 22:09:57,3598.0,1856.0,"TH-075-NAPDEN-S, TH-008-CLIBRU",TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6378914840665,TC-001/25-26/5714,2025-07-25 22:25:25,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6378924343385,TC-001/25-26/5716,2025-07-25 22:31:20,3998.0,1687.0,"TH-058-CAPE-L, TH-012-SNUGBOO-L, TH-008-CLIBRU",ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6378927358041,TC-001/25-26/5717,2025-07-25 22:33:38,1799.0,682.0,TH-068-WILD-S,,,,Direct,
+gid://shopify/Order/6378958061657,TC-001/25-26/5718,2025-07-25 22:55:35,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6378985914457,TC-001/25-26/5719,2025-07-25 23:15:00,2299.0,1134.0,"TH-012-SNUGBOO-XXL, TH-008-CLIBRU",ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6379047583833,TC-001/25-26/5721,2025-07-25 23:57:39,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6379171577945,TC-001/25-26/5723,2025-07-26 01:14:52,2399.0,1292.0,"TH-008-CLIBRU, TH-085-COMFORTCRIB-L-G",TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6379658051673,TC-001/25-26/5724,2025-07-26 08:33:52,2399.0,1292.0,"TH-008-CLIBRU, TH-085-COMFORTCRIB-L-G",TH-085-COMFORTCRIB,Broad Advantage+,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6379700420697,TC-001/25-26/5725,2025-07-26 09:34:44,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6379712512089,TC-001/25-26/5727,2025-07-26 09:49:38,1799.0,682.0,TH-068-WILD-S,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6379723980889,TC-001/25-26/5728,2025-07-26 09:53:15,1498.0,464.0,"TH-037-MISTBRU, TH-051-LICKMAT",,,,Direct,
+gid://shopify/Order/6379742330969,TC-001/25-26/5730,2025-07-26 10:14:11,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6379745411161,TC-001/25-26/5731,2025-07-26 10:19:02,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6379765465177,TC-001/25-26/5732,2025-07-26 10:53:35,1799.0,682.0,TH-068-WILD-S,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6379767660633,TC-001/25-26/5733,2025-07-26 10:57:16,549.0,196.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6379767726169,TC-001/25-26/5734,2025-07-26 10:57:22,2299.0,1445.0,"TH-008-CLIBRU, TH-086-SEATCOVER",TH-086-SEATCOVER,Broad Advantage+,TH-086-SEATCOVER_ET117_IM258,Meta,customer_journey
+gid://shopify/Order/6379770544217,TC-001/25-26/5735,2025-07-26 11:03:20,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6379773493337,TC-001/25-26/5736,2025-07-26 11:08:23,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",ASC- DOG SHOES,Broad Advantage+ (WILD),TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6379776245849,TC-001/25-26/5738,2025-07-26 11:14:24,1596.0,776.0,TH-008-CLIBRU,ASC- RAINWEAR,Broad Advantage+ (CAPE),TH-058-CAPE,Meta,customer_journey
+gid://shopify/Order/6379783782489,TC-001/25-26/5739,2025-07-26 11:29:34,2199.0,826.0,TH-068-WILD-XXL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6379786862681,TC-001/25-26/5740,2025-07-26 11:35:34,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6379790401625,TC-001/25-26/5742,2025-07-26 11:44:06,799.0,211.0,TH-037-MISTBRU,ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6379791056985,TC-001/25-26/5743,2025-07-26 11:46:02,699.0,271.0,TH-018-NAICUTFIL,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6379803738201,TC-001/25-26/5745,2025-07-26 12:09:00,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6379809177689,TC-001/25-26/5746,2025-07-26 12:18:46,1899.0,725.0,TH-068-WILD-M,TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6379814453337,TC-001/25-26/5747,2025-07-26 12:28:52,2099.0,982.0,"TH-068-WILD-XL, TH-008-CLIBRU",TH-063-SILBOO,Urban Pet Parents,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6379817402457,TC-001/25-26/5748,2025-07-26 12:34:31,2199.0,1099.0,"TH-012-SNUGBOO-XL, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6379819368537,TC-001/25-26/5749,2025-07-26 12:37:11,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF – DUP,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6379819958361,TC-001/25-26/5750,2025-07-26 12:38:13,7598.0,4904.0,"TH-097-WCATHAM, TH-084-AQUAGLOW, TH-008-CLIBRU",ASC- COMFORTERS,Broad Advantage+ (CATHAM),TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6379831623769,TC-001/25-26/5752,2025-07-26 13:00:54,1398.0,483.0,"TH-005-AQCASHO, TH-037-MISTBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6379853054041,TC-001/25-26/5754,2025-07-26 13:35:49,2299.0,1134.0,"TH-012-SNUGBOO-XXL, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6379878711385,TC-001/25-26/5755,2025-07-26 13:53:03,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6379885789273,TC-001/25-26/5756,2025-07-26 14:06:38,449.0,194.0,TH-008-CLIBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-008-CLIBRU,Meta,customer_journey
+gid://shopify/Order/6379886051417,TC-001/25-26/5757,2025-07-26 14:07:11,1799.0,831.0,TH-075-NAPDEN-S,ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6379886575705,TC-001/25-26/5758,2025-07-26 14:08:21,6097.0,2803.0,"TH-012-SNUGBOO-M, TH-058-CAPE-M, TH-008-CLIBRU, TH-086-SEATCOVER",ASC- PET SHOES,Broad + Website Vistiors (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6379891327065,TC-001/25-26/5759,2025-07-26 14:17:31,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6379891458137,TC-001/25-26/5760,2025-07-26 14:17:49,549.0,196.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6379893686361,TC-001/25-26/5761,2025-07-26 14:22:32,2399.0,1026.0,"TH-053-COAT-XXL, TH-008-CLIBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6379896209497,TC-001/25-26/5762,2025-07-26 14:28:39,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",ASC- COMFORTERS,Broad Advantage+ (CATHAM),TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6379915804761,TC-001/25-26/5766,2025-07-26 15:08:32,2099.0,982.0,"TH-068-WILD-XL, TH-008-CLIBRU",TH-076-GRIPEASE,Broad Advantage+,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6379925241945,TC-001/25-26/5767,2025-07-26 15:27:45,2299.0,1134.0,"TH-012-SNUGBOO-XXL, TH-008-CLIBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6379968200793,TC-001/25-26/5769,2025-07-26 16:42:47,2099.0,982.0,"TH-068-WILD-XL, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6379980456025,TC-001/25-26/5770,2025-07-26 17:01:59,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",ASC- COMFORTERS,Broad Advantage+ (CATHAM),TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6379985371225,TC-001/25-26/5771,2025-07-26 17:08:15,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6380012634201,TC-001/25-26/5773,2025-07-26 17:45:23,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6380020105305,TC-001/25-26/5775,2025-07-26 17:54:25,3598.0,1558.0,"TH-008-CLIBRU, TH-068-WILD-S",TH-068-WILD,Adventure Trekkers,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6380078399577,TC-001/25-26/5777,2025-07-26 18:58:00,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6380108939353,TC-001/25-26/5779,2025-07-26 19:28:57,1999.0,1042.0,TH-099-OATHKEEPER,TH-099-OATHKEEPER-PMF,Broad Advantage+,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6380122636377,TC-001/25-26/5780,2025-07-26 19:41:54,1799.0,682.0,TH-068-WILD-S,TH-068-WILD,Adventure Trekkers,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6380125552729,TC-001/25-26/5781,2025-07-26 19:44:54,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,ICP Pet Parent,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6380256297049,TC-001/25-26/5784,2025-07-26 21:26:47,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6380272877657,TC-001/25-26/5786,2025-07-26 21:39:04,2099.0,982.0,"TH-008-CLIBRU, TH-068-WILD-XL",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6380293947481,TC-001/25-26/5788,2025-07-26 21:53:51,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6380343853145,TC-001/25-26/5790,2025-07-26 22:27:30,2499.0,1265.0,"TH-084-AQUAGLOW, TH-008-CLIBRU",TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6380371640409,TC-001/25-26/5793,2025-07-26 22:47:12,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6380405555289,TC-001/25-26/5794,2025-07-26 23:10:19,1999.0,1042.0,TH-099-OATHKEEPER,TH-099-OATHKEEPER-PMF,Broad Advantage+,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6380517064793,TC-001/25-26/5796,2025-07-27 00:27:09,5099.0,3639.0,TH-097-WCATHAM,ASC- COMFORTERS,Broad Advantage+ (CATHAM),TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6380569591897,TC-001/25-26/5797,2025-07-27 01:02:53,1799.0,831.0,TH-075-NAPDEN-S,ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6380968771673,TC-001/25-26/5799,2025-07-27 06:46:16,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF – DUP,Urban Pet Parents,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6380986859609,TC-001/25-26/5800,2025-07-27 07:05:51,2299.0,1058.0,"TH-058-CAPE-XXXL, TH-008-CLIBRU",ASC- RAINWEAR,Broad Advantage+ (CAPE),TH-058-CAPE,Meta,customer_journey
+gid://shopify/Order/6380988072025,TC-001/25-26/5801,2025-07-27 07:06:52,2699.0,1867.0,"TH-075-NAPDEN-L, TH-008-CLIBRU",ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6381055017049,TC-001/25-26/5803,2025-07-27 08:24:28,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6381065699417,TC-001/25-26/5804,2025-07-27 08:40:02,2099.0,982.0,"TH-008-CLIBRU, TH-068-WILD-XL",,,,Direct,
+gid://shopify/Order/6381090963545,TC-001/25-26/5805,2025-07-27 09:12:57,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,Urban Pet Parents,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6381117014105,TC-001/25-26/5806,2025-07-27 09:49:53,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6381137068121,TC-001/25-26/5807,2025-07-27 09:58:24,2199.0,826.0,TH-068-WILD-XXL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6381140181081,TC-001/25-26/5808,2025-07-27 10:03:03,2099.0,1055.0,"TH-012-SNUGBOO-L, TH-008-CLIBRU",TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6381145227353,TC-001/25-26/5810,2025-07-27 10:11:06,3998.0,2278.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,ICP Pet Parent,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6381148143705,TC-001/25-26/5811,2025-07-27 10:15:38,1999.0,1012.0,"TH-012-SNUGBOO-M, TH-008-CLIBRU",ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6381159186521,TC-001/25-26/5812,2025-07-27 10:35:06,1398.0,522.0,"TH-077-AURASWIPE, TH-037-MISTBRU",ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6381159514201,TC-001/25-26/5813,2025-07-27 10:35:31,2898.0,1266.0,"TH-012-SNUGBOO-L, TH-037-MISTBRU, TH-008-CLIBRU",TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6381193625689,TC-001/25-26/5816,2025-07-27 11:42:22,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6381195329625,TC-001/25-26/5817,2025-07-27 11:45:33,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6381202440281,TC-001/25-26/5818,2025-07-27 12:01:32,1799.0,731.0,TH-012-SNUGBOO-XS,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6381205160025,TC-001/25-26/5819,2025-07-27 12:06:43,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6381220036697,TC-001/25-26/5820,2025-07-27 12:35:14,2096.0,1239.0,"TH-008-CLIBRU, TH-010-PETWIP, TH-109-EARSOLUTION",,,,Direct,
+gid://shopify/Order/6381227475033,TC-001/25-26/5821,2025-07-27 12:49:03,2499.0,1192.0,"TH-008-CLIBRU, TH-104-SNUGBUG-R",TH-104-SNUGBUG-PMF,Urban Pet Parents,TH-104-SNUGBUG_VP008_ET137,Meta,customer_journey
+gid://shopify/Order/6381230096473,TC-001/25-26/5822,2025-07-27 12:52:45,2499.0,1192.0,"TH-008-CLIBRU, TH-104-SNUGBUG-R",TH-104-SNUGBUG-PMF,Urban Pet Parents,TH-104-SNUGBUG_VP008_ET137,Meta,customer_journey
+gid://shopify/Order/6381254180953,TC-001/25-26/5823,2025-07-27 13:35:17,1799.0,831.0,TH-075-NAPDEN-S,ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6381292519513,TC-001/25-26/5824,2025-07-27 14:06:36,2699.0,1867.0,"TH-075-NAPDEN-L, TH-008-CLIBRU",ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6381292585049,TC-001/25-26/5825,2025-07-27 14:07:05,2099.0,982.0,"TH-008-CLIBRU, TH-068-WILD-XL",TH-099-OATHKEEPER-PMF,Urban Pet Parents,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6381305364569,TC-001/25-26/5827,2025-07-27 14:30:44,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-068-WILD - Alternate Twin,Tier 2 Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6381308575833,TC-001/25-26/5828,2025-07-27 14:37:49,2099.0,982.0,"TH-008-CLIBRU, TH-068-WILD-XL",TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6381321158745,TC-001/25-26/5830,2025-07-27 14:56:29,2399.0,1292.0,"TH-008-CLIBRU, TH-085-COMFORTCRIB-L-G",TH-085-COMFORTCRIB,Broad Advantage+,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6381341507673,TC-001/25-26/5832,2025-07-27 15:22:09,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6381368148057,TC-001/25-26/5833,2025-07-27 16:06:56,2299.0,1134.0,"TH-012-SNUGBOO-XXL, TH-008-CLIBRU",ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6381406224473,TC-001/25-26/5834,2025-07-27 17:04:14,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6381460586585,TC-001/25-26/5837,2025-07-27 18:14:55,2099.0,1055.0,"TH-012-SNUGBOO-L, TH-008-CLIBRU",ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6381471039577,TC-001/25-26/5838,2025-07-27 18:26:38,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6381482049625,TC-001/25-26/5839,2025-07-27 18:39:13,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6381501677657,TC-001/25-26/5840,2025-07-27 19:00:05,2099.0,982.0,"TH-008-CLIBRU, TH-068-WILD-XL",ASC- RAINWEAR,Broad Advantage+ (CAPE),TH-058-CAPE,Meta,customer_journey
+gid://shopify/Order/6381517078617,TC-001/25-26/5841,2025-07-27 19:14:33,799.0,211.0,TH-037-MISTBRU,,,,Direct,
+gid://shopify/Order/6381530447961,TC-001/25-26/5842,2025-07-27 19:26:54,3297.0,1376.0,"TH-080-ALOEDEO, TH-008-CLIBRU, TH-068-WILD-S, TH-088-HYGIENESPRAY",,,,Direct,
+gid://shopify/Order/6381531005017,TC-001/25-26/5843,2025-07-27 19:27:23,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD - Alternate Twin,Tier 2 Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6381538869337,TC-001/25-26/5844,2025-07-27 19:34:29,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6381545029721,TC-001/25-26/5845,2025-07-27 19:40:24,3998.0,1712.0,"TH-012-SNUGBOO-L, TH-008-CLIBRU, TH-053-COAT-L",ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6381589430361,TC-001/25-26/5846,2025-07-27 20:20:09,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6381641564249,TC-001/25-26/5847,2025-07-27 21:02:49,2199.0,1011.0,"TH-008-CLIBRU, TH-058-CAPE-XXL",Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6381696090201,TC-001/25-26/5848,2025-07-27 21:43:24,1999.0,1042.0,TH-099-OATHKEEPER,TH-099-OATHKEEPER-PMF,Broad Advantage+,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6381721354329,TC-001/25-26/5849,2025-07-27 22:03:26,2499.0,1500.0,"TH-103-K9HARNESS-BR, TH-008-CLIBRU",TH-103-K9HARNESS,Urban Pet Parents,TH-103-K9HARNESS_ET133_ET129,Meta,customer_journey
+gid://shopify/Order/6381752778841,TC-001/25-26/5850,2025-07-27 22:21:17,1999.0,1042.0,TH-099-OATHKEEPER,TH-099-OATHKEEPER-PMF,ICP Pet Parent,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6381766541401,TC-001/25-26/5851,2025-07-27 22:29:35,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-068-WILD - Alternate Twin,Luxury Spenders,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6381774569561,TC-001/25-26/5852,2025-07-27 22:34:22,1298.0,356.0,"TH-037-MISTBRU, TH-011-PPGLO",ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6381782499417,TC-001/25-26/5853,2025-07-27 22:38:42,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6381796884569,TC-001/25-26/5855,2025-07-27 22:47:04,1999.0,1042.0,TH-099-OATHKEEPER,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6381930643545,TC-001/25-26/5856,2025-07-28 00:20:10,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,Urban Pet Parents,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6382237778009,TC-001/25-26/5857,2025-07-28 04:18:16,1999.0,1042.0,TH-099-OATHKEEPER,TH-099-OATHKEEPER-PMF,Broad Advantage+,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6382433271897,TC-001/25-26/5858,2025-07-28 07:17:36,1999.0,1059.0,TH-075-NAPDEN-M,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6382440251481,TC-001/25-26/5859,2025-07-28 07:24:54,1899.0,725.0,TH-068-WILD-M,,,,Direct,
+gid://shopify/Order/6382472855641,TC-001/25-26/5860,2025-07-28 08:00:15,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6382537572441,TC-001/25-26/5861,2025-07-28 09:13:57,3497.0,2260.0,"TH-005-AQCASHO, TH-066-SCOOP, TH-008-CLIBRU, TH-075-NAPDEN-M",TH-104-SNUGBUG-PMF,Luxury Buyers,TH-104-SNUGBUG_VP008_ET137,Meta,customer_journey
+gid://shopify/Order/6382552842329,TC-001/25-26/5862,2025-07-28 09:35:27,549.0,196.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6382558543961,TC-001/25-26/5863,2025-07-28 09:40:28,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF – DUP,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6382587609177,TC-001/25-26/5865,2025-07-28 10:02:08,549.0,196.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6382593245273,TC-001/25-26/5866,2025-07-28 10:05:19,2199.0,905.0,TH-012-SNUGBOO-XL,TH-068-WILD-New,Adventure Trekkers,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6382632009817,TC-001/25-26/5870,2025-07-28 11:03:52,4298.0,1808.0,"TH-008-CLIBRU, TH-068-WILD-XXL, TH-068-WILD-XL",TH-068-WILD,Adventure Trekkers,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6382648787033,TC-001/25-26/5871,2025-07-28 11:32:12,1999.0,1012.0,"TH-012-SNUGBOO-M, TH-008-CLIBRU",ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6382665203801,TC-001/25-26/5872,2025-07-28 12:01:50,2499.0,1192.0,"TH-104-SNUGBUG-B, TH-008-CLIBRU",TH-104-SNUGBUG-PMF,Broad Advantage +,TH-104-SNUGBUG_VP008_ET137,Meta,customer_journey
+gid://shopify/Order/6382696497241,TC-001/25-26/5876,2025-07-28 12:55:09,1098.0,454.0,"TH-009-FURGLO, TH-109-EARSOLUTION",ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6382699741273,TC-001/25-26/5877,2025-07-28 13:02:04,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,Broad Advantage+,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6382722711641,TC-001/25-26/5879,2025-07-28 13:36:36,2699.0,1867.0,"TH-075-NAPDEN-L, TH-008-CLIBRU",ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6382743421017,TC-001/25-26/5880,2025-07-28 13:48:37,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",TH-097-CATHAM -PMF – DUP,Broad Advantage+,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6382766653529,TC-001/25-26/5881,2025-07-28 14:11:33,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6382774321241,TC-001/25-26/5882,2025-07-28 14:23:31,2099.0,1315.0,"TH-073-SMARTSIP, TH-008-CLIBRU",TH-104-SNUGBUG-PMF,Broad Advantage +,TH-104-SNUGBUG_VP008_ET137,Meta,customer_journey
+gid://shopify/Order/6382789525593,TC-001/25-26/5883,2025-07-28 14:50:38,2699.0,1867.0,"TH-075-NAPDEN-L, TH-008-CLIBRU",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6382806007897,TC-001/25-26/5885,2025-07-28 15:20:30,2099.0,809.0,"TH-063-SILBOO-XL, TH-008-CLIBRU",TH-103-K9HARNESS,ICP Pet Parent,TH-103-K9HARNESS_ET133_ET129,Meta,customer_journey
+gid://shopify/Order/6382807023705,TC-001/25-26/5886,2025-07-28 15:22:56,3999.0,3241.0,"TH-082-FEEDSYNC, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6382825242713,TC-001/25-26/5888,2025-07-28 15:53:51,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF – DUP,Urban Pet Parents,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6382861090905,TC-001/25-26/5889,2025-07-28 16:45:56,1599.0,1026.0,TH-101-LUMENPOOL,,,,Direct,
+gid://shopify/Order/6382895038553,TC-001/25-26/5890,2025-07-28 17:27:23,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6382930919513,TC-001/25-26/5891,2025-07-28 18:09:32,1799.0,831.0,TH-075-NAPDEN-S,ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6382950023257,TC-001/25-26/5892,2025-07-28 18:30:40,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,Broad Advantage+,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6382950613081,TC-001/25-26/5893,2025-07-28 18:31:15,1799.0,682.0,TH-068-WILD-S,TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6382988230745,TC-001/25-26/5894,2025-07-28 18:58:42,2499.0,1192.0,"TH-008-CLIBRU, TH-104-SNUGBUG-R",TH-104-SNUGBUG-PMF,Luxury Buyers,TH-104-SNUGBUG_VP008_ET137,Meta,customer_journey
+gid://shopify/Order/6383022866521,TC-001/25-26/5895,2025-07-28 19:29:46,1999.0,1042.0,TH-099-OATHKEEPER,,,,Direct,
+gid://shopify/Order/6383047475289,TC-001/25-26/5897,2025-07-28 19:50:32,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF – DUP,Broad Advantage+,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6383062122585,TC-001/25-26/5898,2025-07-28 20:04:12,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,Urban Pet Parents,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6383189229657,TC-001/25-26/5901,2025-07-28 21:34:51,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6383217901657,TC-001/25-26/5902,2025-07-28 21:54:27,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,Broad Advantage+,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6383255486553,TC-001/25-26/5903,2025-07-28 22:15:56,1599.0,1026.0,TH-101-LUMENPOOL,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6383292514393,TC-001/25-26/5905,2025-07-28 22:37:46,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-104-SNUGBUG-PMF,Luxury Buyers,TH-104-SNUGBUG_VP008_ET137,Meta,customer_journey
+gid://shopify/Order/6383387934809,TC-001/25-26/5907,2025-07-28 23:39:24,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6383724265561,TC-001/25-26/5910,2025-07-29 03:34:39,2699.0,1867.0,"TH-075-NAPDEN-L, TH-008-CLIBRU",TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6384014000217,TC-001/25-26/5912,2025-07-29 07:59:31,549.0,196.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6384060465241,TC-001/25-26/5914,2025-07-29 08:50:02,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-068-WILD - Alternate Twin,Luxury Spenders,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6384090906713,TC-001/25-26/5915,2025-07-29 09:27:51,1998.0,748.0,"TH-008-CLIBRU, TH-076-GRIPEASE",Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6384091299929,TC-001/25-26/5916,2025-07-29 09:28:29,2499.0,1192.0,"TH-008-CLIBRU, TH-104-SNUGBUG-R",TH-104-SNUGBUG-PMF,Luxury Buyers,TH-104-SNUGBUG_VP008_ET137,Meta,customer_journey
+gid://shopify/Order/6384098082905,TC-001/25-26/5917,2025-07-29 09:37:09,1598.0,422.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6384109420633,TC-001/25-26/5918,2025-07-29 09:49:55,2499.0,1265.0,"TH-084-AQUAGLOW, TH-008-CLIBRU",TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6384141107289,TC-001/25-26/5921,2025-07-29 10:12:27,2199.0,905.0,TH-012-SNUGBOO-XL,TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6384146514009,TC-001/25-26/5922,2025-07-29 10:19:40,1899.0,725.0,TH-068-WILD-M,,,,Direct,
+gid://shopify/Order/6384150052953,TC-001/25-26/5923,2025-07-29 10:24:42,599.0,272.0,TH-005-AQCASHO,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6384163029081,TC-001/25-26/5926,2025-07-29 10:45:58,1799.0,682.0,TH-068-WILD-S,,,,Direct,
+gid://shopify/Order/6384165879897,TC-001/25-26/5927,2025-07-29 10:49:45,2698.0,1180.0,"TH-012-SNUGBOO-S, TH-037-MISTBRU, TH-008-CLIBRU",TH-012-SNUGBOO,Adventure Trekkers,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6384170991705,TC-001/25-26/5928,2025-07-29 10:58:58,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,Broad Advantage+,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6384173351001,TC-001/25-26/5929,2025-07-29 11:02:19,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6384184361049,TC-001/25-26/5930,2025-07-29 11:19:49,2399.0,1026.0,"TH-053-COAT-XXL, TH-008-CLIBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6384187310169,TC-001/25-26/5931,2025-07-29 11:25:49,1799.0,682.0,TH-068-WILD-S,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6384213688409,TC-001/25-26/5934,2025-07-29 12:16:32,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,Broad Advantage+,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6384216014937,TC-001/25-26/5935,2025-07-29 12:19:45,549.0,196.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6384216342617,TC-001/25-26/5936,2025-07-29 12:20:14,1799.0,831.0,TH-075-NAPDEN-S,TH-075-NAPDEN,Urban Pet Parents,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6384221093977,TC-001/25-26/5938,2025-07-29 12:29:10,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,Urban Pet Parents,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6384237183065,TC-001/25-26/5939,2025-07-29 12:59:32,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,Urban Pet Parents,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6384285057113,TC-001/25-26/5941,2025-07-29 13:48:13,1599.0,1026.0,TH-101-LUMENPOOL,TH-101-LUMENPOOL-PMF,ICP Pet Parent,TH-101-LUMENPOOL,Meta,customer_journey
+gid://shopify/Order/6384285876313,TC-001/25-26/5942,2025-07-29 13:48:35,799.0,211.0,TH-037-MISTBRU,,,,Direct,
+gid://shopify/Order/6384295542873,TC-001/25-26/5944,2025-07-29 14:01:40,1899.0,725.0,TH-068-WILD-M,TH-068-WILD - Alternate Twin,Tier 2 Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6384297082969,TC-001/25-26/5945,2025-07-29 14:04:41,998.0,392.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6384313139289,TC-001/25-26/5947,2025-07-29 14:34:15,998.0,392.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6384319955033,TC-001/25-26/5948,2025-07-29 14:49:45,2499.0,1071.0,TH-084-AQUAGLOW,TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6384363896921,TC-001/25-26/5950,2025-07-29 16:10:05,2396.0,1034.0,"TH-080-ALOEDEO, TH-010-PETWIP, TH-008-CLIBRU",ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6384383361113,TC-001/25-26/5951,2025-07-29 16:35:37,2399.0,1098.0,TH-085-COMFORTCRIB-L-G,,,,Direct,
+gid://shopify/Order/6384390897753,TC-001/25-26/5952,2025-07-29 16:44:37,5097.0,2214.0,"TH-067-SIPEASE, TH-008-CLIBRU, TH-012-SNUGBOO-XS, TH-012-SNUGBOO-XL",TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6384431595609,TC-001/25-26/5954,2025-07-29 17:35:19,2499.0,1265.0,"TH-084-AQUAGLOW, TH-008-CLIBRU",TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6384450142297,TC-001/25-26/5956,2025-07-29 17:57:25,1999.0,1253.0,"TH-008-CLIBRU, TH-075-NAPDEN-M",ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6384466460761,TC-001/25-26/5958,2025-07-29 18:16:08,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6384479174745,TC-001/25-26/5959,2025-07-29 18:29:18,2199.0,826.0,TH-068-WILD-XXL,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6384493920345,TC-001/25-26/5960,2025-07-29 18:42:10,6197.0,3104.0,"TH-099-OATHKEEPER, TH-068-WILD-XXL, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6384620634201,TC-001/25-26/5962,2025-07-29 20:27:28,1799.0,682.0,TH-068-WILD-S,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6384651632729,TC-001/25-26/5963,2025-07-29 20:48:24,1899.0,725.0,TH-068-WILD-M,TH-068-WILD-New,Adventure Trekkers,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6384787980377,TC-001/25-26/5965,2025-07-29 22:12:07,1599.0,1026.0,TH-101-LUMENPOOL,TH-101-LUMENPOOL-PMF,ICP Pet Parent,TH-101-LUMENPOOL,Meta,customer_journey
+gid://shopify/Order/6384791781465,TC-001/25-26/5966,2025-07-29 22:14:24,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6384877404249,TC-001/25-26/5967,2025-07-29 23:15:24,2399.0,1292.0,"TH-008-CLIBRU, TH-085-COMFORTCRIB-L-G",TH-085-COMFORTCRIB,Urban Pet Parents,TH-085-COMFORTCRIB_ET199_VP032,Meta,customer_journey
+gid://shopify/Order/6385108582489,TC-001/25-26/5968,2025-07-30 01:49:00,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6385199153241,TC-001/25-26/5969,2025-07-30 02:56:17,1899.0,725.0,TH-068-WILD-M,Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6385542987865,TC-001/25-26/5971,2025-07-30 08:01:08,2699.0,1867.0,"TH-075-NAPDEN-L, TH-008-CLIBRU",ASC- COMFORTERS,Broad Advantage+ (NAPDEN),TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6385573265497,TC-001/25-26/5972,2025-07-30 08:35:07,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6385948131417,TC-001/25-26/5973,2025-07-30 09:51:30,1999.0,945.0,"TH-068-WILD-L, TH-008-CLIBRU",TH-068-WILD - Alternate Twin,Luxury Spenders,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6386002002009,TC-001/25-26/5975,2025-07-30 10:44:42,1996.0,784.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6386021859417,TC-001/25-26/5976,2025-07-30 11:05:54,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF – DUP,Urban Pet Parents,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6386028150873,TC-001/25-26/5977,2025-07-30 11:07:14,2199.0,1020.0,"TH-068-WILD-XXL, TH-008-CLIBRU",TH-012-SNUGBOO,Urban Pet Parents,TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6386171314265,TC-001/25-26/5980,2025-07-30 11:41:22,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,ICP Pet Parent,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6386307072089,TC-001/25-26/5981,2025-07-30 12:22:19,2499.0,1265.0,"TH-084-AQUAGLOW, TH-008-CLIBRU",TH-084-AQUAGLOW,Cat Lover,TH-084-AQUAGLOW_ET106_VP007,Meta,customer_journey
+gid://shopify/Order/6386307760217,TC-001/25-26/5982,2025-07-30 12:23:39,1999.0,1042.0,TH-099-OATHKEEPER,TH-099-OATHKEEPER-PMF – DUP,ICP Pet Parent,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6386320572505,TC-001/25-26/5983,2025-07-30 12:41:33,1599.0,554.0,TH-076-GRIPEASE,TH-076-GRIPEASE,Broad Advantage+,TH-076-GRIPEASE_VP021_IM251,Meta,customer_journey
+gid://shopify/Order/6386385256537,TC-001/25-26/5988,2025-07-30 13:53:45,799.0,211.0,TH-037-MISTBRU,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-037-MISTBRU,Meta,customer_journey
+gid://shopify/Order/6386390892633,TC-001/25-26/5989,2025-07-30 14:05:13,2399.0,1292.0,"TH-008-CLIBRU, TH-085-COMFORTCRIB-L-G",,,,Direct,
+gid://shopify/Order/6386392334425,TC-001/25-26/5990,2025-07-30 14:08:26,2695.0,1479.0,"TH-005-AQCASHO, TH-044-GREAGLO, TH-051-LICKMAT, TH-008-CLIBRU, TH-016-SIPBOT, TH-015-MBOW",ASC- DOG SHOES,Broad Advantage+ (SNUGBOO),TH-012-SNUGBOO,Meta,customer_journey
+gid://shopify/Order/6386449449049,TC-001/25-26/5993,2025-07-30 15:40:37,549.0,196.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6386518622297,TC-001/25-26/5994,2025-07-30 17:17:47,5099.0,3833.0,"TH-097-WCATHAM, TH-008-CLIBRU",,,,Direct,
+gid://shopify/Order/6386555617369,TC-001/25-26/5996,2025-07-30 18:03:00,1999.0,1236.0,"TH-099-OATHKEEPER, TH-008-CLIBRU",TH-099-OATHKEEPER-PMF,Broad Advantage+,TH-099-OATHKEEPER_ET129_IM256,Meta,customer_journey
+gid://shopify/Order/6386664570969,TC-001/25-26/5999,2025-07-30 19:44:49,2099.0,982.0,"TH-008-CLIBRU, TH-068-WILD-XL",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey
+gid://shopify/Order/6386778407001,TC-001/25-26/6000,2025-07-30 21:08:10,899.0,735.0,TH-066-SCOOP,TH-068-WILD,Adventure Trekkers,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6386834210905,TC-001/25-26/6001,2025-07-30 21:50:27,549.0,196.0,TH-010-PETWIP,ASC- CAT B & C,Broad + Website Vistiors (Grooming Tools),TH-010-PETWIP,Meta,customer_journey
+gid://shopify/Order/6386876874841,TC-001/25-26/6002,2025-07-30 22:21:58,2399.0,1292.0,"TH-008-CLIBRU, TH-085-COMFORTCRIB-L-G",,,,Direct,
+gid://shopify/Order/6386891358297,TC-001/25-26/6003,2025-07-30 22:33:21,2299.0,1445.0,"TH-008-CLIBRU, TH-086-SEATCOVER",TH-097-CATHAM -PMF – DUP,Urban Pet Parents,TH-097-WCATHAM,Meta,customer_journey
+gid://shopify/Order/6386936971353,TC-001/25-26/6005,2025-07-30 23:04:40,2399.0,1026.0,"TH-053-COAT-XXL, TH-008-CLIBRU",R15D2-TH-D2 RPP - Video - India - IG & FB - Sales - 22/04/2025,Top Cities -Broad,TH-012-SNUGBOO_Static,Meta,customer_journey
+gid://shopify/Order/6387017318489,TC-001/25-26/6006,2025-07-30 23:59:56,9896.0,5588.0,"TH-073-SMARTSIP, TH-008-CLIBRU, TH-037-MISTBRU, TH-082-FEEDSYNC, TH-064-LITTER",Unknown Campaign - Google,Unknown Adset - Google,Unknown Ad - Google,Google,customer_journey

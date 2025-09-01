@@ -1,0 +1,35 @@
+order_id,order_name,order_date,price,cogs,sku,campaign_name,adset_name,ad_name,channel,attribution_source
+gid://shopify/Order/6336349339737,TC-001/25-26/4852,2025-07-01 00:59:44,1598.0,422.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6336356057177,TC-001/25-26/4853,2025-07-01 01:03:10,1899.0,725.0,TH-068-WILD-M,TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6336447873113,TC-001/25-26/4854,2025-07-01 01:55:12,1099.0,384.0,TH-067-SIPEASE,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6337000931417,TC-001/25-26/4856,2025-07-01 08:38:00,2999.0,1339.0,TH-028-COMCARE,TH-053-JACKET,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6337018429529,TC-001/25-26/4857,2025-07-01 08:52:43,1099.0,397.0,TH-038-PAWTR,TH - Remarketing - Video - India - IG & FB - Sales - 29/03/2025,AS3 - Remarketing IC (30) – New,TH-036-PAWTR-ET139-SP368,Meta,customer_journey
+gid://shopify/Order/6337074495577,TC-001/25-26/4858,2025-07-01 09:43:29,1599.0,582.0,TH-063-SILBOO-L,TH-063-SILBOO,Adventure Trekkers,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6337075478617,TC-001/25-26/4859,2025-07-01 09:44:31,1799.0,540.0,TH-058-CAPE-M,,,,Direct,
+gid://shopify/Order/6337131642969,TC-001/25-26/4860,2025-07-01 10:20:22,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6337140785241,TC-001/25-26/4861,2025-07-01 10:28:52,1999.0,751.0,TH-068-WILD-L,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6337140949081,TC-001/25-26/4862,2025-07-01 10:28:59,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6337161855065,TC-001/25-26/4864,2025-07-01 10:48:02,2199.0,826.0,TH-068-WILD-XXL,TH-068-WILD - Alternate Twin,Luxury Spenders,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6337173356633,TC-001/25-26/4865,2025-07-01 11:03:29,2099.0,788.0,TH-068-WILD-XL,,,,Direct,
+gid://shopify/Order/6337189904473,TC-001/25-26/4867,2025-07-01 11:23:37,549.0,196.0,TH-010-PETWIP,TH-068-WILD,Adventure Trekkers,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6337227194457,TC-001/25-26/4868,2025-07-01 12:09:57,2698.0,936.0,"TH-068-WILD-M, TH-037-MISTBRU",TH-068-WILD - Alternate Twin,Tier 2 Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6337256292441,TC-001/25-26/4869,2025-07-01 12:46:10,1799.0,682.0,TH-068-WILD-S,TH-053-JACKET,Urban Pet Parents,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6337257078873,TC-001/25-26/4870,2025-07-01 12:47:28,2199.0,826.0,TH-068-WILD-XXL,TH-068-WILD - Alternate Twin,Tier 2 Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6337309540441,TC-001/25-26/4871,2025-07-01 13:44:21,1799.0,682.0,TH-068-WILD-S,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6337381302361,TC-001/25-26/4872,2025-07-01 15:12:01,2099.0,1121.0,TH-073-SMARTSIP,TH-073-SMARTSIP,ICP Pet Parent,TH-073-SMARTSIP_VP048_ET122,Meta,customer_journey
+gid://shopify/Order/6337414922329,TC-001/25-26/4873,2025-07-01 16:03:38,2099.0,788.0,TH-068-WILD-XL,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Direct,customer_journey
+gid://shopify/Order/6337440251993,TC-001/25-26/4874,2025-07-01 16:34:32,919.0,354.0,TH-003-NTTOSH,Unknown Campaign - Meta,Unknown Adset - Meta,Unknown Ad - Meta,Meta,customer_journey
+gid://shopify/Order/6337451622489,TC-001/25-26/4875,2025-07-01 16:46:16,1599.0,582.0,TH-063-SILBOO-L,TH-063-SILBOO,ICP Pet Parent,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6337510867033,TC-001/25-26/4876,2025-07-01 17:50:09,1899.0,725.0,TH-068-WILD-M,TH-068-WILD – Life Time,ICP Pet Parent,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6337582989401,TC-001/25-26/4878,2025-07-01 18:50:09,2399.0,832.0,TH-053-COAT-XXL,TH-053-JACKET – Life Time,ICP Pet Parent,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6337597046873,TC-001/25-26/4879,2025-07-01 19:00:10,2499.0,879.0,TH-053-COAT-XXXL,TH-053-JACKET – Life Time,Remarketing,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6337600225369,TC-001/25-26/4880,2025-07-01 19:02:57,1999.0,988.0,TH-056-UMB,TH-056-UMB,ICP Pet Parent,TH-056-UMB_ET139_VP007,Meta,customer_journey
+gid://shopify/Order/6337617100889,TC-001/25-26/4881,2025-07-01 19:15:14,2199.0,826.0,TH-068-WILD-XXL,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6337633353817,TC-001/25-26/4882,2025-07-01 19:26:59,1399.0,541.0,TH-063-SILBOO-S,TH-063-SILBOO,Urban Pet Parents,TH-063-SILBOO,Meta,customer_journey
+gid://shopify/Order/6337730150489,TC-001/25-26/4883,2025-07-01 20:27:30,1999.0,751.0,TH-068-WILD-L,TH-068-WILD – Life Time,Urban Pet Parents,TH-068-WILD_VP001_ET101,Meta,customer_journey
+gid://shopify/Order/6337742864473,TC-001/25-26/4884,2025-07-01 20:35:25,1699.0,473.0,TH-053-COAT-S,TH-053-JACKET – Life Time,Remarketing,TH-053-JACKET_ET156_IM259,Meta,customer_journey
+gid://shopify/Order/6337814593625,TC-001/25-26/4885,2025-07-01 21:18:54,799.0,211.0,TH-037-MISTBRU,TH - Adv+ Shopping-2 - Video & Image - IG & FB - India - Sales - 04/05/2025,1MHO - Adv+ (Exc. Purchases (30D)),TH-037-MISTBRU-ET101-SI210-ET137-ET139 – Copy 2,Meta,customer_journey
+gid://shopify/Order/6337829732441,TC-001/25-26/4886,2025-07-01 21:28:26,2898.0,1332.0,"TH-073-SMARTSIP, TH-037-MISTBRU",,,,Direct,
+gid://shopify/Order/6337846149209,TC-001/25-26/4887,2025-07-01 21:38:22,2699.0,1673.0,TH-075-NAPDEN-L,TH-075-NAPDEN,Luxury Buyers,TH-075-NAPDEN_SI223_VP031,Meta,customer_journey
+gid://shopify/Order/6337876590681,TC-001/25-26/4888,2025-07-01 21:57:53,2099.0,1121.0,TH-073-SMARTSIP,TH-073-SMARTSIP,Cat Lover,TH-073-SMARTSIP_VP048_ET122,Meta,customer_journey
+gid://shopify/Order/6337950646361,TC-001/25-26/4890,2025-07-01 22:42:02,2999.0,1015.0,TH-064-LITTER,,,,Direct,

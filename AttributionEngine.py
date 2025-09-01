@@ -39,15 +39,27 @@ class AttributionEngine:
         self.engine = None
         
         # Channel mapping for UTM sources
+        # This creates a comprehensive Shopify attributed dataset with:
+        # - Meta: Facebook, Instagram, and other Meta platforms (for joining with Meta ad tables)
+        # - Google: Google Ads, Google Search, Google Shopping (for joining with Google ad tables)
+        # - Organic: Natural search traffic, SEO, unpaid search (for organic analysis)
+        # - Direct: Direct visits, bookmarks, email, referrals (for direct traffic analysis)
         self.channel_mapping = {
             'google': 'Google',
-            'facebook': 'Facebook',
-            'fb': 'Facebook', 
-            'instagram': 'Instagram',
-            'ig': 'Instagram',
-            'shopify': 'Direct',
-            'duckduckgo': 'DuckDuckGo',
-            '{{site_source_name}}': 'Unknown',
+            'an': 'Google',       # Google Analytics
+            'Google': 'Google',   # Capitalized Google
+            'facebook': 'Meta',   # Facebook
+            'Facebook': 'Meta',   # Capitalized Facebook
+            'fb': 'Meta',         # Facebook shorthand
+            'instagram': 'Meta',  # Instagram
+            'ig': 'Meta',         # Instagram shorthand
+            'IGShopping': 'Meta', # Instagram Shopping
+            'shopify': 'Organic', # Shopify keyword goes to Organic
+            'duckduckgo': 'Organic', # DuckDuckGo is organic search
+            'organic': 'Organic', # Organic channel
+            'search': 'Organic',  # Search as organic
+            'direct': 'Direct',   # Direct channel
+            '{{site_source_name}}': 'Meta', # Site source goes to Meta
             'null': 'Direct/Unknown',
             '': 'Direct/Unknown'
         }
@@ -175,7 +187,50 @@ class AttributionEngine:
         """
         # Load from database
         self.load_data_from_db()
-    
+
+
+        # --- helpers used by create_granular_insights ---
+    def _fix_id(self, val):
+        """
+        Normalize numeric-like IDs to a plain string, avoiding scientific notation.
+        Keeps 'Unknown' as-is; returns 'Unknown' for blanks/NaN.
+        """
+        if val in [None, '', 'Unknown'] or (isinstance(val, float) and np.isnan(val)):
+            return 'Unknown'
+        try:
+            # handles "1.23456e+12" and numeric types
+            return str(int(float(val)))
+        except (ValueError, TypeError):
+            return str(val)
+
+    def _normalize_hourly_window(self, s):
+        """
+        Convert various hourly window formats to 'HH:00:00 - HH:59:59'.
+        Returns None if it can't parse an hour.
+        """
+        if s is None or (isinstance(s, float) and np.isnan(s)):
+            return None
+        s = str(s)
+        # try to find the first hour number
+        m = re.search(r'(\d{1,2})', s)
+        if not m:
+            return None
+        hh = int(m.group(1)) % 24
+        return f"{hh:02d}:00:00 - {hh:02d}:59:59"
+
+    def _format_hour_window(self, ts):
+        """
+        Given a timestamp, return its hour label 'HH:00:00 - HH:59:59'.
+        """
+        if ts is None:
+            return None
+        ts = pd.to_datetime(ts, errors='coerce')
+        if pd.isna(ts):
+            return None
+        hh = int(ts.hour)
+        return f"{hh:02d}:00:00 - {hh:02d}:59:59"
+
+
     def parse_customer_journey(self, journey_str: str) -> Optional[Dict]:
         """
         Parse customer journey JSON string and extract attribution data.
@@ -443,7 +498,7 @@ class AttributionEngine:
         """
         if attribution_data is None or 'attribution_id' not in attribution_data:
             # If we have a channel but no attribution data, create "Unknown Campaign" entry
-            if channel and channel in ['Facebook', 'Instagram', 'Google', 'TikTok', 'YouTube']:
+            if channel and channel in ['Meta', 'Google', 'Organic']:
                 logging.debug(f"Creating 'Unknown Campaign' entry for {channel} with no attribution data")
                 return {
                     'campaign_id': None,
@@ -504,7 +559,7 @@ class AttributionEngine:
         
         if not matches:
             # If no match found but we have a channel, create "Unknown Campaign" entry
-            if channel and channel in ['Facebook', 'Instagram', 'Google', 'TikTok', 'YouTube']:
+            if channel and channel in ['Meta', 'Google', 'Organic']:
                 logging.debug(f"No match found for attribution_id {attribution_id} ({attribution_type}), creating 'Unknown Campaign' for {channel}")
                 return {
                     'campaign_id': None,
@@ -540,21 +595,221 @@ class AttributionEngine:
             'ad_revenue': match['value_onsite_web_purchase']
         }
     
-    def determine_channel(self, source: str) -> str:
+    def determine_channel(self, source: str, medium: str = None, campaign: str = None, content: str = None, term: str = None) -> str:
         """
-        Map UTM source to channel name.
+        Enhanced channel classification with better organic traffic detection.
         
         Args:
             source: UTM source value
+            medium: UTM medium value
+            campaign: UTM campaign value
+            content: UTM content value
+            term: UTM term value
             
         Returns:
             Channel name
         """
-        if pd.isna(source) or source == '' or source == 'null':
-            return 'Direct/Unknown'
+        # Convert all parameters to lowercase strings for comparison
+        source_lower = str(source).lower().strip() if source else ''
+        medium_lower = str(medium).lower().strip() if medium else ''
+        campaign_lower = str(campaign).lower().strip() if campaign else ''
+        content_lower = str(content).lower().strip() if content else ''
+        term_lower = str(term).lower().strip() if term else ''
         
-        source_lower = str(source).lower().strip()
-        return self.channel_mapping.get(source_lower, source)
+        # Debug logging for channel classification
+        if source_lower or medium_lower:
+            logging.debug(f"Channel classification - Source: '{source_lower}', Medium: '{medium_lower}', Campaign: '{campaign_lower}', Content: '{content_lower}', Term: '{term_lower}'")
+        
+        # PRIORITY 1: Check for campaign data - if there's a campaign, it's likely paid advertising
+        if campaign_lower and campaign_lower not in ['', 'null', 'none']:
+            # If there's a campaign, determine if it's Google or Meta based on source
+            if 'google' in source_lower or 'google' in medium_lower or 'googleadservices' in source_lower:
+                final_channel = 'Google'
+            elif any(indicator in source_lower for indicator in ['facebook', 'fb', 'instagram', 'ig', 'meta', 'igshopping']):
+                final_channel = 'Meta'
+            else:
+                # Default to Meta for campaigns with unknown source (likely Meta)
+                final_channel = 'Meta'
+            logging.debug(f"Campaign detected: '{campaign_lower}' → Channel: '{final_channel}'")
+            return final_channel
+        
+        # Check for explicit organic indicators
+        organic_indicators = ['organic', 'search', 'natural', 'seo', 'unpaid']
+        if any(indicator in medium_lower for indicator in organic_indicators):
+            return 'Organic'
+        if any(indicator in source_lower for indicator in organic_indicators):
+            return 'Organic'
+        
+        # Check for search engine traffic (likely organic)
+        search_engines = ['bing', 'yahoo', 'duckduckgo', 'baidu', 'yandex', 'qwant']
+        if any(engine in source_lower for engine in search_engines):
+            return 'Organic'
+        
+        # Check for Google traffic (distinguish between paid and organic)
+        if 'google' in source_lower or 'google' in medium_lower:
+            # If there's a campaign parameter, it's likely paid Google Ads
+            if campaign_lower and campaign_lower not in ['', 'null', 'none']:
+                return 'Google'
+            # If there's content or term, it's likely paid
+            elif content_lower or term_lower:
+                return 'Google'
+            # Otherwise, likely organic Google search
+            else:
+                return 'Organic'
+        
+        # Check for Google Ad Services (definitely paid)
+        if 'googleadservices' in source_lower or 'googleadservices' in medium_lower:
+            return 'Google'
+        
+        # Check for Meta platforms (including specific UTM sources)
+        meta_indicators = ['facebook', 'fb', 'instagram', 'ig', 'meta', 'igshopping']
+        if any(indicator in source_lower for indicator in meta_indicators):
+            return 'Meta'
+        
+        # Special case: {{site_source_name}} placeholder goes to Meta
+        if source_lower == '{{site_source_name}}':
+            return 'Meta'
+        
+        # Check for Google platforms (including Analytics)
+        google_indicators = ['google', 'an']
+        if any(indicator in source_lower for indicator in google_indicators):
+            return 'Google'
+        
+        # Check for direct traffic indicators
+        direct_indicators = ['direct', 'none', 'null', '']
+        if source_lower in direct_indicators or medium_lower in direct_indicators:
+            # If we have some meaningful source but it's marked as direct/none/null, 
+            # it's likely organic traffic that wasn't properly tracked
+            if source_lower and source_lower not in ['', 'null', 'none'] and len(source_lower) > 1:
+                return 'Organic'
+            else:
+                return 'Direct'
+        
+        # Check for referral traffic that might be organic
+        if medium_lower == 'referral':
+            # If source is a known search engine, classify as organic
+            if any(engine in source_lower for engine in search_engines):
+                return 'Organic'
+            # Otherwise, keep as referral (could be organic partnerships)
+            return 'Organic'
+        
+        # If no UTM parameters but has some source, analyze the source
+        if source_lower and source_lower not in ['', 'null', 'none']:
+            # Check if it looks like a search engine domain
+            if any(domain in source_lower for domain in ['.com', '.co.', '.org', '.net', '.in', '.uk']):
+                # If it's a search engine, likely organic
+                if any(engine in source_lower for engine in search_engines + ['google']):
+                    return 'Organic'
+                # If it's a social platform, likely Meta
+                elif any(platform in source_lower for platform in meta_indicators):
+                    return 'Meta'
+                # Otherwise, could be organic referral
+                else:
+                    return 'Organic'
+        
+        # Additional logic: if we have medium but no source, analyze medium patterns
+        if medium_lower and medium_lower not in ['', 'null', 'none']:
+            # Check for organic indicators in medium
+            if medium_lower in ['search', 'organic', 'natural', 'seo', 'unpaid']:
+                return 'Organic'
+            # Check for social indicators
+            elif medium_lower in ['social', 'social-media', 'socialmedia']:
+                return 'Meta'
+            # Check for referral
+            elif medium_lower == 'referral':
+                return 'Organic'  # Referrals are often organic
+            # Check for email
+            elif medium_lower == 'email':
+                return 'Direct'  # Email is direct marketing
+            # Check for cpc (cost per click - paid)
+            elif medium_lower == 'cpc':
+                # Need to check source to determine if Google or Meta
+                if 'google' in source_lower:
+                    return 'Google'
+                elif any(platform in source_lower for platform in meta_indicators):
+                    return 'Meta'
+                else:
+                    return 'Google'  # Default to Google for CPC
+        
+        # Default fallback
+        if not source_lower or source_lower in ['', 'null', 'none']:
+            final_channel = 'Direct'
+        else:
+            # If we have some source but can't classify, it's likely organic traffic
+            # This includes orders that might have been misclassified as Direct
+            final_channel = 'Organic'
+        
+        # Log the final channel decision
+        if source_lower or medium_lower:
+            logging.debug(f"Final channel decision: '{final_channel}' for Source: '{source_lower}', Medium: '{medium_lower}'")
+        
+        return final_channel
+    
+    def infer_channel_from_order_patterns(self, order: pd.Series) -> str:
+        """
+        Infer channel from order patterns when no explicit attribution data is available.
+        
+        Args:
+            order: Order data row
+            
+        Returns:
+            Inferred channel name
+        """
+        # Check for referrer URL patterns
+        referrer_url = order.get('customer_referrer_url', '')
+        if referrer_url and str(referrer_url).strip() not in ['', 'null', 'None']:
+            referrer_lower = str(referrer_url).lower()
+            
+            # Check for search engines
+            search_engines = ['google.com', 'bing.com', 'yahoo.com', 'duckduckgo.com']
+            if any(engine in referrer_lower for engine in search_engines):
+                return 'Organic'
+            
+            # Check for social media platforms
+            social_platforms = ['facebook.com', 'instagram.com', 'twitter.com', 'linkedin.com']
+            if any(platform in referrer_lower for platform in social_platforms):
+                return 'Meta'
+            
+            # Check for Shopify and other e-commerce platforms (organic referral)
+            if 'shopify.com' in referrer_lower:
+                return 'Organic'
+            
+            # Check for other websites (likely organic referral)
+            if any(domain in referrer_lower for domain in ['.com', '.co.', '.org', '.net']):
+                return 'Organic'
+        
+        # Check for customer journey patterns
+        customer_journey = order.get('customer_journey', '')
+        if customer_journey and str(customer_journey).strip() not in ['', 'null', 'None']:
+            journey_lower = str(customer_journey).lower()
+            
+            # Look for organic indicators in journey
+            organic_indicators = ['search', 'organic', 'seo', 'unpaid', 'natural', 'shopify']
+            if any(indicator in journey_lower for indicator in organic_indicators):
+                return 'Organic'
+            
+            # Look for social indicators
+            social_indicators = ['social', 'facebook', 'instagram', 'fb', 'ig', 'igshopping']
+            if any(indicator in journey_lower for indicator in social_indicators):
+                return 'Meta'
+        
+        # Check for custom attributes patterns
+        custom_attrs = order.get('custom_attributes', '')
+        if custom_attrs and str(custom_attrs).strip() not in ['', 'null', 'None', '[]']:
+            attrs_lower = str(custom_attrs).lower()
+            
+            # Look for organic indicators
+            organic_indicators = ['search', 'organic', 'seo', 'unpaid', 'natural', 'shopify']
+            if any(indicator in attrs_lower for indicator in organic_indicators):
+                return 'Organic'
+            
+            # Look for social indicators
+            social_indicators = ['social', 'facebook', 'instagram', 'fb', 'ig', 'igshopping']
+            if any(indicator in attrs_lower for indicator in social_indicators):
+                return 'Meta'
+        
+        # If no patterns found, default to Direct
+        return 'Direct'
     
     def process_attribution(self) -> pd.DataFrame:
         """
@@ -634,7 +889,15 @@ class AttributionEngine:
                 
                 # Determine channel first (needed for "Unknown Campaign" logic)
                 source = attribution_data.get('source') if attribution_data else None
-                channel = self.determine_channel(source)
+                medium = attribution_data.get('medium') if attribution_data else None
+                campaign = attribution_data.get('campaign') if attribution_data else None
+                content = attribution_data.get('content') if attribution_data else None
+                term = attribution_data.get('term') if attribution_data else None
+                channel = self.determine_channel(source, medium, campaign, content, term)
+                
+                # Log channel classification for debugging
+                if order_idx < 5:  # Log first 5 orders for debugging
+                    logging.info(f"Order {order_id} channel classification: Source='{source}', Medium='{medium}', Campaign='{campaign}' → Channel='{channel}'")
                 
                 # Map to campaign data if attribution found
                 if attribution_data:
@@ -646,10 +909,21 @@ class AttributionEngine:
                         logging.info(f"Order {order_id} campaign match: {campaign_data.get('campaign_name', 'N/A')} - {campaign_data.get('ad_name', 'N/A')}")
                 else:
                     # If no attribution data but we have a channel, create "Unknown Campaign" entry
-                    if channel and channel in ['Facebook', 'Instagram', 'Google', 'TikTok', 'YouTube']:
+                    if channel and channel in ['Meta', 'Google', 'Organic', 'Direct']:
+                        # Special case: If channel is Meta but no attribution, classify as Organic
+                        if channel == 'Meta':
+                            channel = 'Organic'
+                            if order_idx < 5:  # Log first 5 orders for debugging
+                                logging.info(f"Order {order_id} Meta channel reclassified as Organic (no attribution)")
                         campaign_data = self.map_attribution_to_campaign(None, daily_ads, channel)
                     else:
-                        campaign_data = None
+                        # Try to infer channel from order patterns if no explicit attribution
+                        inferred_channel = self.infer_channel_from_order_patterns(order)
+                        if inferred_channel:
+                            channel = inferred_channel
+                            if order_idx < 5:  # Log first 5 orders for debugging
+                                logging.info(f"Order {order_id} channel inferred from patterns: '{inferred_channel}'")
+                        campaign_data = self.map_attribution_to_campaign(None, daily_ads, channel)
                 
                 # Calculate order-level financial metrics and collect SKU information
                 total_cogs = 0
@@ -769,8 +1043,79 @@ class AttributionEngine:
             results_df = pd.DataFrame(results)
         
         # Add summary columns
-        results_df['is_attributed'] = results_df['attribution_source'].notna()
-        results_df['is_paid_channel'] = results_df['channel'].isin(['Facebook', 'Instagram', 'Google'])
+        results_df['is_attributed'] = results_df['attribution_source'].notna().astype(bool)
+        results_df['is_paid_channel'] = results_df['channel'].isin(['Meta', 'Google']).astype(bool)
+        
+        # POST-PROCESSING: Reclassify Direct orders with campaign data to Meta
+        # This ensures consistency between process_attribution and granular insights
+        # Ensure proper data types for logical operations
+        channel_mask = results_df['channel'] == 'Direct'
+        utm_campaign_mask = (results_df['utm_campaign'].notna() & 
+                           (results_df['utm_campaign'].astype(str) != '') & 
+                           (results_df['utm_campaign'].astype(str) != 'null'))
+        attribution_source_mask = (results_df['attribution_source'].notna() & 
+                                 (results_df['attribution_source'].astype(str) != ''))
+        campaign_name_mask = (results_df['campaign_name'].notna() & 
+                            (results_df['campaign_name'].astype(str) != '') & 
+                            ~results_df['campaign_name'].astype(str).str.contains('Unknown', na=False))
+        
+        direct_with_campaign_mask = (channel_mask & 
+                                   (utm_campaign_mask | attribution_source_mask | campaign_name_mask))
+        if direct_with_campaign_mask.any():
+            logging.info(f"Reclassifying {direct_with_campaign_mask.sum()} Direct orders with campaign/attribution data to Meta in process_attribution")
+            results_df.loc[direct_with_campaign_mask, 'channel'] = 'Meta'
+            # Update is_paid_channel flag
+            results_df.loc[direct_with_campaign_mask, 'is_paid_channel'] = True
+        
+        # POST-PROCESSING: Reclassify Direct orders with source data to Organic
+        # This catches orders that should be Organic but were classified as Direct
+        # Ensure proper data types for logical operations
+        channel_mask = results_df['channel'] == 'Direct'
+        utm_source_mask = (results_df['utm_source'].notna() & 
+                          (results_df['utm_source'].astype(str) != '') & 
+                          (results_df['utm_source'].astype(str) != 'null'))
+        utm_medium_mask = (results_df['utm_medium'].notna() & 
+                          (results_df['utm_medium'].astype(str) != '') & 
+                          (results_df['utm_medium'].astype(str) != 'null'))
+        
+        direct_with_source_mask = (channel_mask & (utm_source_mask | utm_medium_mask))
+        
+        if direct_with_source_mask.any():
+            logging.info(f"Reclassifying {direct_with_source_mask.sum()} Direct orders with source data to Organic in process_attribution")
+            results_df.loc[direct_with_source_mask, 'channel'] = 'Organic'
+        
+        # Log channel distribution summary
+        if not results_df.empty and 'channel' in results_df.columns:
+            channel_summary = results_df['channel'].value_counts()
+            logging.info("Channel classification summary:")
+            for channel, count in channel_summary.items():
+                logging.info(f"  {channel}: {count} orders")
+            
+            # Log some examples of each channel
+            for channel in ['Meta', 'Google', 'Organic', 'Direct']:
+                if channel in results_df['channel'].values:
+                    sample_orders = results_df[results_df['channel'] == channel].head(3)
+                    logging.info(f"Sample {channel} orders:")
+                    for _, order in sample_orders.iterrows():
+                        logging.info(f"  Order {order['order_id']}: UTM Source='{order.get('utm_source', 'N/A')}', UTM Medium='{order.get('utm_medium', 'N/A')}'")
+            
+            # Debug: Check if we have organic and Google orders
+            organic_orders = results_df[results_df['channel'] == 'Organic']
+            google_orders = results_df[results_df['channel'] == 'Google']
+            meta_orders = results_df[results_df['channel'] == 'Meta']
+            direct_orders = results_df[results_df['channel'] == 'Direct']
+            logging.info(f"Organic orders count: {len(organic_orders)}")
+            logging.info(f"Google orders count: {len(google_orders)}")
+            logging.info(f"Meta orders count: {len(meta_orders)}")
+            logging.info(f"Direct orders count: {len(direct_orders)}")
+            if len(organic_orders) > 0:
+                logging.info(f"Sample organic order UTM: Source='{organic_orders.iloc[0].get('utm_source', 'N/A')}', Medium='{organic_orders.iloc[0].get('utm_medium', 'N/A')}'")
+            if len(google_orders) > 0:
+                logging.info(f"Sample Google order UTM: Source='{google_orders.iloc[0].get('utm_source', 'N/A')}', Medium='{google_orders.iloc[0].get('utm_medium', 'N/A')}'")
+            if len(meta_orders) > 0:
+                logging.info(f"Sample Meta order UTM: Source='{meta_orders.iloc[0].get('utm_source', 'N/A')}', Medium='{meta_orders.iloc[0].get('utm_medium', 'N/A')}', Campaign='{meta_orders.iloc[0].get('utm_campaign', 'N/A')}'")
+            if len(direct_orders) > 0:
+                logging.info(f"Sample Direct order UTM: Source='{direct_orders.iloc[0].get('utm_source', 'N/A')}', Medium='{direct_orders.iloc[0].get('utm_medium', 'N/A')}', Campaign='{direct_orders.iloc[0].get('utm_campaign', 'N/A')}'")
         
         # Convert timezone-aware datetimes to timezone-naive for Excel compatibility
         if 'order_date' in results_df.columns:
@@ -878,11 +1223,26 @@ class AttributionEngine:
         """
         logging.info("Generating summary report...")
         
+        # Debug: Check data types and column contents
+        if not results_df.empty:
+            logging.info(f"Results DataFrame shape: {results_df.shape}")
+            logging.info(f"Results DataFrame columns: {list(results_df.columns)}")
+            if 'is_attributed' in results_df.columns:
+                logging.info(f"is_attributed column dtype: {results_df['is_attributed'].dtype}")
+                logging.info(f"is_attributed unique values: {results_df['is_attributed'].unique()}")
+                logging.info(f"is_attributed sample values: {results_df['is_attributed'].head().tolist()}")
+        
         total_orders = len(results_df)
         total_value = results_df['order_value'].sum()
         
         # Attribution rates
-        attributed_orders = results_df['is_attributed'].sum() if not results_df.empty else 0
+        # Ensure is_attributed is boolean type for safe operations
+        if not results_df.empty and 'is_attributed' in results_df.columns:
+            # Convert to boolean if needed and handle any mixed types
+            is_attributed_series = results_df['is_attributed'].astype(bool)
+            attributed_orders = is_attributed_series.sum()
+        else:
+            attributed_orders = 0
         attribution_rate = (attributed_orders / total_orders * 100) if total_orders > 0 else 0
         
         # Channel breakdown
@@ -906,7 +1266,12 @@ class AttributionEngine:
             source_breakdown = pd.DataFrame(columns=['orders', 'revenue', 'percentage'])
         
         # Campaign performance (for attributed orders)
-        attributed_df = results_df[results_df['is_attributed']] if not results_df.empty else pd.DataFrame()
+        if not results_df.empty and 'is_attributed' in results_df.columns:
+            # Ensure is_attributed is boolean for safe filtering
+            is_attributed_mask = results_df['is_attributed'].astype(bool)
+            attributed_df = results_df[is_attributed_mask]
+        else:
+            attributed_df = pd.DataFrame()
         campaign_performance = None
         if not attributed_df.empty:
             # Get daily ads data for performance metrics
@@ -1588,431 +1953,13 @@ class AttributionEngine:
         
         return pd.DataFrame(detailed_data)
     
-    def create_ad_level_summary(self, results_df: pd.DataFrame) -> pd.DataFrame:
-        """
-        Create ad-level summary with ALL orders aggregated at the ad level.
-        Includes attributed orders, unknown campaigns, and blank/unattributed orders.
-        
-        Args:
-            results_df: DataFrame with attribution results
-            
-        Returns:
-            DataFrame with ad-level aggregated data
-        """
-        logging.info("Creating ad-level summary including all sales...")
-        
-        if results_df.empty:
-            return pd.DataFrame()
-        
-        # Use ALL orders, not just attributed ones
-        all_orders_df = results_df.copy()
-        
-        # Get ad spend data first
-        daily_ads = self.rollup_ads_to_daily()
-        
-        # Debug: Log total ads vs orders
-        logging.info(f"=== ADS VS ORDERS COMPARISON ===")
-        logging.info(f"Total ads in daily_ads: {len(daily_ads)}")
-        logging.info(f"Total orders in results_df: {len(results_df)}")
-        logging.info(f"Attributed orders: {results_df['is_attributed'].sum()}")
-        logging.info(f"Unattributed orders: {(~results_df['is_attributed']).sum()}")
-        logging.info(f"=== END ADS VS ORDERS COMPARISON ===")
-        
-        # Fill missing campaign/adset/ad names with appropriate labels
-        all_orders_df['campaign_name'] = all_orders_df['campaign_name'].fillna('Unknown Campaign')
-        all_orders_df['adset_name'] = all_orders_df['adset_name'].fillna('Unknown Adset')
-        all_orders_df['ad_name'] = all_orders_df['ad_name'].fillna('Unknown Ad')
-        all_orders_df['campaign_id'] = all_orders_df['campaign_id'].fillna('Unknown')
-        all_orders_df['adset_id'] = all_orders_df['adset_id'].fillna('Unknown')
-        all_orders_df['ad_id'] = all_orders_df['ad_id'].fillna('Unknown')
-        
-        # For unattributed orders, use channel information if available
-        unattributed_mask = ~all_orders_df['is_attributed']
-        if unattributed_mask.any():
-            # For unattributed orders, use channel + "Unknown" pattern
-            all_orders_df.loc[unattributed_mask, 'campaign_name'] = all_orders_df.loc[unattributed_mask, 'channel'] + ' - Unknown Campaign'
-            all_orders_df.loc[unattributed_mask, 'adset_name'] = all_orders_df.loc[unattributed_mask, 'channel'] + ' - Unknown Adset'
-            all_orders_df.loc[unattributed_mask, 'ad_name'] = all_orders_df.loc[unattributed_mask, 'channel'] + ' - Unknown Ad'
-        
-        # Convert ID columns to string BEFORE grouping to ensure consistent data types
-        id_columns = ['campaign_id', 'adset_id', 'ad_id']
-        for col in id_columns:
-            if col in all_orders_df.columns:
-                all_orders_df[col] = all_orders_df[col].astype(str)
-        
-        # Fix ad_id format in orders data (convert scientific notation to full string)
-        def fix_ad_id_format(ad_id):
-            if pd.isna(ad_id) or ad_id == 'Unknown':
-                return ad_id
-            try:
-                # Convert to float first to handle scientific notation, then to int, then to string
-                return str(int(float(ad_id)))
-            except (ValueError, TypeError):
-                return str(ad_id)
-        
-        # Apply the fix to orders data
-        for col in id_columns:
-            if col in all_orders_df.columns:
-                all_orders_df[col] = all_orders_df[col].apply(fix_ad_id_format)
-        
-        # First, get all ads from ads data (even if they have no orders)
-        all_ads_df = daily_ads[['campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name']].drop_duplicates()
-        
-        # Convert ID columns to string in all_ads_df and fix format
-        for col in ['campaign_id', 'adset_id', 'ad_id']:
-            if col in all_ads_df.columns:
-                all_ads_df[col] = all_ads_df[col].astype(str)
-                all_ads_df[col] = all_ads_df[col].apply(fix_ad_id_format)
-        
-        # Debug: Log orders data before grouping
-        logging.info("=== ORDERS DATA DEBUG ===")
-        logging.info(f"Total orders in all_orders_df: {len(all_orders_df)}")
-        logging.info(f"Orders with campaign_name: {all_orders_df['campaign_name'].notna().sum()}")
-        logging.info(f"Orders with ad_id: {all_orders_df['ad_id'].notna().sum()}")
-        logging.info(f"Sample order ad_ids: {all_orders_df['ad_id'].head().tolist()}")
-        logging.info(f"Sample order campaign_names: {all_orders_df['campaign_name'].head().tolist()}")
-        
-        # Show sample orders data
-        for idx, row in all_orders_df.head(5).iterrows():
-            logging.info(f"Order {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, orders=1")
-        logging.info("=== END ORDERS DATA DEBUG ===")
-        
-        # Group orders by ad level and aggregate ALL orders
-        orders_by_ad = all_orders_df.groupby([
-            'campaign_id', 'campaign_name', 'adset_id', 'adset_name', 
-            'ad_id', 'ad_name', 'channel'
-        ]).agg({
-            'order_id': 'count',
-            'order_value': 'sum',
-            'total_cogs': 'sum',
-            'skus': lambda x: ', '.join(set([sku for sku_list in x.dropna() for sku in sku_list.split(', ')])),
-            'unique_skus_count': 'sum',
-            'total_sku_quantity': 'sum',
-            'is_attributed': 'sum'  # Count of attributed orders
-        }).reset_index()
-        
-        # Debug: Log grouped orders data
-        logging.info("=== GROUPED ORDERS DATA DEBUG ===")
-        logging.info(f"Total grouped orders: {len(orders_by_ad)}")
-        logging.info(f"Total orders in grouped data: {orders_by_ad['order_id'].sum()}")
-        for idx, row in orders_by_ad.head(5).iterrows():
-            logging.info(f"Grouped {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, orders={row['order_id']}")
-        logging.info("=== END GROUPED ORDERS DATA DEBUG ===")
-        
-        # Merge all ads with orders (left join to include all ads, even those without orders)
-        ad_summary = all_ads_df.merge(
-            orders_by_ad,
-            on=['campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name'],
-            how='left'
-        )
-        
-        # Debug: Log merge results
-        logging.info("=== MERGE RESULTS DEBUG ===")
-        logging.info(f"Total ads after merge: {len(ad_summary)}")
-        logging.info(f"Ads with orders: {ad_summary['order_id'].notna().sum()}")
-        logging.info(f"Total orders after merge: {ad_summary['order_id'].sum()}")
-        for idx, row in ad_summary.head(5).iterrows():
-            logging.info(f"Merged {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, orders={row.get('order_id', 'N/A')}")
-        logging.info("=== END MERGE RESULTS DEBUG ===")
-        
-        # Fill NaN values for ads without orders
-        ad_summary['channel'] = ad_summary['channel'].fillna('Unknown')
-        ad_summary['order_id'] = ad_summary['order_id'].fillna(0)
-        ad_summary['order_value'] = ad_summary['order_value'].fillna(0)
-        ad_summary['total_cogs'] = ad_summary['total_cogs'].fillna(0)
-        ad_summary['skus'] = ad_summary['skus'].fillna('')
-        ad_summary['unique_skus_count'] = ad_summary['unique_skus_count'].fillna(0)
-        ad_summary['total_sku_quantity'] = ad_summary['total_sku_quantity'].fillna(0)
-        ad_summary['is_attributed'] = ad_summary['is_attributed'].fillna(0)
-        
-        # Rename columns for clarity
-        ad_summary = ad_summary.rename(columns={
-            'order_id': 'orders',
-            'order_value': 'total_sales',
-            'total_cogs': 'total_cogs',
-            'skus': 'all_skus',
-            'unique_skus_count': 'total_unique_skus',
-            'total_sku_quantity': 'total_sku_quantity',
-            'is_attributed': 'attributed_orders'
-        })
-        
-        # Add attributed column (True if all orders are attributed, False if any are unattributed)
-        ad_summary['attributed'] = (ad_summary['attributed_orders'] == ad_summary['orders'])
-        
-        # Get ad spend data for each ad (only for known campaigns)
-        if not daily_ads.empty:
-            # Convert ID columns to string in ads data BEFORE aggregation
-            id_columns = ['campaign_id', 'adset_id', 'ad_id']
-            for col in id_columns:
-                if col in daily_ads.columns:
-                    daily_ads[col] = daily_ads[col].astype(str)
-            
-            # Debug: Log sample ad data
-            logging.info(f"Sample ad data from daily_ads:")
-            logging.info(f"Campaign names: {daily_ads['campaign_name'].head().tolist()}")
-            logging.info(f"Ad names: {daily_ads['ad_name'].head().tolist()}")
-            logging.info(f"Ad IDs: {daily_ads['ad_id'].head().tolist()}")
-            logging.info(f"Spend values: {daily_ads['spend'].head().tolist()}")
-            logging.info(f"Total spend in ads data: {daily_ads['spend'].sum()}")
-            
-            # Debug: Log raw spend data
-            logging.info("=== RAW SPEND DATA DEBUG ===")
-            for idx, row in daily_ads.head(10).iterrows():
-                logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, spend={row['spend']}")
-            logging.info("=== END RAW SPEND DATA DEBUG ===")
-            
-            # Debug: Log sample ad summary data
-            logging.info(f"Sample ad summary data:")
-            logging.info(f"Campaign names: {ad_summary['campaign_name'].head().tolist()}")
-            logging.info(f"Ad names: {ad_summary['ad_name'].head().tolist()}")
-            logging.info(f"Ad IDs: {ad_summary['ad_id'].head().tolist()}")
-            
-            # Debug: Log raw ad summary data
-            logging.info("=== RAW AD SUMMARY DATA DEBUG ===")
-            for idx, row in ad_summary.head(10).iterrows():
-                logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, orders={row['orders']}")
-            logging.info("=== END RAW AD SUMMARY DATA DEBUG ===")
-            
-            # Aggregate ads data by ad level
-            ads_aggregated = daily_ads.groupby([
-                'campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name'
-            ]).agg({
-                'impressions': 'sum',
-                'clicks': 'sum',
-                'spend': 'sum'
-            }).reset_index()
-            
-            logging.info(f"Aggregated ads data shape: {ads_aggregated.shape}")
-            logging.info(f"Total spend in aggregated ads: {ads_aggregated['spend'].sum()}")
-            
-            # Debug: Log aggregated ads data
-            logging.info("=== AGGREGATED ADS DATA DEBUG ===")
-            for idx, row in ads_aggregated.head(10).iterrows():
-                logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, spend={row['spend']}")
-            logging.info("=== END AGGREGATED ADS DATA DEBUG ===")
-            
-            # Ensure ad_summary ID columns are also strings (should already be from earlier conversion)
-            for col in id_columns:
-                if col in ad_summary.columns:
-                    ad_summary[col] = ad_summary[col].astype(str)
-            
-            # Try multiple merge strategies
-            # Strategy 1: Exact match on all fields
-            ad_summary_merged = ad_summary.merge(
-                ads_aggregated,
-                on=['campaign_id', 'campaign_name', 'adset_id', 'adset_name', 'ad_id', 'ad_name'],
-                how='left',
-                suffixes=('', '_ads')
-            )
-            
-            # Check how many matches we got
-            matched_count = 0
-            if 'spend' in ad_summary_merged.columns:
-                matched_count = ad_summary_merged['spend'].notna().sum()
-            total_count = len(ad_summary_merged)
-            logging.info(f"Exact match results: {matched_count}/{total_count} rows matched")
-            
-            # If no matches, try matching by ad_id only (for known campaigns)
-            if matched_count == 0:
-                logging.info("No exact matches found, trying ad_id only matching...")
-                
-                # Filter out unknown campaigns for ad_id matching
-                known_campaigns = ad_summary[
-                    (~ad_summary['campaign_name'].str.contains('Unknown', na=False)) &
-                    (ad_summary['ad_id'] != 'Unknown')
-                ].copy()
-                
-                if not known_campaigns.empty:
-                    try:
-                        # Debug: Log sample ad_ids from both datasets
-                        logging.info(f"Sample ad_ids from known_campaigns: {known_campaigns['ad_id'].head().tolist()}")
-                        logging.info(f"Sample ad_ids from ads_aggregated: {ads_aggregated['ad_id'].head().tolist()}")
-                        logging.info(f"Known campaigns count: {len(known_campaigns)}")
-                        logging.info(f"Ads aggregated count: {len(ads_aggregated)}")
-                        
-                        # Fix ad_id format mismatch: convert scientific notation to full string
-                        def fix_ad_id_format(ad_id):
-                            if pd.isna(ad_id) or ad_id == 'Unknown':
-                                return ad_id
-                            try:
-                                # Convert to float first to handle scientific notation, then to int, then to string
-                                return str(int(float(ad_id)))
-                            except (ValueError, TypeError):
-                                return str(ad_id)
-                        
-                        # Apply the fix to both datasets
-                        known_campaigns_fixed = known_campaigns.copy()
-                        known_campaigns_fixed['ad_id'] = known_campaigns_fixed['ad_id'].apply(fix_ad_id_format)
-                        
-                        ads_aggregated_fixed = ads_aggregated.copy()
-                        ads_aggregated_fixed['ad_id'] = ads_aggregated_fixed['ad_id'].apply(fix_ad_id_format)
-                        
-                        logging.info(f"Fixed ad_ids from known_campaigns: {known_campaigns_fixed['ad_id'].head().tolist()}")
-                        logging.info(f"Fixed ad_ids from ads_aggregated: {ads_aggregated_fixed['ad_id'].head().tolist()}")
-                        
-                        # Debug: Log the fixed data
-                        logging.info("=== FIXED KNOWN CAMPAIGNS DATA DEBUG ===")
-                        for idx, row in known_campaigns_fixed.head(5).iterrows():
-                            logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}")
-                        logging.info("=== END FIXED KNOWN CAMPAIGNS DATA DEBUG ===")
-                        
-                        logging.info("=== FIXED ADS AGGREGATED DATA DEBUG ===")
-                        for idx, row in ads_aggregated_fixed.head(5).iterrows():
-                            logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, spend={row['spend']}")
-                        logging.info("=== END FIXED ADS AGGREGATED DATA DEBUG ===")
-                        
-                        # Try matching by ad_id only
-                        known_campaigns_merged = known_campaigns_fixed.merge(
-                            ads_aggregated_fixed[['ad_id', 'impressions', 'clicks', 'spend']],
-                            on='ad_id',
-                            how='left',
-                            suffixes=('', '_ads')
-                        )
-                        
-                        logging.info(f"After ad_id merge: {len(known_campaigns_merged)} rows")
-                        logging.info(f"Rows with spend data: {known_campaigns_merged['spend'].notna().sum()}")
-                        
-                        # Debug: Log the merged data
-                        logging.info("=== MERGED DATA DEBUG ===")
-                        for idx, row in known_campaigns_merged.head(5).iterrows():
-                            logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, spend={row.get('spend', 'N/A')}")
-                        logging.info("=== END MERGED DATA DEBUG ===")
-                        
-                        # Update the main dataframe with matched data
-                        matches_found = 0
-                        total_spend_applied = 0
-                        for idx, row in known_campaigns_merged.iterrows():
-                            if pd.notna(row.get('spend', 0)) and row.get('spend', 0) > 0:
-                                # Use the original ad_id from known_campaigns for matching back to ad_summary
-                                original_ad_id = known_campaigns.iloc[idx]['ad_id']
-                                spend_value = row.get('spend', 0)
-                                
-                                # Debug: Log the update
-                                logging.info(f"Updating ad_id {original_ad_id} with spend {spend_value}")
-                                
-                                # Update the dataframe
-                                mask = ad_summary['ad_id'] == original_ad_id
-                                ad_summary.loc[mask, 'impressions'] = row.get('impressions', 0)
-                                ad_summary.loc[mask, 'clicks'] = row.get('clicks', 0)
-                                ad_summary.loc[mask, 'spend'] = spend_value
-                                
-                                matches_found += 1
-                                total_spend_applied += spend_value
-                        
-                        logging.info(f"Individual matches applied: {matches_found}")
-                        logging.info(f"Total spend applied: {total_spend_applied}")
-                        logging.info(f"Ad_summary spend total after updates: {ad_summary['spend'].sum()}")
-                        
-                        # Debug: Log ad_summary after updates
-                        logging.info("=== AD_SUMMARY AFTER UPDATES DEBUG ===")
-                        for idx, row in ad_summary.head(5).iterrows():
-                            logging.info(f"Row {idx}: ad_id={row['ad_id']}, campaign={row['campaign_name']}, ad={row['ad_name']}, spend={row.get('spend', 'N/A')}")
-                        logging.info("=== END AD_SUMMARY AFTER UPDATES DEBUG ===")
-                        
-                        # Safe matched count calculation
-                        matched_count = 0
-                        if 'spend' in ad_summary.columns:
-                            matched_count = ad_summary['spend'].notna().sum()
-                        logging.info(f"Ad_id match results: {matched_count}/{total_count} rows matched")
-                    except Exception as e:
-                        logging.error(f"Error in ad_id matching: {e}")
-                        matched_count = 0
-            
-            # Use the merged data, but preserve any spend data we found through ad_id matching
-            # The ad_summary_merged might not have spend data if exact matching failed
-            # but we may have updated ad_summary directly with spend data from ad_id matching
-            
-            # Check if we have spend data in the original ad_summary (from ad_id matching)
-            logging.info("=== FINAL DECISION DEBUG ===")
-            logging.info(f"ad_summary has spend column: {'spend' in ad_summary.columns}")
-            if 'spend' in ad_summary.columns:
-                logging.info(f"ad_summary spend sum: {ad_summary['spend'].sum()}")
-                logging.info(f"ad_summary spend non-null count: {ad_summary['spend'].notna().sum()}")
-            logging.info(f"ad_summary_merged has spend column: {'spend' in ad_summary_merged.columns}")
-            if 'spend' in ad_summary_merged.columns:
-                logging.info(f"ad_summary_merged spend sum: {ad_summary_merged['spend'].sum()}")
-                logging.info(f"ad_summary_merged spend non-null count: {ad_summary_merged['spend'].notna().sum()}")
-            logging.info("=== END FINAL DECISION DEBUG ===")
-            
-            if 'spend' in ad_summary.columns and ad_summary['spend'].sum() > 0:
-                logging.info(f"Using spend data from ad_id matching: {ad_summary['spend'].sum()}")
-                # Keep the original ad_summary with spend data
-                final_ad_summary = ad_summary.copy()
-            else:
-                logging.info("Using merged data (no spend from ad_id matching)")
-                # Use the merged data
-                final_ad_summary = ad_summary_merged.copy()
-            
-            # Ensure required columns exist
-            if 'impressions' not in final_ad_summary.columns:
-                final_ad_summary['impressions'] = 0
-            if 'clicks' not in final_ad_summary.columns:
-                final_ad_summary['clicks'] = 0
-            if 'spend' not in final_ad_summary.columns:
-                final_ad_summary['spend'] = 0
-            
-            # Fill NaN values with 0 for unmatched campaigns
-            final_ad_summary['impressions'] = final_ad_summary['impressions'].fillna(0)
-            final_ad_summary['clicks'] = final_ad_summary['clicks'].fillna(0)
-            final_ad_summary['spend'] = final_ad_summary['spend'].fillna(0)
-            
-            # Use the final dataframe
-            ad_summary = final_ad_summary
-            
-            logging.info(f"Final spend total in ad_summary: {ad_summary['spend'].sum()}")
-            
-            # Debug: Check if we're missing ads with spend but no orders
-            logging.info("=== MISSING ADS CHECK ===")
-            ads_with_spend = daily_ads[daily_ads['spend'] > 0]
-            logging.info(f"Ads with spend > 0: {len(ads_with_spend)}")
-            logging.info(f"Total spend in ads with spend > 0: {ads_with_spend['spend'].sum()}")
-            
-            # Check which ads with spend are not in our ad_summary
-            ads_with_spend_ids = set(ads_with_spend['ad_id'].astype(str))
-            ad_summary_ids = set(ad_summary['ad_id'].astype(str))
-            missing_ads = ads_with_spend_ids - ad_summary_ids
-            
-            if missing_ads:
-                logging.info(f"Missing ads with spend: {len(missing_ads)}")
-                logging.info(f"Missing ad IDs: {list(missing_ads)[:10]}")  # Show first 10
-                
-                # Show spend for missing ads
-                missing_spend = ads_with_spend[ads_with_spend['ad_id'].astype(str).isin(missing_ads)]['spend'].sum()
-                logging.info(f"Total spend for missing ads: {missing_spend}")
-            else:
-                logging.info("No missing ads with spend")
-            logging.info("=== END MISSING ADS CHECK ===")
-        else:
-            # If no ads data, add empty columns
-            ad_summary['impressions'] = 0
-            ad_summary['clicks'] = 0
-            ad_summary['spend'] = 0
-            logging.info("No ads data available")
-        
-        # Calculate performance metrics
-        ad_summary['roas'] = np.where(ad_summary['spend'] > 0, 
-                                    (ad_summary['total_sales'] / ad_summary['spend']), 0)
-        ad_summary['ctr'] = np.where(ad_summary['impressions'] > 0, 
-                                   (ad_summary['clicks'] / ad_summary['impressions'] * 100), 0)
-        ad_summary['conversion_rate'] = np.where(ad_summary['clicks'] > 0, 
-                                               (ad_summary['orders'] / ad_summary['clicks'] * 100), 0)
-        ad_summary['avg_order_value'] = np.where(ad_summary['orders'] > 0, 
-                                               (ad_summary['total_sales'] / ad_summary['orders']), 0)
-        ad_summary['net_profit'] = ad_summary['total_sales'] - ad_summary['total_cogs'] - ad_summary['spend']
-        ad_summary['profit_margin'] = np.where(ad_summary['total_sales'] > 0, 
-                                             (ad_summary['net_profit'] / ad_summary['total_sales'] * 100), 0)
-        
-        # Sort by total sales descending
-        ad_summary = ad_summary.sort_values('total_sales', ascending=False)
-        
-        logging.info(f"Created ad-level summary with {len(ad_summary)} ads")
-        return ad_summary
+    # Ad level summary function completely removed
 
     def save_results(self, results_df: pd.DataFrame, summary: Dict, output_prefix: str = "attribution_results") -> None:
         """
         Save results to Excel file with two sheets:
         1. Raw_Attribution_Data: Unique orders with SKU column, price, and COGS
-        2. Ad_Level_Attributed_Orders: All ads with attributed orders at the ad level
+        2. Granular_Insights: Shopify order values appended to ad insights raw data format
         
         Args:
             results_df: DataFrame with attribution results
@@ -2043,22 +1990,35 @@ class AttributionEngine:
         available_columns = [col for col in raw_columns if col in raw_data.columns]
         raw_data_sheet = raw_data[available_columns]
         
-        # Sheet 2: Ad Level Attributed Orders
-        ad_level_data = self.create_ad_level_summary(results_df)
-        ad_level_sheet = None
+        # Ad level sheet removed - no longer needed
         
-        if not ad_level_data.empty:
-            # Select relevant columns for the ad level sheet
-            ad_columns = [
-                'campaign_name', 'adset_name', 'ad_name', 'channel', 'attributed',
-                'orders', 'attributed_orders', 'total_sales', 'total_cogs', 'spend', 'net_profit',
-                'roas', 'ctr', 'conversion_rate', 'avg_order_value', 'profit_margin',
-                'impressions', 'clicks', 'all_skus', 'total_unique_skus', 'total_sku_quantity'
+        # Sheet 2: Granular Insights - Compact Format (Meta, Google, Organic, Direct channels)
+        granular_data = self.create_granular_insights(results_df)
+        granular_sheet = None
+        
+        if not granular_data.empty:
+            # Debug: Log available columns in granular data
+            logging.info(f"Granular data columns: {list(granular_data.columns)}")
+            logging.info(f"Granular data shape: {granular_data.shape}")
+            
+            # Select relevant columns for the granular insights sheet (compact format for joining with ad insight table)
+            # Updated to match the actual columns available in the compact granular data
+            granular_columns = [
+                'campaign_name', 'adset_name', 'ad_name', 'date_start', 'hour_label', 'channel',
+                'spend', 'cpm', 'cpc', 'ctr', 'action_onsite_web_purchase', 'value_onsite_web_purchase',
+                'shopify_orders', 'shopify_revenue', 'shopify_cogs', 'total_sku_quantity',
+                'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
+                'order_ids', 'attribution_source'
             ]
             
             # Filter to only include columns that exist
-            available_ad_columns = [col for col in ad_columns if col in ad_level_data.columns]
-            ad_level_sheet = ad_level_data[available_ad_columns]
+            available_granular_columns = [col for col in granular_columns if col in granular_data.columns]
+            missing_columns = [col for col in granular_columns if col not in granular_data.columns]
+            if missing_columns:
+                logging.warning(f"Missing columns in granular data: {missing_columns}")
+            
+            logging.info(f"Available granular columns: {available_granular_columns}")
+            granular_sheet = granular_data[available_granular_columns]
         
         # Create Excel writer
         try:
@@ -2068,12 +2028,14 @@ class AttributionEngine:
                 raw_data_sheet.to_excel(writer, sheet_name='Raw_Attribution_Data', index=False)
                 logging.info(f"Saved raw attribution data to sheet 'Raw_Attribution_Data'")
                 
-                # Save ad level data if available
-                if ad_level_sheet is not None and not ad_level_sheet.empty:
-                    ad_level_sheet.to_excel(writer, sheet_name='Ad_Level_Attributed_Orders', index=False)
-                    logging.info(f"Saved ad-level attributed orders to sheet 'Ad_Level_Attributed_Orders'")
+                # Ad level sheet removed - no longer needed
+                
+                # Save granular insights data if available
+                if granular_sheet is not None and not granular_sheet.empty:
+                    granular_sheet.to_excel(writer, sheet_name='Granular_Insights_Compact', index=False)
+                    logging.info(f"Saved compact granular insights to sheet 'Granular_Insights_Compact'")
                 else:
-                    logging.info("No ad-level data to save")
+                    logging.info("No granular insights data to save")
             
             logging.info(f"Saved attribution results to Excel file: {excel_file}")
             
@@ -2084,10 +2046,12 @@ class AttributionEngine:
             raw_data_sheet.to_csv(results_file, index=False)
             logging.info(f"Fallback: Saved raw data to CSV file: {results_file}")
             
-            if ad_level_sheet is not None and not ad_level_sheet.empty:
-                ad_file = f"{output_prefix}_ad_level_{timestamp}.csv"
-                ad_level_sheet.to_csv(ad_file, index=False)
-                logging.info(f"Fallback: Saved ad-level data to CSV file: {ad_file}")
+            # Ad level CSV removed - no longer needed
+            
+            if granular_sheet is not None and not granular_sheet.empty:
+                granular_file = f"{output_prefix}_granular_{timestamp}.csv"
+                granular_sheet.to_csv(granular_file, index=False)
+                logging.info(f"Fallback: Saved granular insights to CSV file: {granular_file}")
             raise
         
         # Also save individual CSV files for compatibility
@@ -2095,10 +2059,12 @@ class AttributionEngine:
         raw_data_sheet.to_csv(raw_csv_file, index=False)
         logging.info(f"Also saved raw data to CSV: {raw_csv_file}")
         
-        if ad_level_sheet is not None and not ad_level_sheet.empty:
-            ad_csv_file = f"{output_prefix}_ad_level_{timestamp}.csv"
-            ad_level_sheet.to_csv(ad_csv_file, index=False)
-            logging.info(f"Also saved ad-level data to CSV: {ad_csv_file}")
+        # Ad level CSV removed - no longer needed
+        
+        if granular_sheet is not None and not granular_sheet.empty:
+            granular_csv_file = f"{output_prefix}_granular_{timestamp}.csv"
+            granular_sheet.to_csv(granular_csv_file, index=False)
+            logging.info(f"Also saved granular insights to CSV: {granular_csv_file}")
     
     def run_attribution_analysis(self, output_prefix: str = "attribution_results") -> Tuple[pd.DataFrame, Dict]:
         """
@@ -2127,6 +2093,359 @@ class AttributionEngine:
         logging.info("Attribution analysis completed successfully!")
         
         return results_df, summary
+    
+    def create_granular_insights(self, results_df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Granular insights at hourly precision WITHOUT duplicates:
+        1) Convert each order timestamp to 'HH:00:00 - HH:59:59'
+        2) Build exact join keys on both sides
+        3) Aggregate orders once per key, then left-join to ads_insights_hourly
+        4) Append 'Unknown Campaign - <channel>' rows for any unmatched order keys
+        5) Include ALL orders (Meta, Google, Organic, Direct) for comprehensive coverage
+        
+        Channel Coverage:
+        - Meta: Facebook, Instagram, and other Meta platforms
+        - Google: Google Ads, Google Search, Google Shopping
+        - Organic: Natural search traffic, SEO, unpaid search
+        - Direct: Direct visits, bookmarks, email, referrals
+        
+        Metrics: spend, orders, revenue, COGS (impressions/clicks removed for clean joining)
+        """
+        logging.info("Creating granular insights (deduped, hour-bucketed)...")
+
+        if results_df.empty or self.ads_df.empty:
+            logging.warning("No data for granular insights.")
+            return pd.DataFrame()
+
+        # ---------- Prepare ADS (hourly) ----------
+        ads = self.ads_df.copy()
+
+        # Normalize IDs to strings
+        for col in ['campaign_id', 'adset_id', 'ad_id']:
+            if col in ads.columns:
+                ads[col] = ads[col].apply(self._fix_id)
+
+        ads['date_only'] = pd.to_datetime(ads['date_start']).dt.date
+        # Normalize hourly_window into canonical 'HH:00:00 - HH:59:59'
+        ads['hour_label'] = ads['hourly_window'].apply(self._normalize_hour_window)
+
+        # Keep only true hourly rows (hour_label present)
+        hourly_ads = ads[ads['hour_label'].notna()].copy()
+
+        # ---------- Prepare ORDERS ----------
+        orders = results_df.copy()
+
+        # Parse order timestamp robustly: examples like "01/07/2025 00:59:44" (dd/mm/yyyy)
+        # Your results_df['order_date'] was set from created_at_ist earlier; normalize anyway:
+        orders['order_ts'] = pd.to_datetime(orders.get('order_date'), errors='coerce', dayfirst=True)
+
+        # Fallback: pull from original self.orders_df if missing
+        missing_ts = orders['order_ts'].isna()
+        if missing_ts.any():
+            base = self.orders_df[['order_id', 'created_at_ist']].drop_duplicates()
+            base['created_at_ist'] = pd.to_datetime(base['created_at_ist'], errors='coerce')
+            orders = orders.merge(base, on='order_id', how='left')
+            orders.loc[orders['order_ts'].isna(), 'order_ts'] = orders.loc[orders['order_ts'].isna(), 'created_at_ist']
+
+        # Build order date + hour label
+        orders['order_date_only'] = orders['order_ts'].dt.date
+        orders['hour_label'] = orders['order_ts'].apply(self._format_hour_window)
+
+        # Normalize IDs to strings (important to avoid join explosion)
+        for col in ['campaign_id', 'adset_id', 'ad_id']:
+            if col in orders.columns:
+                orders[col] = orders[col].apply(self._fix_id)
+
+        # Unknown name fallbacks (remain None for the actual key, names used for display)
+        orders['campaign_name'] = orders['campaign_name'].fillna('')
+        orders['adset_name']    = orders['adset_name'].fillna('')
+        orders['ad_name']       = orders['ad_name'].fillna('')
+
+        # Include ALL orders (attributed and non-attributed) for comprehensive channel coverage
+        # This ensures organic, Google, and other channels are properly represented
+        all_orders = orders.copy()
+
+        # ---------- Aggregate orders ONCE per exact key ----------
+        order_key_cols = [
+            'campaign_id', 'campaign_name',
+            'adset_id', 'adset_name',
+            'ad_id', 'ad_name',
+            'order_date_only', 'hour_label'
+        ]
+
+        def _first_nonnull(series):
+            return next((x for x in series if pd.notna(x) and x != ''), None)
+
+        orders_by_key = (
+                all_orders
+            .groupby(order_key_cols, dropna=False)
+            .agg(
+                shopify_orders=('order_id', 'nunique'),
+                shopify_revenue=('order_value', 'sum'),
+                shopify_cogs=('total_cogs', 'sum'),
+                total_sku_quantity=('total_sku_quantity', 'sum'),
+                channel=('channel', _first_nonnull),
+                attribution_source=('attribution_source', _first_nonnull),
+                utm_source=('utm_source', _first_nonnull),
+                utm_medium=('utm_medium', _first_nonnull),
+                utm_campaign=('utm_campaign', _first_nonnull),
+                utm_content=('utm_content', _first_nonnull),
+                utm_term=('utm_term', _first_nonnull),
+                order_ids=('order_id', lambda s: ', '.join(sorted(map(lambda x: str(x), set(s)))))
+            )
+            .reset_index()
+        )
+
+        # ---------- Exact join: ADS x ORDERS ----------
+        ads_key_cols = [
+            'campaign_id', 'campaign_name',
+            'adset_id', 'adset_name',
+            'ad_id', 'ad_name',
+            'date_only', 'hour_label'
+        ]
+
+        orders_by_key = orders_by_key.rename(columns={'order_date_only': 'date_only'})
+        hourly_ads_subset = hourly_ads[
+            ['campaign_id','campaign_name','adset_id','adset_name','ad_id','ad_name',
+                 'date_only','hour_label','spend','cpm','cpc','ctr',
+             'action_onsite_web_purchase','value_onsite_web_purchase']
+        ].copy()
+
+        # Use a full outer join to ensure ALL orders are included
+        # This will include orders that match ads AND orders that don't have ads data
+        granular = hourly_ads_subset.merge(
+            orders_by_key,
+            on=['campaign_id','campaign_name','adset_id','adset_name','ad_id','ad_name','date_only','hour_label'],
+            how='outer',
+            indicator=True
+        )
+        
+        # Since we used outer join, we can identify unmatched orders using the merge indicator
+        # 'right_only' means orders without ads data (organic, Google, etc.)
+        # 'left_only' means ads without orders
+        # 'both' means orders with ads data
+
+        # Fill NA (ads rows with no matching orders)
+        for col, default in [
+        ('shopify_orders', 0),
+        ('shopify_revenue', 0.0),
+        ('shopify_cogs', 0.0),
+        ('total_sku_quantity', 0),
+        ('channel', ''),                # was None
+        ('attribution_source', ''),     # was None
+        ('utm_source', ''),             # was None
+        ('utm_medium', ''),             # was None
+        ('utm_campaign', ''),           # was None
+        ('utm_content', ''),            # was None
+        ('utm_term', ''),               # was None
+        ('order_ids', '')
+                    ]:
+            if col not in granular.columns:
+                granular[col] = default
+            else:
+                granular[col] = granular[col].fillna(default)
+
+
+        # Only calculate essential metrics for compact format
+        # Removed: shopify_profit, shopify_roas, shopify_conversion_rate, shopify_avg_order_value
+        # Removed: Facebook metrics and difference calculations
+        
+        # Enhance channel detection for better organic/Google identification
+        def enhance_channel_detection(row):
+            """Enhanced channel detection using the same logic as determine_channel"""
+            utm_source = row.get('utm_source', '')
+            utm_medium = row.get('utm_medium', '')
+            utm_campaign = row.get('utm_campaign', '')
+            utm_content = row.get('utm_content', '')
+            utm_term = row.get('utm_term', '')
+            
+            # Use the enhanced determine_channel method
+            enhanced_channel = self.determine_channel(utm_source, utm_medium, utm_campaign, utm_content, utm_term)
+            
+            # Only override if we got a better classification
+            if enhanced_channel != 'Direct/Unknown' and enhanced_channel != 'Direct':
+                return enhanced_channel
+            
+            return row.get('channel', '')
+        
+        # Apply enhanced channel detection
+        granular['channel'] = granular.apply(enhance_channel_detection, axis=1)
+        
+        # POST-PROCESSING: Reclassify Direct orders with campaign data to Meta
+        # This catches any orders that slipped through the initial classification
+        # Add safety checks for column access
+        if all(col in granular.columns for col in ['channel', 'utm_campaign', 'attribution_source', 'campaign_name']):
+            # Ensure proper data types for logical operations
+            channel_mask = granular['channel'] == 'Direct'
+            utm_campaign_mask = (granular['utm_campaign'].notna() & 
+                               (granular['utm_campaign'].astype(str) != '') & 
+                               (granular['utm_campaign'].astype(str) != 'null'))
+            attribution_source_mask = (granular['attribution_source'].notna() & 
+                                     (granular['attribution_source'].astype(str) != ''))
+            campaign_name_mask = (granular['campaign_name'].notna() & 
+                                (granular['campaign_name'].astype(str) != '') & 
+                                ~granular['campaign_name'].astype(str).str.contains('Unknown', na=False))
+            
+            direct_with_campaign_mask = (channel_mask & 
+                                       (utm_campaign_mask | attribution_source_mask | campaign_name_mask))
+        else:
+            direct_with_campaign_mask = pd.Series([False] * len(granular), index=granular.index)
+        if direct_with_campaign_mask.any():
+            logging.info(f"Reclassifying {direct_with_campaign_mask.sum()} Direct orders with campaign/attribution data to Meta")
+            granular.loc[direct_with_campaign_mask, 'channel'] = 'Meta'
+            # Update campaign names to reflect Meta classification
+            granular.loc[direct_with_campaign_mask, 'campaign_name'] = granular.loc[direct_with_campaign_mask, 'utm_campaign'].apply(
+                lambda x: f"Meta Campaign - {x}" if pd.notna(x) and x != '' and x != 'null' else "Meta Campaign - Unknown"
+            )
+    
+        # POST-PROCESSING: Reclassify Direct orders with source data to Organic
+        # This catches orders that should be Organic but were classified as Direct
+        if all(col in granular.columns for col in ['channel', 'utm_source', 'utm_medium']):
+            # Ensure proper data types for logical operations
+            channel_mask = granular['channel'] == 'Direct'
+            utm_source_mask = (granular['utm_source'].notna() & 
+                              (granular['utm_source'].astype(str) != '') & 
+                              (granular['utm_source'].astype(str) != 'null'))
+            utm_medium_mask = (granular['utm_medium'].notna() & 
+                              (granular['utm_medium'].astype(str) != '') & 
+                              (granular['utm_medium'].astype(str) != 'null'))
+            
+            direct_with_source_mask = (channel_mask & (utm_source_mask | utm_medium_mask))
+        else:
+            direct_with_source_mask = pd.Series([False] * len(granular), index=granular.index)
+        
+        if direct_with_source_mask.any():
+            logging.info(f"Reclassifying {direct_with_source_mask.sum()} Direct orders with source data to Organic")
+            granular.loc[direct_with_source_mask, 'channel'] = 'Organic'
+            # Update campaign names to reflect Organic classification
+            granular.loc[direct_with_source_mask, 'utm_source'].apply(
+                lambda x: f"Organic Source - {x}" if pd.notna(x) and x != '' and x != 'null' else "Organic Source - Unknown"
+            )
+
+        # ---------- Process unmatched orders (organic, Google, etc.) ----------
+        # Since we used outer join, orders without ads data are already in the granular data
+        # We just need to clean them up and ensure they have proper campaign names
+        
+        # For orders without ads data (right_only), update campaign names to show they're unknown
+        if '_merge' in granular.columns:
+            unmatched_mask = granular['_merge'] == 'right_only'
+            if unmatched_mask.any():
+                granular.loc[unmatched_mask, 'campaign_name'] = granular.loc[unmatched_mask, 'channel'].apply(
+                    lambda ch: f"Unknown Campaign - {ch}" if ch and ch != '' else "Unknown Campaign - Direct/Unknown"
+                )
+                granular.loc[unmatched_mask, 'adset_name'] = granular.loc[unmatched_mask, 'channel'].apply(
+                    lambda ch: f"Unknown Adset - {ch}" if ch and ch != '' else "Unknown Adset - Direct/Unknown"
+                )
+                granular.loc[unmatched_mask, 'ad_name'] = granular.loc[unmatched_mask, 'channel'].apply(
+                    lambda ch: f"Unknown Ad - {ch}" if ch and ch != '' else "Unknown Ad - Direct/Unknown"
+                )
+                
+                # Set ad metrics to 0 for orders without ads data
+                ad_metric_cols = ['spend', 'cpm', 'cpc', 'ctr', 'action_onsite_web_purchase', 'value_onsite_web_purchase']
+                for col in ad_metric_cols:
+                    if col in granular.columns:
+                        granular.loc[unmatched_mask, col] = 0.0
+        else:
+            unmatched_mask = pd.Series([False] * len(granular), index=granular.index)
+
+
+        # Remove the merge indicator column
+        granular = granular.drop(columns=['_merge'])
+
+        # ---------- Final ordering & cleanliness ----------
+        # Reconstruct a 'date_start' column for downstream sheets using date_only
+        granular['date_start'] = pd.to_datetime(granular['date_only'])
+        # Provide expected 'hourly_window' alias for downstream export (sheet expects this name)
+        if 'hour_label' in granular.columns and 'hourly_window' not in granular.columns:
+            granular['hourly_window'] = granular['hour_label']
+
+        # De-dupe guard: if any duplicates slipped through, collapse Shopify metrics per exact key
+        key_cols = ['campaign_id','campaign_name','adset_id','adset_name','ad_id','ad_name','date_start','hour_label']
+        numeric_to_sum = [
+                'spend',
+                'shopify_orders','shopify_revenue','shopify_cogs','total_sku_quantity'
+            ]
+            # All metrics are now simple counts/values; summing is acceptable if duplicates exist—this block runs rarely.
+        if granular.duplicated(key_cols).any():
+            logging.info("Duplicate hourly keys detected; collapsing to unique keys.")
+            # For strings like order_ids/channel, keep first; for numeric, sum
+            keep_first = {
+                'channel':'first','attribution_source':'first','utm_source':'first','utm_medium':'first',
+                'utm_campaign':'first','utm_content':'first','utm_term':'first','order_ids':'first','date_only':'first'
+            }
+            agg_map = {c: 'sum' for c in numeric_to_sum if c in granular.columns}
+            agg_map.update(keep_first)
+            granular = granular.groupby(key_cols, dropna=False, as_index=False).agg(agg_map)
+
+        # Sort by date then hour descending revenue (optional)
+        granular = granular.sort_values(['date_start','hour_label','shopify_revenue'], ascending=[True, True, False]).reset_index(drop=True)
+
+        # Log channel distribution for analysis
+        try:
+            # Ensure numeric columns are properly typed before aggregation
+            numeric_cols = ['shopify_orders', 'shopify_revenue', 'shopify_cogs']
+            for col in numeric_cols:
+                if col in granular.columns:
+                    # Convert to numeric, coercing errors to NaN
+                    granular[col] = pd.to_numeric(granular[col], errors='coerce').fillna(0)
+            
+            channel_summary = granular.groupby('channel').agg({
+                'shopify_orders': 'sum',
+                'shopify_revenue': 'sum',
+                'shopify_cogs': 'sum'
+            }).round(2)
+            
+            logging.info(f"Channel distribution in granular insights:")
+            for channel, data in channel_summary.iterrows():
+                logging.info(f"  {channel}: {data['shopify_orders']} orders, ₹{data['shopify_revenue']:,.2f} revenue")
+        except Exception as e:
+            logging.error(f"Error in channel distribution analysis: {e}")
+            logging.info("Skipping channel distribution analysis due to error")
+        
+        # Log unmatched orders by channel to ensure organic/Google are included
+        try:
+            if 'campaign_name' in granular.columns:
+                unmatched_mask = granular['campaign_name'].str.contains('Unknown Campaign', na=False)
+                if unmatched_mask.any():
+                    unmatched_channel_summary = granular[unmatched_mask].groupby('channel').agg({
+                        'shopify_orders': 'sum',
+                        'shopify_revenue': 'sum'
+                    }).round(2)
+                    logging.info(f"Unmatched orders by channel (added as Unknown Campaign):")
+                    for channel, data in unmatched_channel_summary.iterrows():
+                        logging.info(f"  {channel}: {data['shopify_orders']} orders, ₹{data['shopify_revenue']:,.2f} revenue")
+        except Exception as e:
+            logging.error(f"Error in unmatched orders analysis: {e}")
+            logging.info("Skipping unmatched orders analysis due to error")
+        
+        # Debug: Log some sample orders by channel to see what's happening
+        logging.info("Sample orders by channel in granular insights:")
+        for channel in ['Meta', 'Google', 'Organic', 'Direct']:
+            if channel in granular['channel'].values:
+                sample_orders = granular[granular['channel'] == channel].head(2)
+                logging.info(f"  {channel} channel sample:")
+                for _, order in sample_orders.iterrows():
+                    logging.info(f"    Campaign: {order.get('campaign_name', 'N/A')}, Orders: {order.get('shopify_orders', 0)}, Revenue: ₹{order.get('shopify_revenue', 0):,.2f}")
+        
+        # Log summary of channel reclassification
+        meta_orders = granular[granular['channel'] == 'Meta']
+        if len(meta_orders) > 0:
+            campaign_meta_orders = meta_orders[meta_orders['campaign_name'].str.contains('Meta Campaign', na=False)]
+            if len(campaign_meta_orders) > 0:
+                logging.info(f"Meta orders with campaign data: {len(campaign_meta_orders)} (reclassified from Direct)")
+                logging.info(f"Total Meta orders: {len(meta_orders)}")
+        
+        # Debug: Check data types of key columns in granular insights:
+        logging.info("Data types of key columns in granular insights:")
+        for col in ['channel', 'shopify_orders', 'shopify_revenue', 'shopify_cogs']:
+            if col in granular.columns:
+                logging.info(f"  {col}: {granular[col].dtype}")
+                if granular[col].dtype == 'object':
+                    logging.info(f"    Sample values: {granular[col].head(3).tolist()}")
+
+        logging.info(f"Granular insights rows: {len(granular)}; Shopify revenue total: {granular['shopify_revenue'].sum():,.2f}")
+        return granular
+
 
 
 def main():
@@ -2139,6 +2458,13 @@ def main():
     print("This script runs attribution analysis using PostgreSQL database tables:")
     print("- shopify_orders")
     print("- ads_insights_hourly")
+    print()
+    print("NEW FEATURE: Granular Insights (Hourly Precision) - Compact Format")
+    print("- Appends Shopify order purchase values to ad insights raw data format")
+    print("- Clean, compact format optimized for joining with ad insight tables")
+    print("- Comprehensive channel coverage: Meta, Google, Organic, Direct")
+    print("- Matches orders to specific hours based on created_at_ist timestamp")
+    print("- Essential metrics only: spend, orders, revenue, COGS")
     print()
     
     # Try to load configuration from config.py
@@ -2219,7 +2545,9 @@ def main():
                 print(summary['source_breakdown'][['orders', 'revenue', 'percentage']].round(2))
                 
                 print("\n" + "="*50)
-                print("✅ Analysis complete! Check the generated CSV files for detailed results.")
+                print("✅ Analysis complete! Check the generated Excel file with two sheets:")
+                print("   1. Raw_Attribution_Data: Unique orders with SKU information")
+                print("   2. Granular_Insights_Compact: Shopify order values with Meta, Google, Organic, Direct channels (hourly precision)")
                 print("📄 Log file: attribution_analysis.log")
                 
             else:
@@ -2240,6 +2568,8 @@ def main():
     print("\n" + "="*60)
     print("Thank you for using the Attribution Analysis Engine!")
     print("="*60)
+
+
 
 
 def create_postgresql_config_example():
@@ -2347,6 +2677,8 @@ def test_database_connection(db_config: Dict, start_date: str = None, end_date: 
     except Exception as e:
         print(f"❌ PostgreSQL connection failed: {e}")
         return False
+
+
 
 
 if __name__ == "__main__":

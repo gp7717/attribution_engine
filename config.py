@@ -16,7 +16,7 @@ TIME_RANGE_DAYS = 30  # Number of days to look back for attribution analysis
 # Use specific date range instead of relative days
 USE_DATE_RANGE = True  # Set to False to use TIME_RANGE_DAYS instead
 START_DATE = "2025-07-01"  # Start date for analysis (YYYY-MM-DD)
-END_DATE = "2025-07-05"    # End date for analysis (YYYY-MM-DD)
+END_DATE = "2025-07-30"    # End date for analysis (YYYY-MM-DD)
 
 # Output Configuration
 OUTPUT_PREFIX = "attribution_analysis"  # Prefix for output files
